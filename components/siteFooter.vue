@@ -34,7 +34,9 @@
         ></v-col>
         <v-col class="text--secondary text-center text-md-right">
           {{ new Date().getFullYear() }} ©
-          <nuxt-link class="primary--text" to="/">ModeVue</nuxt-link>
+          <nuxt-link class="primary--text" to="/">
+            <Logo :width="170" :height="15" class="bottom-logo-footer" />
+          </nuxt-link>
         </v-col>
       </v-row>
     </v-container>
@@ -59,5 +61,9 @@ export default {
 <style>
 .site-footer a {
   text-decoration: none;
+}
+.bottom-logo-footer {
+  display: inline;
+  vertical-align: middle;
 }
 </style>
