@@ -1,8 +1,8 @@
 <template>
   <div>
     <svg
-      width="250"
-      height="20"
+      :width="width || 250"
+      :height="height || 20"
       viewBox="0 0 300 29"
       xmlns="http://www.w3.org/2000/svg"
       :class="$vuetify.theme.dark ? 'fill-light-color' : 'fill-dark-color'"
@@ -97,7 +97,12 @@
     > -->
   </div>
 </template>
-
+<script>
+export default {
+  /* eslint-disable */
+  props: ['width', 'height'],
+}
+</script>
 <style scoped>
 .fill-theme-color {
   fill: #1976d2;

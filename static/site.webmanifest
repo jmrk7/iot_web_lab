@@ -1,6 +1,6 @@
 {
-  "name": "ModeVue",
-  "short_name": "ModeVue",
+  "name": "IOT WEB LAB, LLC",
+  "short_name": "IOT WEB LAB",
   "icons": [
     {
       "src": "/favicon/favicon.svg",
@@ -28,7 +28,7 @@
       "type": "image/svg"
     }
   ],
-  "theme_color": "#ffffff",
-  "background_color": "#ffffff",
+  "theme_color": "#000",
+  "background_color": "#000",
   "display": "standalone"
 }
