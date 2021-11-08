@@ -31,9 +31,11 @@
 
                   <v-list-item-content>
                     <v-list-item-title>ADDRESS</v-list-item-title>
-                    <v-list-item-subtitle
-                      >1400 Main Street, Orlando, FL 79938</v-list-item-subtitle
-                    >
+                    <v-list-item-subtitle>01032</v-list-item-subtitle>
+                    <v-list-item-subtitle>
+                      Klovski Descent 7A
+                    </v-list-item-subtitle>
+                    <v-list-item-subtitle>Kyiv, Ukraine</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
                 <v-divider></v-divider>
@@ -45,17 +47,17 @@
                   <v-list-item-content>
                     <v-list-item-title>EMAIL</v-list-item-title>
                     <v-list-item-subtitle
-                      >info@example.com</v-list-item-subtitle
+                      >info@iotwlab.com</v-list-item-subtitle
                     >
                     <v-list-item-subtitle
-                      >support@example.com</v-list-item-subtitle
+                      >support@iotwlab.com</v-list-item-subtitle
                     >
                   </v-list-item-content>
                 </v-list-item>
 
                 <v-divider></v-divider>
 
-                <v-list-item>
+                <!-- <v-list-item>
                   <v-list-item-icon>
                     <v-icon> mdi-phone </v-icon>
                   </v-list-item-icon>
@@ -65,7 +67,7 @@
                     <v-list-item-subtitle>(323) 555-6789</v-list-item-subtitle>
                     <v-list-item-subtitle>(650) 555-1234</v-list-item-subtitle>
                   </v-list-item-content>
-                </v-list-item>
+                </v-list-item> -->
                 <v-divider></v-divider>
               </v-list>
               <div class="d-flex justify-center mt-5">
@@ -106,33 +108,44 @@ export default {
   data() {
     return {
       social: [
-        {
-          platform: 'Facebook',
-          link: 'https://www.facebook.com/',
-          icon: 'mdi-facebook',
-        },
-        {
-          platform: 'Twitter',
-          link: 'https://twitter.com/',
-          icon: 'mdi-twitter',
-        },
-        {
-          platform: 'Instagram',
-          link: 'https://www.instagram.com/',
-          icon: 'mdi-instagram',
-        },
+        // {
+        //   platform: 'Facebook',
+        //   link: 'https://www.facebook.com/',
+        //   icon: 'mdi-facebook',
+        // },
+        // {
+        //   platform: 'Twitter',
+        //   link: 'https://twitter.com/',
+        //   icon: 'mdi-twitter',
+        // },
+        // {
+        //   platform: 'Instagram',
+        //   link: 'https://www.instagram.com/',
+        //   icon: 'mdi-instagram',
+        // },
         {
           platform: 'Linkedin',
-          link: 'https://www.linkedin.com/',
+          link: 'https://www.linkedin.com/company/iotweblab',
           icon: 'mdi-linkedin',
         },
         {
           platform: 'Github',
-          link: 'https://modevue.staticdesigner.com/',
+          link: 'https://github.com/iotweblab',
           icon: 'mdi-github',
+        },
+        {
+          platform: 'Telegram',
+          link: 'https://t.me/iotweblab',
+          icon: 'icon-telegram',
         },
       ],
     }
   },
 }
 </script>
+
+<style scoped>
+.icon-telegram {
+  background-image: url('~/static/icon/telegram.svg');
+}
+</style>
