@@ -15,9 +15,11 @@
 
                   <v-list-item-content>
                     <v-list-item-title>ADDRESS</v-list-item-title>
-                    <v-list-item-subtitle
-                      >1400 Main Street, Orlando, FL 79938</v-list-item-subtitle
-                    >
+                    <v-list-item-subtitle>01032</v-list-item-subtitle>
+                    <v-list-item-subtitle>
+                      Klovski Descent 7A
+                    </v-list-item-subtitle>
+                    <v-list-item-subtitle>Kyiv, Ukraine</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
 
@@ -29,15 +31,15 @@
                   <v-list-item-content>
                     <v-list-item-title>EMAIL</v-list-item-title>
                     <v-list-item-subtitle
-                      >info@example.com</v-list-item-subtitle
+                      >info@iotwlab.com</v-list-item-subtitle
                     >
                     <v-list-item-subtitle
-                      >support@example.com</v-list-item-subtitle
+                      >support@iotwlab.com</v-list-item-subtitle
                     >
                   </v-list-item-content>
                 </v-list-item>
 
-                <v-list-item>
+                <!-- <v-list-item>
                   <v-list-item-icon>
                     <v-icon color="primary"> mdi-phone </v-icon>
                   </v-list-item-icon>
@@ -47,7 +49,7 @@
                     <v-list-item-subtitle>(323) 555-6789</v-list-item-subtitle>
                     <v-list-item-subtitle>(650) 555-1234</v-list-item-subtitle>
                   </v-list-item-content>
-                </v-list-item>
+                </v-list-item> -->
               </v-list>
               <div class="text-h6 font-weight-bold mt-12 mb-5">
                 Business Hours
@@ -79,7 +81,7 @@
                   </v-list-item-icon>
                   <v-list-item-content>
                     <v-list-item-title>SUNDAY</v-list-item-title>
-                    <v-list-item-subtitle>cLOSED</v-list-item-subtitle>
+                    <v-list-item-subtitle>Closed</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
               </v-list>
@@ -95,7 +97,7 @@
           </v-row>
         </v-container>
         <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3505.285388316138!2d-81.37969424867693!3d28.531140482371708!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e77b041135b063%3A0x13aab64f9cc768fc!2s1400%20Main%20Ln%2C%20Orlando%2C%20FL%2032801%2C%20USA!5e0!3m2!1sen!2sin!4v1606230494596!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2541.1366591441615!2d30.537596782655516!3d50.43855512912551!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x40d4cfa834d199e5%3A0x68a4f52b9a127c67!2sCarnegie%20Center%20%2B%20Tower!5e0!3m2!1sru!2sua!4v1636334389140!5m2!1sru!2sua"
           width="100%"
           height="600"
           frameborder="0"
@@ -103,6 +105,7 @@
           allowfullscreen="true"
           aria-hidden="false"
           tabindex="0"
+          loading="lazy"
         ></iframe>
       </v-col>
     </v-row>

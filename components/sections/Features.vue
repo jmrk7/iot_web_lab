@@ -4,13 +4,13 @@
       <v-row>
         <v-col class="text-center">
           <h2 class="text-h4 text-md-h3 text-center font-weight-black">
-            Build your website with this Theme
+            Blockchain Development
           </h2>
-          <div
+          <!-- <div
             class="text-h5 text-md-h4 text-center font-weight-black py-3 mb-10"
           >
             Purchase now. Only $49!
-          </div>
+          </div> -->
         </v-col>
       </v-row>
       <v-row>
@@ -37,7 +37,7 @@
       </v-row>
       <v-row no-gutters>
         <v-btn x-large rounded color="white primary--text mx-auto mt-10 px-16">
-          <v-icon dark left> mdi-check-bold </v-icon>Buy It Now
+          <v-icon dark left> mdi-check-bold </v-icon>Discover
         </v-btn>
       </v-row>
     </v-container>
@@ -50,21 +50,21 @@ export default {
     return {
       cards: [
         {
-          title: 'Material Design',
+          title: 'Cryptocurrency',
           subtitle: 'Best Productivity',
           text:
             'Similique sunt in culpa qui officia deserunt mollitia animi, id est laborut dolorum fuga.harum quidem rerum facilis estexpedita distinctio.',
           callout: '01',
         },
         {
-          title: 'Affordable Prices',
+          title: 'Smart Contract',
           subtitle: 'Special Offers',
           text:
             'Similique sunt in culpa qui officia deserunt mollitia animi, id est laborut dolorum fuga.harum quidem rerum facilis estexpedita distinctio.',
           callout: '02',
         },
         {
-          title: 'Fast Loading',
+          title: 'NFT',
           subtitle: 'Income Flow',
           text:
             'Similique sunt in culpa qui officia deserunt mollitia animi, id est laborut dolorum fuga.harum quidem rerum facilis estexpedita distinctio.',

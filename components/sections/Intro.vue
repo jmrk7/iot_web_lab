@@ -6,15 +6,14 @@
           <v-icon x-large dark>mdi-web</v-icon>
         </v-avatar>
         <h2 class="text-h4 text-md-h3 text-center font-weight-black mb-7">
-          The Perfect Theme for Beginners or Professionals
+          IoT Digital Solution <br />
         </h2>
         <p class="title font-weight-light">
-          ModeVue — is a carefully crafted multi-purpose, responsive, and
-          gorgeous theme. Built with
-          <strong>Vue.js</strong>
+          BUILDING HIGH QUALITY SOFTWARE AND SCALING TEAMS ON DEMAND
+          <!-- <strong>Vue.js</strong>
           and
           <strong>Nuxt.js</strong>, it comes with the features you need to
-          quickly start developing your application.
+          quickly start developing your application. -->
         </p>
       </v-responsive>
 
@@ -29,7 +28,7 @@
                   style="letter-spacing: 0.15em"
                   v-text="card.title"
                 ></h4>
-                <p v-text="card.text"></p>
+                <!-- <p v-text="card.text"></p> -->
               </div>
             </v-col>
             <v-col v-if="card.callout" cols="2">
@@ -52,25 +51,46 @@ export default {
     return {
       cards: [
         {
-          title: 'Best Productivity',
+          title: 'Industry',
           subtitle: 'Professionally developed',
           text:
             'All components and features are developed using the most up-to-date coding practices.',
           callout: '01',
         },
         {
-          title: 'Fast & optimized',
+          title: 'Power Elecrticity systems',
           subtitle: 'Performance',
           text:
             'Themes are designed for maximum performance and are semantically structured to maximize SEO.',
           callout: '02',
         },
         {
-          title: 'Built on Vuetify',
+          title: 'Smart Parking',
           subtitle: 'Material Design',
           text:
             "Being developed with Vuetify means you have access to all of the framework's available features.",
           callout: '03',
+        },
+        {
+          title: 'HoReCa',
+          subtitle: 'Professionally developed',
+          text:
+            'All components and features are developed using the most up-to-date coding practices.',
+          callout: '04',
+        },
+        {
+          title: '',
+          subtitle: 'Performance',
+          text:
+            'Themes are designed for maximum performance and are semantically structured to maximize SEO.',
+          callout: '05',
+        },
+        {
+          title: 'Smart House',
+          subtitle: 'Material Design',
+          text:
+            "Being developed with Vuetify means you have access to all of the framework's available features.",
+          callout: '06',
         },
       ],
     }
