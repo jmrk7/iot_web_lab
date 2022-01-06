@@ -10,7 +10,7 @@
             :class="$vuetify.theme.dark ? 'grey--text' : null"
             class="text-h4 text-center font-weight-light mb-xs-4"
           >
-            OUR SPONSORS
+            OUR PARTNERS
           </h3>
         </v-col>
         <v-col cols="12" sm="8">
@@ -48,6 +48,7 @@ export default {
   data() {
     return {
       brandsLogo: [
+        'datami.svg',
         'logo-12.svg',
         'logo-17.svg',
         'logo-25.svg',

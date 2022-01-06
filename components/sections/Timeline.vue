@@ -20,13 +20,16 @@
               <h2
                 :class="`headline font-weight-light mb-4 ${year.color}--text`"
               >
-                Lorem ipsum
+                {{ year.title }}
               </h2>
               <div>
-                Lorem ipsum dolor sit amet, no nam oblique veritus. Commune
+                {{
+                  year.description ||
+                  `Lorem ipsum dolor sit amet, no nam oblique veritus. Commune
                 scaevola imperdiet nec ut, sed euismod convenire principes at.
                 Est et nobis iisque percipit, an vim zril disputando
-                voluptatibus, vix an salutandi sententiae.
+                voluptatibus, vix an salutandi sententiae.`
+                }}
               </div>
             </div>
           </v-timeline-item>
@@ -44,19 +47,30 @@ export default {
         {
           color: 'cyan',
           year: '2019',
+          title: 'Birthday',
+          decsription: `Lorem ipsum dolor sit amet, no nam oblique veritus. Commune
+                scaevola imperdiet nec ut, sed euismod convenire principes at.
+                Est et nobis iisque percipit, an vim zril disputando
+                voluptatibus, vix an salutandi sententiae.`,
         },
         {
           color: 'green',
           year: '2020',
+          title: '',
+          decsription: '',
         },
         {
           color: 'pink',
           year: '2021',
+          title: '',
+          decsription: '',
         },
-        // {
-        //   color: 'amber',
-        //   year: '2022',
-        // },
+        {
+          color: 'amber',
+          year: '2022',
+          title: '',
+          decsription: '',
+        },
         // {
         //   color: 'orange',
         //   year: '2023',

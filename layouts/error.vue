@@ -18,7 +18,7 @@
                       class="mx-auto"
                     >
                     </v-img>
-                    <div class="mt-4">
+                    <!-- <div class="mt-4">
                       <small
                         ><a
                           class="text--primary text--disabled text-decoration-none"
@@ -27,7 +27,7 @@
                           www.freepik.com</a
                         ></small
                       >
-                    </div>
+                    </div> -->
                   </div>
                 </div>
                 <div v-else class="text-h5 text-sm-h4 text--disabled">
