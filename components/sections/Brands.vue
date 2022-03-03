@@ -15,21 +15,25 @@
         </v-col>
         <v-col cols="12" sm="8">
           <v-slide-group show-arrows draggable="true">
-            <template v-for="(l, ii) in brandsLogo">
-              <v-slide-item :key="l" v-model="brandsLogo">
+            <template v-for="(item, index) in partners">
+              <v-slide-item :key="item.id + item.url" v-model="partners">
                 <v-card
-                  :class="$vuetify.theme.dark ? 'white' : 'grey lighten-4'"
+                  :class="
+                    $vuetify.theme.dark ? 'grey darken-4' : 'grey lighten-4'
+                  "
                   class="mx-4 pa-0"
                   height="90"
                   width="140"
                   flat
                 >
-                  <v-img height="90" contain :src="`/brands/${l}`"></v-img>
+                  <a :href="item.url" target="blanc">
+                    <v-img height="90" contain :src="item.logo_url"></v-img>
+                  </a>
                 </v-card>
               </v-slide-item>
               <v-responsive
-                v-if="ii < brandsLogo.length - 1"
-                :key="ii"
+                v-if="index < partners.length - 1"
+                :key="index"
                 height="50"
                 class="my-auto"
               >
@@ -45,23 +49,8 @@
 
 <script>
 export default {
-  data() {
-    return {
-      brandsLogo: [
-        'datami.svg',
-        'logo-12.svg',
-        'logo-17.svg',
-        'logo-25.svg',
-        'logo-26.svg',
-        'logo-20.svg',
-        'logo-11.svg',
-        'logo-1.svg',
-        'logo-22.svg',
-        'logo-23.svg',
-        'logo-16.svg',
-        'logo-8.svg',
-      ],
-    }
+  props: {
+    partners: Array || [],
   },
 }
 </script>

@@ -6,9 +6,22 @@
         <SectionsIntro />
         <SectionsCalloutBlock />
         <SectionsFeatures />
-        <SectionsBrands />
+        <SectionsBrands :partners="partners" />
         <SectionsTestimonials />
+        <SectionsProjects :projects="projects" />
       </v-col>
     </v-row>
   </section>
 </template>
+<script>
+export default {
+  async asyncData({ store }) {
+    const partners = await store.dispatch('partners/fetchPartners')
+    const projects = await store.dispatch('projects/fetchProjects')
+    return {
+      partners,
+      projects,
+    }
+  },
+}
+</script>
