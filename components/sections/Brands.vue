@@ -49,8 +49,10 @@
 
 <script>
 export default {
-  props: {
-    partners: Array || [],
+  computed: {
+    partners() {
+      return this.$store.getters['partners/partners']
+    },
   },
 }
 </script>
