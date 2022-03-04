@@ -153,8 +153,10 @@
 
 <script>
 export default {
-  props: {
-    projects: Array || [],
+  computed: {
+    projects() {
+      return this.$store.getters['projects/projects']
+    },
   },
 }
 </script>
