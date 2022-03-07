@@ -11,3 +11,11 @@ export const INSERT_REQUEST = (data) => {
         }
         `
 }
+export const FETCH_REQUEST_BY_EMAIL = (data) => {
+  return `query fetchCustomerRequestByEmail {
+        customer_requests(where: {email: {_eq: "${data}"}}) {
+          id
+        }
+      }  
+    `
+}
