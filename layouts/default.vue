@@ -1,5 +1,6 @@
 <template>
   <v-app dark>
+    <Alert />
     <siteHeader />
     <v-main>
       <nuxt />

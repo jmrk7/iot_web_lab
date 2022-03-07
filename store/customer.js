@@ -1,4 +1,7 @@
-import { INSERT_REQUEST } from '@/graphql/gql/customer/types'
+import {
+  INSERT_REQUEST,
+  FETCH_REQUEST_BY_EMAIL,
+} from '@/graphql/gql/customer/types'
 import axios from 'axios'
 
 export const actions = {
@@ -12,6 +15,22 @@ export const actions = {
     })
 
     return result.data.data.id
+  },
+
+  async fetchCustomerRequestByEamil({ commit }, data) {
+    const result = await axios({
+      url: 'http://localhost:8080/v1/graphql/',
+      method: 'post',
+      data: {
+        query: FETCH_REQUEST_BY_EMAIL(data),
+      },
+    })
+
+    if (result.data.data.customer_requests.length > 0) {
+      return result.data.data.customer_requests[0]
+    } else {
+      return null
+    }
   },
 }
 

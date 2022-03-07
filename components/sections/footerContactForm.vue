@@ -1,16 +1,16 @@
 <template>
-  <v-form v-model="isValid" @submit="sentForm">
+  <v-form v-model="isValid" @input="isRuled = true" @submit="sentForm">
     <v-text-field
       v-model="name"
       label="Name *"
-      :rules="fieldRules"
+      :rules="isRuled ? fieldRules : [(v) => true]"
       dense
       outlined
     >
     </v-text-field>
     <v-text-field
       v-model="email"
-      :rules="emailRules"
+      :rules="isRuled ? emailRules : [(v) => true]"
       label="Email *"
       dense
       outlined
@@ -20,7 +20,7 @@
       label="Subject *"
       dense
       outlined
-      :rules="fieldRules"
+      :rules="isRuled ? fieldRules : [(v) => true]"
     ></v-text-field>
     <v-textarea
       v-model="message"
@@ -30,7 +30,7 @@
       outlined
       rows="8"
       row-height="20"
-      :rules="messageRules"
+      :rules="isRuled ? messageRules : [(v) => true]"
     ></v-textarea>
     <v-btn type="submit" outlined block color="primary">SEND MESSAGE</v-btn>
   </v-form>
@@ -46,6 +46,7 @@ export default {
       email: null,
       subject: null,
       message: null,
+      isRuled: false,
       emailRules: [
         (v) =>
           !v ||
@@ -62,20 +63,50 @@ export default {
   methods: {
     ...mapActions({
       insertCustomerRequest: 'customer/insertCustomerRequest',
+      fetchCustomerRequestByEamil: 'customer/fetchCustomerRequestByEamil',
+      sendAlert: 'alert/sendAlert',
     }),
 
-    sentForm(event) {
+    async sentForm(event) {
       event.preventDefault()
       event.stopPropagation()
 
-      if (this.isValid) {
+      if (await this.fetchCustomerRequestByEamil(this.email)) {
+        this.sendAlert({
+          type: 'warning',
+          message:
+            'You have one not ansvered message. Please, wait for ansver and check you email',
+        })
+
+        return
+      }
+      if (this.isValid && this.email) {
         this.insertCustomerRequest({
           name: this.name,
           email: this.email,
           subject: this.subject,
           message: this.message,
         })
+
+        this.clearReference()
+
+        this.sendAlert({
+          type: 'success',
+          message: `Fine, message has been sent. We will ansver to your email: ${this.email}`,
+        })
+      } else {
+        this.sendAlert({
+          type: 'error',
+          message: "Cann't send message. Please, check fields and try again",
+        })
       }
+    },
+    clearReference() {
+      this.isRuled = false
+      this.name = null
+      this.email = null
+      this.subject = null
+      this.message = null
     },
   },
 }
