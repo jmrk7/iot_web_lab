@@ -1,38 +1,54 @@
 <template>
-  <v-form v-model="isValid" @input="isRuled = true" @submit="sentForm">
-    <v-text-field
-      v-model="name"
-      label="Name *"
-      :rules="isRuled ? fieldRules : [(v) => true]"
-      dense
-      outlined
-    >
-    </v-text-field>
-    <v-text-field
-      v-model="email"
-      :rules="isRuled ? emailRules : [(v) => true]"
-      label="Email *"
-      dense
-      outlined
-    ></v-text-field>
-    <v-text-field
-      v-model="subject"
-      label="Subject *"
-      dense
-      outlined
-      :rules="isRuled ? fieldRules : [(v) => true]"
-    ></v-text-field>
-    <v-textarea
-      v-model="message"
-      dense
-      label="Your Message *"
-      auto-grow
-      outlined
-      rows="8"
-      row-height="20"
-      :rules="isRuled ? messageRules : [(v) => true]"
-    ></v-textarea>
-    <v-btn type="submit" outlined block color="primary">SEND MESSAGE</v-btn>
+  <v-form
+    v-model="isValid"
+    class="row"
+    @input="isRuled = true"
+    @submit="sentForm"
+  >
+    <div class="col-12 col-sm-6">
+      <v-text-field
+        v-model="name"
+        label="Name *"
+        :rules="isRuled ? fieldRules : [(v) => true]"
+        dense
+        outlined
+      >
+      </v-text-field>
+      <v-text-field
+        v-model="email"
+        :rules="isRuled ? emailRules : [(v) => true]"
+        label="Email *"
+        dense
+        outlined
+      ></v-text-field>
+      <v-text-field
+        v-model="subject"
+        label="Subject *"
+        dense
+        outlined
+        :rules="isRuled ? fieldRules : [(v) => true]"
+      ></v-text-field>
+      <v-text-field v-model="link" label="Link" dense outlined></v-text-field>
+    </div>
+    <div class="col-12 col-sm-6">
+      <v-textarea
+        v-model="message"
+        dense
+        label="Your Message *"
+        auto-grow
+        outlined
+        rows="5"
+        row-height="21"
+        :rules="isRuled ? messageRules : [(v) => true]"
+      ></v-textarea>
+      <v-file-input
+        v-model="onloadedFile"
+        label="File"
+        dense
+        outlined
+      ></v-file-input>
+      <v-btn type="submit" outlined block color="primary">SEND MESSAGE</v-btn>
+    </div>
   </v-form>
 </template>
 <script>
@@ -44,6 +60,9 @@ export default {
       isValid: false,
       name: null,
       email: null,
+      file: null,
+      link: null,
+      onloadedFile: null,
       subject: null,
       message: null,
       isRuled: false,
@@ -80,19 +99,27 @@ export default {
 
         return
       }
+
+      if (this.onloadedFile) {
+        await this.fileReader(this.onloadedFile)
+      }
+
+      console.log(this.file)
       if (this.isValid && this.email) {
         this.insertCustomerRequest({
           name: this.name,
           email: this.email,
           subject: this.subject,
           message: this.message,
-        })
+          link: this.link,
+          file: this.file,
+        }).then((res) => {
+          this.sendAlert({
+            type: 'success',
+            message: `Fine, message has been sent. We will ansver to your email: ${this.email}`,
+          })
 
-        this.clearReference()
-
-        this.sendAlert({
-          type: 'success',
-          message: `Fine, message has been sent. We will ansver to your email: ${this.email}`,
+          this.clearReference()
         })
       } else {
         this.sendAlert({
@@ -107,6 +134,23 @@ export default {
       this.email = null
       this.subject = null
       this.message = null
+      this.link = null
+      this.file = null
+    },
+
+    async fileReader(file) {
+      return await new Promise((resolve, reject) => {
+        const reader = new FileReader()
+        reader.readAsArrayBuffer(file)
+        reader.onload = async () => {
+          try {
+            this.file = await reader.result
+            resolve(reader.result)
+          } catch (error) {
+            reject(error)
+          }
+        }
+      })
     },
   },
 }

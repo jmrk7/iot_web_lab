@@ -13,8 +13,12 @@ export const actions = {
         query: INSERT_REQUEST(data),
       },
     })
-
-    return result.data.data.id
+    console.log(result)
+    if (result.data?.data?.insert_customer_requests_one.id) {
+      return result.data.data.insert_customer_requests_one.id
+    } else {
+      throw new Error("Can't insert message to DB")
+    }
   },
 
   async fetchCustomerRequestByEamil({ commit }, data) {
