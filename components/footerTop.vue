@@ -9,50 +9,50 @@
   >
     <v-container>
       <v-row>
-        <v-col cols="12" md="5" class="py-12"
+        <v-col cols="12" md="12" class="pt-8"
           ><v-row no-gutters>
             <v-col cols="12">
               <Logo />
             </v-col>
             <v-col cols="12">
-              <p class="mt-8 text-justify" style="max-width: 400px">
-                Digital Solution..........
-              </p>
-            </v-col>
-            <v-col cols="12">
               <v-list two-line class="transparent">
-                <v-list-item>
-                  <v-list-item-icon>
-                    <v-icon> mdi-map-marker </v-icon>
-                  </v-list-item-icon>
+                <div class="row mt-2">
+                  <div class="col-12 col-sm-6">
+                    <v-list-item>
+                      <v-list-item-icon>
+                        <v-icon> mdi-map-marker </v-icon>
+                      </v-list-item-icon>
 
-                  <v-list-item-content>
-                    <v-list-item-title>ADDRESS</v-list-item-title>
-                    <v-list-item-subtitle>01032</v-list-item-subtitle>
-                    <v-list-item-subtitle>
-                      Klovski Descent 7A
-                    </v-list-item-subtitle>
-                    <v-list-item-subtitle>Kyiv, Ukraine</v-list-item-subtitle>
-                  </v-list-item-content>
-                </v-list-item>
-                <v-divider></v-divider>
-                <v-list-item>
-                  <v-list-item-icon>
-                    <v-icon> mdi-email </v-icon>
-                  </v-list-item-icon>
+                      <v-list-item-content>
+                        <v-list-item-title>ADDRESS</v-list-item-title>
+                        <v-list-item-subtitle>01032</v-list-item-subtitle>
+                        <v-list-item-subtitle>
+                          Klovski Descent 7A
+                        </v-list-item-subtitle>
+                        <v-list-item-subtitle
+                          >Kyiv, Ukraine</v-list-item-subtitle
+                        >
+                      </v-list-item-content>
+                    </v-list-item>
+                  </div>
+                  <div class="col-12 col-sm-6">
+                    <v-list-item>
+                      <v-list-item-icon>
+                        <v-icon> mdi-email </v-icon>
+                      </v-list-item-icon>
 
-                  <v-list-item-content>
-                    <v-list-item-title>EMAIL</v-list-item-title>
-                    <v-list-item-subtitle
-                      >info@iotwlab.com</v-list-item-subtitle
-                    >
-                    <v-list-item-subtitle
-                      >support@iotwlab.com</v-list-item-subtitle
-                    >
-                  </v-list-item-content>
-                </v-list-item>
-
-                <v-divider></v-divider>
+                      <v-list-item-content>
+                        <v-list-item-title>EMAIL</v-list-item-title>
+                        <v-list-item-subtitle
+                          >info@iotwlab.com</v-list-item-subtitle
+                        >
+                        <v-list-item-subtitle
+                          >support@iotwlab.com</v-list-item-subtitle
+                        >
+                      </v-list-item-content>
+                    </v-list-item>
+                  </div>
+                </div>
 
                 <!-- <v-list-item>
                   <v-list-item-icon>
@@ -67,29 +67,40 @@
                 </v-list-item> -->
                 <v-divider></v-divider>
               </v-list>
-              <div class="d-flex justify-center mt-5">
-                <v-btn
-                  v-for="(socialm, i) in social"
-                  :key="`social-${i}`"
-                  class="d-flex"
-                  icon
-                  large
-                  color="primary"
-                  :href="socialm.link"
-                  target="_blank"
-                >
-                  <v-icon>{{ socialm.icon }}</v-icon>
-                </v-btn>
-              </div>
-            </v-col>
-          </v-row></v-col
-        >
-        <v-col cols="1" class="text-center hidden-sm-and-down col col-2 py-12">
+            </v-col> </v-row
+        ></v-col>
+        <!-- <v-col cols="1" class="text-center hidden-sm-and-down col col-2 py-12">
           <v-divider vertical></v-divider>
-        </v-col>
-        <v-col cols="12" md="5" class="py-12">
-          <h3 class="mb-8">SEND YOUR MESSAGE</h3>
-          <footerContactForm />
+        </v-col> -->
+        <v-col cols="12" md="12" class="pt-2">
+          <div v-show="isFooterShow">
+            <h3 class="mb-6 text--primary text-center">SEND YOUR MESSAGE</h3>
+            <v-col cols="12">
+              <p class="text-justify">
+                Do you have or are you planning your business? Please, feel free
+                to write to us. We will help you find the best solution for
+                organizing your business. We will provide the necessary
+                consultations. You can send us your project or layout and our
+                specialists will evaluate and prepare solutions for your
+                business project.
+              </p>
+            </v-col>
+            <footerContactForm />
+          </div>
+          <div class="d-flex justify-center mt-5">
+            <v-btn
+              v-for="(socialm, i) in social"
+              :key="`social-${i}`"
+              class="d-flex"
+              icon
+              large
+              color="primary"
+              :href="socialm.link"
+              target="_blank"
+            >
+              <v-icon>{{ socialm.icon }}</v-icon>
+            </v-btn>
+          </div>
         </v-col>
       </v-row>
     </v-container>
@@ -136,6 +147,21 @@ export default {
           icon: 'icon-telegram',
         },
       ],
+      isFooterShow: true,
+    }
+  },
+  watch: {
+    $route() {
+      if (this.$router.history.current.name === 'contact') {
+        this.isFooterShow = false
+      } else {
+        this.isFooterShow = true
+      }
+    },
+  },
+  mounted() {
+    if (this.$router.history.current.name === 'contact') {
+      this.isFooterShow = false
     }
   },
 }

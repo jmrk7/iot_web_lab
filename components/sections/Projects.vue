@@ -5,7 +5,7 @@
     class="py-16"
   >
     <h2 class="text-h4 text-md-h3 text-center font-weight-black mb-2 my-2">
-      Solutions
+      Projects
     </h2>
     <v-carousel
       draggable="false"
