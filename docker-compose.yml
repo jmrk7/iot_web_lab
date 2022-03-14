@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  php: 
+    image: php:7.4-fpm
+    restart: always
+    volumes: 
+      - './email-server:/usr/share/nginx/html'
+
+  nginx_email_server:
+    image: nginx
+    restart: always
+    ports:
+      - 7000:80
+    volumes: 
+      - './email-server:/usr/share/nginx/html' 
+      - './email-server/docker/nginx/conf.d:/etc/nginx/conf.d' 

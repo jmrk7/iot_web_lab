@@ -9,6 +9,7 @@ query fetchProjects {
         solution
         technologies
         urls
+        url_img
     }
   }
 `

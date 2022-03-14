@@ -82,6 +82,7 @@ export default {
   methods: {
     ...mapActions({
       insertCustomerRequest: 'customer/insertCustomerRequest',
+      sendCustomerRequestToMail: 'customer/sendCustomerRequestToMail',
       fetchCustomerRequestByEamil: 'customer/fetchCustomerRequestByEamil',
       sendAlert: 'alert/sendAlert',
     }),
@@ -101,26 +102,37 @@ export default {
       }
 
       if (this.onloadedFile) {
-        await this.fileReader(this.onloadedFile)
+        // await this.fileReader(this.onloadedFile)
+        this.file = this.onloadedFile
       }
 
-      console.log(this.file)
       if (this.isValid && this.email) {
-        this.insertCustomerRequest({
-          name: this.name,
-          email: this.email,
-          subject: this.subject,
-          message: this.message,
-          link: this.link,
-          file: this.file,
-        }).then((res) => {
-          this.sendAlert({
-            type: 'success',
-            message: `Fine, message has been sent. We will ansver to your email: ${this.email}`,
-          })
+        // this.insertCustomerRequest({
+        //   name: this.name,
+        //   email: this.email,
+        //   subject: this.subject,
+        //   message: this.message,
+        //   link: this.link,
+        //   // file: this.file,
+        // }).then((res) => {
+        //   this.sendAlert({
+        //     type: 'success',
+        //     message: `Fine, message has been sent. We will ansver to your email: ${this.email}`,
+        //   })
 
-          this.clearReference()
-        })
+        //   this.clearReference()
+        // })
+        const formData = new FormData()
+        formData.append('name', this.name)
+        formData.append('email', this.email)
+        formData.append('subject', this.subject)
+        formData.append('message', this.message)
+        formData.append('link', this.link)
+        formData.append('file', this.file)
+
+        console.log('formData: ', formData)
+
+        this.sendCustomerRequestToMail(formData)
       } else {
         this.sendAlert({
           type: 'error',

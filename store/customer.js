@@ -13,12 +13,28 @@ export const actions = {
         query: INSERT_REQUEST(data),
       },
     })
-    console.log(result)
     if (result.data?.data?.insert_customer_requests_one.id) {
       return result.data.data.insert_customer_requests_one.id
     } else {
       throw new Error("Can't insert message to DB")
     }
+  },
+
+  async sendCustomerRequestToMail({ commit }, data) {
+    const result = await axios({
+      url: 'http://localhost:5000/send_mail.php',
+      method: 'post',
+      data: JSON.stringify(data),
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    })
+    console.log('THIS: ', this)
+    // const result = await this.$axios.$post(
+    //   'http://localhost:7000/public/send_mail.php',
+    //   { data: JSON.stringify(data) }
+    // )
+    console.log('result: ', result)
   },
 
   async fetchCustomerRequestByEamil({ commit }, data) {
