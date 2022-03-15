@@ -22,19 +22,20 @@ export const actions = {
 
   async sendCustomerRequestToMail({ commit }, data) {
     const result = await axios({
-      url: 'http://localhost:5000/send_mail.php',
+      url: 'http://localhost:7000/public/send_mail.php',
       method: 'post',
       data: JSON.stringify(data),
       headers: {
-        'Content-Type': 'multipart/form-data',
+        // 'Content-Type': 'multipart/form-data',
+        'Content-Type': 'application/json',
       },
     })
-    console.log('THIS: ', this)
     // const result = await this.$axios.$post(
     //   'http://localhost:7000/public/send_mail.php',
     //   { data: JSON.stringify(data) }
     // )
     console.log('result: ', result)
+    return result
   },
 
   async fetchCustomerRequestByEamil({ commit }, data) {

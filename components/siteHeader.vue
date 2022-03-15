@@ -151,16 +151,16 @@ export default {
           title: 'Pricing',
           to: '/pricing',
         },
-        {
-          icon: 'mdi-folder-image',
-          title: 'Gallery',
-          to: '/gallery',
-        },
-        {
-          icon: 'mdi-blogger',
-          title: 'Blog',
-          to: '/blog',
-        },
+        // {
+        //   icon: 'mdi-folder-image',
+        //   title: 'Gallery',
+        //   to: '/gallery',
+        // },
+        // {
+        //   icon: 'mdi-blogger',
+        //   title: 'Blog',
+        //   to: '/blog',
+        // },
         {
           icon: 'mdi-contacts',
           title: 'Contact',

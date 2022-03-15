@@ -4,9 +4,11 @@
       <v-col cols="12">
         <SectionsHero />
         <SectionsIntro />
-        <SectionsCalloutBlock />
-        <SectionsFeatures />
         <SectionsBrands />
+        <!-- <SectionsCalloutBlock /> -->
+
+        <SectionsFeatures />
+        <SectionsTechnologies />
         <SectionsTestimonials />
         <SectionsProjects />
       </v-col>
@@ -18,6 +20,8 @@ export default {
   async fetch({ store }) {
     await store.dispatch('partners/fetchPartners')
     await store.dispatch('projects/fetchProjects')
+    await store.dispatch('solution/fetchScopeAreas')
+    await store.dispatch('techs/fetchTechs')
   },
 }
 </script>

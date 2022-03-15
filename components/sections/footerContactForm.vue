@@ -41,12 +41,12 @@
         row-height="21"
         :rules="isRuled ? messageRules : [(v) => true]"
       ></v-textarea>
-      <v-file-input
+      <!-- <v-file-input
         v-model="onloadedFile"
         label="File"
         dense
         outlined
-      ></v-file-input>
+      ></v-file-input> -->
       <v-btn type="submit" outlined block color="primary">SEND MESSAGE</v-btn>
     </div>
   </v-form>
@@ -107,32 +107,39 @@ export default {
       }
 
       if (this.isValid && this.email) {
-        // this.insertCustomerRequest({
-        //   name: this.name,
-        //   email: this.email,
-        //   subject: this.subject,
-        //   message: this.message,
-        //   link: this.link,
-        //   // file: this.file,
-        // }).then((res) => {
-        //   this.sendAlert({
-        //     type: 'success',
-        //     message: `Fine, message has been sent. We will ansver to your email: ${this.email}`,
-        //   })
+        this.insertCustomerRequest({
+          name: this.name,
+          email: this.email,
+          subject: this.subject,
+          message: this.message,
+          link: this.link,
+          // file: this.file,
+        }).then((res) => {
+          this.sendAlert({
+            type: 'success',
+            message: `Fine, message has been sent. We will ansver to your email: ${this.email}`,
+          })
 
-        //   this.clearReference()
-        // })
-        const formData = new FormData()
-        formData.append('name', this.name)
-        formData.append('email', this.email)
-        formData.append('subject', this.subject)
-        formData.append('message', this.message)
-        formData.append('link', this.link)
-        formData.append('file', this.file)
+          this.clearReference()
+        })
 
-        console.log('formData: ', formData)
+        // const formData = new FormData()
+        // formData.append('name', this.name)
+        // formData.append('email', this.email)
+        // formData.append('subject', this.subject)
+        // formData.append('message', this.message)
+        // formData.append('link', this.link)
+        // formData.append('file', this.file)
 
-        this.sendCustomerRequestToMail(formData)
+        // console.log('formData: ', formData)
+
+        this.sendCustomerRequestToMail({
+          name: this.name,
+          email: this.email,
+          subject: this.subject,
+          message: this.message,
+          link: this.link,
+        })
       } else {
         this.sendAlert({
           type: 'error',
