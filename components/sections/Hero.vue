@@ -20,7 +20,15 @@
               {{ carousel.heading.toUpperCase() }}
             </div>
             <p class="mb-5">{{ carousel.subHeading }}</p>
-            <v-btn :x-large="$vuetify.breakpoint.smAndUp" class="my-3 primary"
+            <v-btn
+              :x-large="$vuetify.breakpoint.smAndUp"
+              class="my-3 primary"
+              @click="
+                $vuetify.goTo('#footer-top', {
+                  duration: 500,
+                  easing: 'easeInOutCubic',
+                })
+              "
               >Get Started</v-btn
             >
             <span class="mx-2 my-4"></span>
@@ -29,6 +37,12 @@
               text
               class="my-3"
               outlined
+              @click="
+                $vuetify.goTo('#intro', {
+                  duration: 500,
+                  easing: 'easeInOutCubic',
+                })
+              "
               ><v-icon left large color="primary">mdi-play</v-icon>Learn
               More</v-btn
             >
@@ -59,7 +73,8 @@ export default {
         {
           src: 'pexels-thirdman-5961072.jpg',
           heading: 'DIGITAL MARKETING',
-          subHeading: 'sdfgsdfgsdfgsdfgsdfg',
+          subHeading:
+            'Modern approaches to the implementation of digital marketing tasks. Seo-optimization, as well as solutions for offline advertising companies',
         },
         {
           src: 'pexels-andrea-piacquadio-3830745.jpg',

@@ -29,7 +29,7 @@
               :src="card.svg"
               :width="properties"
               :height="properties"
-              :custom-id="card.id"
+              :custom-id="card.title"
               :fill="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
               :stroke="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
             />
@@ -53,7 +53,7 @@
             :src="currentCard.svg"
             :width="properties"
             :height="properties"
-            :custom-id="currentCard.id"
+            :custom-id="currentCard.title"
             :fill="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
             :stroke="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
           />
@@ -92,73 +92,12 @@ export default {
       galleryIsShow: true,
       currentCard: null,
       properties: '100px',
-      cards: [
-        {
-          id: '111',
-          title: 'Industry',
-          subtitle: 'Production automation',
-          tools: [
-            'Production automation tools',
-            'Prototyping and design',
-            'Integration of devices and services',
-            'Administration and control systems',
-          ],
-          // text:
-          //   'All components and features are developed using the most up-to-date coding practices.',
-          // callout: '01',
-          svg: 'http://localhost:7000/public/icons/industry-15.svg',
-        },
-        {
-          id: '999',
-          title: 'Marketing',
-          subtitle: 'Product promotion tools',
-          tools: [],
-          // text:
-          //   'Themes are designed for maximum performance and are semantically structured to maximize SEO.',
-          // callout: '02',
-          svg: 'http://localhost:7000/public/icons/1515442620.svg',
-        },
-        {
-          id: '222',
-          title: 'Media',
-          subtitle: 'Digital technologies',
-          tools: [],
-          // text:
-          //   "Being developed with Vuetify means you have access to all of the framework's available features.",
-          // callout: '03',
-          svg: 'http://localhost:7000/public/icons/play-button-svgrepo-com.svg',
-        },
-        {
-          id: '333',
-          title: 'Marketplace',
-          subtitle: 'Retail and wholesale',
-          // text:
-          //   'All components and features are developed using the most up-to-date coding practices.',
-          // callout: '04',
-          svg: 'http://localhost:7000/public/icons/grocery-15.svg',
-        },
-        {
-          id: '444',
-          title: 'Science',
-          subtitle: 'Data science and clouds',
-          tools: [],
-          // text:
-          //   'Themes are designed for maximum performance and are semantically structured to maximize SEO.',
-          // callout: '05',
-          svg: 'http://localhost:7000/public/icons/cloud-svgrepo-com.svg',
-        },
-        {
-          id: '555',
-          title: 'Finance',
-          subtitle: 'Market and bank instruments',
-          tools: [],
-          // text:
-          //   "Being developed with Vuetify means you have access to all of the framework's available features.",
-          // callout: '06',
-          svg: 'http://localhost:7000/public/icons/dollar-svgrepo-com.svg',
-        },
-      ],
     }
+  },
+  computed: {
+    cards() {
+      return this.$store.getters['solution/scopes']
+    },
   },
   methods: {
     viewDeteils(card) {
