@@ -55,35 +55,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-      carouselsData: [
-        {
-          src: 'pexels-andrea-piacquadio-3884440.jpg',
-          heading: 'SOFTWARE DEVELOPMENT',
-          subHeading:
-            'Desktop, Web and Mobile development with the hint of data-science and data-engineering.',
-        },
-        {
-          src: 'pexels-peter-olexa-4012966.jpg',
-          heading: 'UI/UX DESIGN',
-          subHeading:
-            'Great products are designed around users. From ideation to prototyping and design, we have got you covered.',
-        },
-        {
-          src: 'pexels-thirdman-5961072.jpg',
-          heading: 'DIGITAL MARKETING',
-          subHeading:
-            'Modern approaches to the implementation of digital marketing tasks. Seo-optimization, as well as solutions for offline advertising companies',
-        },
-        {
-          src: 'pexels-andrea-piacquadio-3830745.jpg',
-          heading: 'OUTSOURCE & OUTSTAFF',
-          subHeading:
-            'Hire flexible, on-demand remote UI/UX Designers, Software Developers, Project Managers and QA Engineers to help you manage dynamic workloads and new projects.',
-        },
-      ],
-    }
+  computed: {
+    carouselsData() {
+      return this.$store.getters['hero/heroItems']
+    },
   },
 }
 </script>

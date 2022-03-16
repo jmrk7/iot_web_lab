@@ -16,7 +16,11 @@
         <v-col cols="12" sm="8">
           <v-slide-group show-arrows draggable="true">
             <template v-for="(item, index) in partners">
-              <v-slide-item :key="item.id + item.url" v-model="partners">
+              <v-slide-item
+                v-if="checkIsShow(item.id)"
+                :key="item.id + item.url"
+                v-model="partners"
+              >
                 <v-card
                   :class="
                     $vuetify.theme.dark ? 'grey darken-4' : 'grey lighten-4'
@@ -27,7 +31,12 @@
                   flat
                 >
                   <a :href="item.url" target="blanc">
-                    <v-img height="90" contain :src="item.logo_url"></v-img>
+                    <v-img
+                      height="90"
+                      contain
+                      :src="item.logo_url"
+                      @error="disableImage(item)"
+                    ></v-img>
                   </a>
                 </v-card>
               </v-slide-item>
@@ -49,9 +58,28 @@
 
 <script>
 export default {
+  data() {
+    return {
+      isShow: [],
+    }
+  },
   computed: {
     partners() {
       return this.$store.getters['partners/partners']
+    },
+  },
+  mounted() {
+    this.isShow = this.$store.getters['partners/partners'].map(
+      (item) => item.id
+    )
+  },
+  methods: {
+    disableImage(item) {
+      const index = this.isShow.findIndex((elem) => elem === item.id)
+      this.isShow.splice(index, 1)
+    },
+    checkIsShow(id) {
+      return this.isShow.find((item) => item === id)
     },
   },
 }
