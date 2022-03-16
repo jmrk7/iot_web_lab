@@ -89,8 +89,12 @@
             <v-col md="7" cols="12">
               <div class="text-h4 font-weight-black mb-8">Contact Us</div>
               <p class="mb-10">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                Do you have or are you planning your business? Please, feel free
+                to write to us. We will help you find the best solution for
+                organizing your business. We will provide the necessary
+                consultations. You can send us your project or layout and our
+                specialists will evaluate and prepare solutions for your
+                business project.
               </p>
               <contactForm />
             </v-col>
@@ -114,6 +118,7 @@
 
 <script>
 import contactForm from '~/components/sections/contactForm.vue'
+
 export default {
   components: {
     contactForm,

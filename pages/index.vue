@@ -18,6 +18,7 @@
 <script>
 export default {
   async fetch({ store }) {
+    await store.dispatch('hero/fetchHeroCaruselItems')
     await store.dispatch('partners/fetchPartners')
     await store.dispatch('projects/fetchProjects')
     await store.dispatch('solution/fetchScopeAreas')
