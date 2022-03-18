@@ -1,7 +1,7 @@
 <template>
   <section
     id="testimonials"
-    :class="$vuetify.theme.dark ? 'black' : 'white'"
+    :class="$vuetify.theme.dark ? 'black' : 'grey lighten-4'"
     class="py-16"
   >
     <h2 class="text-h4 text-md-h3 text-center font-weight-black mb-8 my-8">
@@ -28,7 +28,7 @@
               :class="
                 $vuetify.theme.dark
                   ? 'black'
-                  : 'white grey--text text--darken-2'
+                  : 'grey lighten-4 grey--text text--darken-2'
               "
               class="mb-1 font-weight-black text-uppercase"
             >
@@ -39,7 +39,7 @@
             </div>
             <v-row>
               <v-col cols="1"
-                ><v-icon x-large class="grey--text text--lighten-1"
+                ><v-icon x-large class="grey--text text--lighten-4"
                   >mdi-format-quote-open</v-icon
                 ></v-col
               >
@@ -48,7 +48,7 @@
                   :class="
                     $vuetify.theme.dark
                       ? 'black'
-                      : 'white grey--text text--darken-2'
+                      : 'grey lighten-4 grey--text text--darken-4'
                   "
                   class="mb-5 font-italic"
                 >

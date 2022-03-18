@@ -138,18 +138,18 @@ export default {
             },
             {
               title: 'Ecommerce and Store',
-              to: '/#',
+              to: '/services/ecommerce',
             },
             {
               title: 'Block Chain Devemopment',
-              to: '/#',
+              to: '/services/blockchain',
             },
           ],
         },
         {
           icon: 'mdi-cash-usd',
-          title: 'Pricing',
-          to: '/pricing',
+          title: 'Projects',
+          to: '/projects',
         },
         // {
         //   icon: 'mdi-folder-image',
