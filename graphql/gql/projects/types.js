@@ -1,6 +1,6 @@
 export const GET_PROJECTS = `
 query fetchProjects {
-    projects {
+    projects (order_by: {url_img: asc}) {
         challenge
         description
         id

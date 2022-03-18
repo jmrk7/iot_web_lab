@@ -6,11 +6,13 @@
           <h2 class="text-h4 text-md-h3 text-center font-weight-black">
             Blockchain Development
           </h2>
-          <!-- <div
-            class="text-h5 text-md-h4 text-center font-weight-black py-3 mb-10"
-          >
-            Purchase now. Only $49!
-          </div> -->
+          <p class="text-center mt-4">
+            Explore the world of secure, scalable, and interoperable
+            decentralized applications with our end-to-end blockchain
+            development services. We help enterprises leverage the power of
+            blockchain technologies and solutions to achieve next-level
+            transparency and automation in their business processes.
+          </p>
         </v-col>
       </v-row>
       <v-row>
@@ -27,17 +29,18 @@
             style="opacity: 1.15"
             >{{ card.callout }}</v-avatar
           >
-          <div class="title text-uppercase mt-1 mb-4" v-text="card.title"></div>
-
-          <p v-text="card.text"></p>
-          <v-row no-gutters>
-            <v-col cols="12"> </v-col>
-          </v-row>
+          <div class="title text-uppercase mt-1" v-text="card.title"></div>
+          <div class="title secondary--text" v-text="card.subtitle"></div>
         </v-col>
       </v-row>
       <v-row no-gutters>
-        <v-btn x-large rounded color="white primary--text mx-auto mt-10 px-16">
-          <v-icon dark left> mdi-check-bold </v-icon>Discover
+        <v-btn
+          to="/services/blockchain"
+          x-large
+          rounded
+          color="white primary--text mx-auto mt-10 px-16"
+        >
+          <v-icon dark left> mdi-check-bold </v-icon> discover
         </v-btn>
       </v-row>
     </v-container>
@@ -52,22 +55,16 @@ export default {
         {
           title: 'Cryptocurrency',
           subtitle: 'Best Productivity',
-          text:
-            'Similique sunt in culpa qui officia deserunt mollitia animi, id est laborut dolorum fuga.harum quidem rerum facilis estexpedita distinctio.',
           callout: '01',
         },
         {
           title: 'Smart Contract',
           subtitle: 'Special Offers',
-          text:
-            'Similique sunt in culpa qui officia deserunt mollitia animi, id est laborut dolorum fuga.harum quidem rerum facilis estexpedita distinctio.',
           callout: '02',
         },
         {
           title: 'NFT',
           subtitle: 'Income Flow',
-          text:
-            'Similique sunt in culpa qui officia deserunt mollitia animi, id est laborut dolorum fuga.harum quidem rerum facilis estexpedita distinctio.',
           callout: '03',
         },
       ],
