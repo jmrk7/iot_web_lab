@@ -149,7 +149,7 @@ export default {
         {
           icon: 'mdi-cash-usd',
           title: 'Projects',
-          to: '/projects',
+          to: '/',
         },
         // {
         //   icon: 'mdi-folder-image',

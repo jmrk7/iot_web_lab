@@ -1,19 +1,14 @@
 <template>
-  <section>
-    <v-row no-gutters>
-      <v-col cols="12">
-        <SectionsHeroAlt :hero-alt="heroAlt" />
-        <v-container class="py-16">
-          <h2 class="text-h4 text-md-h3 text-center font-weight-black">
-            Find your service
-          </h2>
-        </v-container>
-      </v-col>
-    </v-row>
+  <section id="ecommerce">
+    <SectionsHeroAlt :hero-alt="heroAlt" />
+    <SectionsEcommerceList />
   </section>
 </template>
 <script>
 export default {
+  async fetch({ store }) {
+    await store.dispatch('ecommerce/fetchEcommerceScopes')
+  },
   data() {
     return {
       heroAlt: [
