@@ -121,20 +121,12 @@ export default {
               to: '/services',
             },
             {
-              title: 'Static Websites',
-              to: '/#',
+              title: 'Desktop Websites',
+              to: '/services/desktop',
             },
             {
               title: 'Mobile Applications',
-              to: '/#',
-            },
-            {
-              title: 'Corporate websites',
-              to: '/#',
-            },
-            {
-              title: 'Editorial Sites',
-              to: '/#',
+              to: '/services/mobile',
             },
             {
               title: 'Ecommerce and Store',
@@ -149,7 +141,7 @@ export default {
         {
           icon: 'mdi-cash-usd',
           title: 'Projects',
-          to: '/',
+          to: '/projects',
         },
         // {
         //   icon: 'mdi-folder-image',
