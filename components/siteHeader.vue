@@ -121,8 +121,8 @@ export default {
               to: '/services',
             },
             {
-              title: 'Desktop Websites',
-              to: '/services/desktop',
+              title: 'Websites',
+              to: '/services/websites',
             },
             {
               title: 'Mobile Applications',
