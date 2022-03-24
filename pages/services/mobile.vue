@@ -1,9 +1,9 @@
 <template>
-  <section id="mobile">
+  <article id="mobile">
     <SectionsHeroAlt :hero-alt="heroAlt" />
     <SectionsMobileWellcome />
     <SectionsMobileStores />
-  </section>
+  </article>
 </template>
 <script>
 export default {

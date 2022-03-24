@@ -8,15 +8,10 @@
     {{ text }}
 
     <template v-slot:action="{ attrs }">
-      <v-btn color="info" small v-bind="attrs" @click="snackbar = false">
+      <v-btn color="info" small v-bind="attrs" @click="showPolicy">
         More info
       </v-btn>
-      <v-btn
-        color="primary ml-3"
-        small
-        v-bind="attrs"
-        @click="snackbar = false"
-      >
+      <v-btn color="primary ml-3" small v-bind="attrs" @click="acceptPolicy">
         Accept
       </v-btn>
     </template>
@@ -27,9 +22,28 @@
 export default {
   data() {
     return {
-      snackbar: true,
+      snackbar: false,
       text: `We use cookies to give you the best user experience.`,
     }
+  },
+  mounted() {
+    if (!this.$cookies.get('accepted')) {
+      this.snackbar = true
+    } else {
+      this.snackbar = false
+    }
+  },
+  methods: {
+    showPolicy() {
+      this.$router.push('/policy/cookies')
+    },
+    acceptPolicy() {
+      this.snackbar = false
+      this.$cookies.set('accepted', true, {
+        path: '/',
+        maxAge: 60 * 60 * 24 * 7,
+      })
+    },
   },
 }
 </script>
