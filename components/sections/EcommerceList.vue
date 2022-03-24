@@ -1,60 +1,59 @@
 <template>
-  <section id="service_list">
-    <v-row no-gutters>
-      <v-container class="py-8">
-        <h2
-          class="text-uppercase text-h4 text-md-h4 text-center font-weight-black mt-16"
-        >
-          Make your business
-        </h2>
-        <p class="secondary--text mt-6">
-          E-commerce today unites many branches of business. Distribution,
-          advertising, promotion, sale of services or goods via the Internet is
-          the subject of electronic commerce. Our specialists will help you
-          create an architectures and turn your business project into reality.
-        </p>
-      </v-container>
-      <v-col
-        v-for="(scope, index) in scopes"
-        :key="scope.name"
-        cols="12"
-        :class="
-          $vuetify.theme.dark
-            ? index % 2 == 0
-              ? 'grey darken-4'
-              : ''
-            : index % 2 == 0
-            ? 'grey lighten-2 '
-            : ''
-        "
+  <article id="service_list">
+    <v-container class="py-8">
+      <h2
+        class="text-uppercase text-h4 text-md-h4 text-center font-weight-black mt-16"
       >
-        <v-container class="py-8">
-          <div v-if="index % 2 == 0" class="d-flex flex-column flex-sm-row">
-            <div class="text__wrapper mb-4">
-              <h3
-                class="text__tittle text-uppercase text-center font-weight-black mt-1 mb-4"
-                :class="scope.name == 'B2B2C' ? 'text-h2' : 'text-h1'"
-                style="letter-spacing: 0.15em"
-                v-text="scope.name"
-              ></h3>
-            </div>
-            <div>{{ scope.text }}</div>
+        Make your business
+      </h2>
+      <p class="secondary--text mt-6">
+        E-commerce today unites many branches of business. Distribution,
+        advertising, promotion, sale of services or goods via the Internet is
+        the subject of electronic commerce. Our specialists will help you create
+        an architectures and turn your business project into reality.
+      </p>
+    </v-container>
+    <section
+      v-for="(scope, index) in scopes"
+      :key="scope.name"
+      cols="12"
+      :class="
+        $vuetify.theme.dark
+          ? index % 2 == 0
+            ? 'grey darken-4'
+            : ''
+          : index % 2 == 0
+          ? 'grey lighten-2 '
+          : ''
+      "
+    >
+      <v-container class="py-8">
+        <div v-if="index % 2 == 0" class="d-flex flex-column flex-sm-row">
+          <div class="text__wrapper mb-4">
+            <h3
+              class="text__tittle text-uppercase text-center font-weight-black mt-1 mb-4"
+              :class="scope.name == 'B2B2C' ? 'text-h2' : 'text-h1'"
+              style="letter-spacing: 0.15em"
+              v-text="scope.name"
+            ></h3>
           </div>
+          <div>{{ scope.text }}</div>
+        </div>
 
-          <div v-if="index % 2 !== 0" class="d-flex flex-column flex-sm-row">
-            <div>{{ scope.text }}</div>
-            <div class="text__wrapper mt-4">
-              <h3
-                class="text__tittle text-uppercase text-center font-weight-black mt-1 mb-4"
-                :class="scope.name == 'B2B2C' ? 'text-h2' : 'text-h1'"
-                style="letter-spacing: 0.15em"
-                v-text="scope.name"
-              ></h3>
-            </div>
-          </div> </v-container
-      ></v-col>
-    </v-row>
-  </section>
+        <div v-if="index % 2 !== 0" class="d-flex flex-column flex-sm-row">
+          <div>{{ scope.text }}</div>
+          <div class="text__wrapper mt-4">
+            <h3
+              class="text__tittle text-uppercase text-center font-weight-black mt-1 mb-4"
+              :class="scope.name == 'B2B2C' ? 'text-h2' : 'text-h1'"
+              style="letter-spacing: 0.15em"
+              v-text="scope.name"
+            ></h3>
+          </div>
+        </div>
+      </v-container>
+    </section>
+  </article>
 </template>
 <script>
 export default {

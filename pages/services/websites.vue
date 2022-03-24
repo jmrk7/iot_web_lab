@@ -1,14 +1,14 @@
 <template>
-  <section id="mobile">
+  <article id="mobile">
     <SectionsHeroAlt :hero-alt="heroAlt" />
     <SectionsWebsitesTypeList />
-  </section>
+  </article>
 </template>
 <script>
 export default {
-  //   async fetch({ store }) {
-  //     await store.dispatch('ecommerce/fetchEcommerceScopes')
-  //   },
+  async fetch({ store }) {
+    await store.dispatch('websites/fetchWebsitesTypes')
+  },
   data() {
     return {
       heroAlt: [

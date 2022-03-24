@@ -51,29 +51,12 @@ export default {
   data() {
     return {
       properties: '60px',
-      technologies: [
-        { name: 'Ethereum', icon: '/services/blockchain/ethereum.svg' },
-        { name: 'Parity', icon: '/services/blockchain/parity.svg' },
-        { name: 'Hyperledger Fabric', icon: '/services/blockchain/hlf.svg' },
-        {
-          name: 'Hyperledger Sawtooth',
-          icon: '/services/blockchain/hyperledger-sawtooth.svg',
-        },
-        {
-          name: 'Hyperledger Indy',
-          icon: '/services/blockchain/hyperledger-indy.svg',
-        },
-        { name: 'EOS', icon: '/services/blockchain/eosio.svg' },
-        { name: 'Corda R3', icon: '/services/blockchain/icon-r3.svg' },
-        { name: 'Stellar', icon: '/services/blockchain/stellar-seeklogo.svg' },
-        { name: 'Exonum', icon: '/services/blockchain/icon-exonum.svg' },
-        {
-          name: 'Multichain',
-          icon: '/services/blockchain/icon-multichain.svg',
-        },
-        { name: 'NXT', icon: '/services/blockchain/icon-nxt.svg' },
-      ],
     }
+  },
+  computed: {
+    technologies() {
+      return this.$store.getters['blockchain/technologies']
+    },
   },
 }
 </script>

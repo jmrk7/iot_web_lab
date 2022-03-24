@@ -13,11 +13,11 @@
               <div class="image__wrapper">
                 <img width="100px" :src="item.src" dark />
               </div>
-              <h6
-                class="text-uppercase text-center mt-1 mb-4"
+              <h4
+                class="text-uppercase body-2 text-center mt-1 mb-4"
                 style="letter-spacing: 0.15em"
                 v-text="item.name"
-              ></h6>
+              ></h4>
             </v-col> </v-row></v-container
       ></v-col>
     </v-row>
@@ -25,31 +25,10 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      clouds: [
-        {
-          name: 'Oracle Blockchain Cloud Service',
-          src: '/services/oracle.png',
-        },
-        {
-          name: 'IBM Blockchain Platform',
-          src: '/services/ibm2.png',
-        },
-        {
-          name: 'Azure Blockchain Workbench',
-          src: '/services/azure2.png',
-        },
-        {
-          name: 'Amazon Managed Blockchain',
-          src: '/services/aws2.png',
-        },
-        {
-          name: 'Google Cloud Platform',
-          src: '/services/google2.png',
-        },
-      ],
-    }
+  computed: {
+    clouds() {
+      return this.$store.getters['blockchain/clouds']
+    },
   },
 }
 </script>

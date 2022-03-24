@@ -23,14 +23,11 @@
             solve or help you work out all the technical requirements that are
             necessary to host your application.
           </p>
-          <v-row class="my-5">
-            <v-col
+          <ul class="my-5 d-flex flex-column flex-sm-row">
+            <li
               v-for="tech in technologies"
               :key="tech.name"
-              cols="12"
-              sm="4"
-              xl="4"
-              class="font-weight-black py-2"
+              class="font-weight-black mx-auto py-2"
             >
               <div class="d-flex flex-column">
                 <div class="custom__item">
@@ -45,8 +42,8 @@
                   />
                 </div>
               </div>
-            </v-col>
-          </v-row> </v-container
+            </li>
+          </ul> </v-container
       ></v-col>
     </v-row>
   </section>
@@ -71,6 +68,13 @@ export default {
 }
 </script>
 <style scoped>
+ul,
+li {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+  list-style: none;
+}
 .custom__item {
   width: fit-content;
   justify-self: center;

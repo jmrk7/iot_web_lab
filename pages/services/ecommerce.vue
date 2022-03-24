@@ -1,8 +1,8 @@
 <template>
-  <section id="ecommerce">
+  <article id="ecommerce">
     <SectionsHeroAlt :hero-alt="heroAlt" />
     <SectionsEcommerceList />
-  </section>
+  </article>
 </template>
 <script>
 export default {
