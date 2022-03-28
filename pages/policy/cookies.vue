@@ -38,6 +38,22 @@ export default {
           heading: 'Cookies Policy',
         },
       ],
+      article: {
+        title: 'Cookies Policy',
+        description: 'Cookies policy on IOT WEBLAB',
+      },
+    }
+  },
+  head() {
+    return {
+      title: this.article.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.article.description,
+        },
+      ],
     }
   },
 }

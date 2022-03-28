@@ -36,6 +36,7 @@
               <img
                 class="image_item"
                 :src="item.url_img ? item.url_img : 'projects/default.png'"
+                :alt="item.name + ' logo'"
               />
             </div>
             <div class="d-flex flex-column flex-sm-row mx-auto body-2">
@@ -160,10 +161,37 @@ export default {
   async fetch({ store }) {
     await store.dispatch('projects/fetchProjects')
   },
+  data() {
+    return {
+      article: {
+        title: 'Projects',
+        description:
+          'You can see the list of our projects. We can develop any solution for you. ',
+        keywords: ['projects', 'development', 'example'],
+      },
+    }
+  },
   computed: {
     projects() {
       return this.$store.getters['projects/projects']
     },
+  },
+  head() {
+    return {
+      title: this.article.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.article.description,
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: this.article.keywords.join(),
+        },
+      ],
+    }
   },
 }
 </script>

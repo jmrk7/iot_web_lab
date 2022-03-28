@@ -98,7 +98,7 @@
               :href="socialm.link"
               target="_blank"
             >
-              <v-icon>{{ socialm.icon }}</v-icon>
+              <v-icon :alt="socialm.platform">{{ socialm.icon }}</v-icon>
             </v-btn>
           </div>
         </v-col>
