@@ -17,6 +17,36 @@ export default {
           heading: 'Websites',
         },
       ],
+      article: {
+        title: 'Websites',
+        description:
+          'Creation of websites. Qualified approach to website development. Sites of any complexity.',
+        keywords: [
+          'website',
+          'development',
+          'landing',
+          'internet',
+          'marketing',
+        ],
+      },
+    }
+  },
+
+  head() {
+    return {
+      title: this.article.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.article.description,
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: this.article.keywords.join(),
+        },
+      ],
     }
   },
 }

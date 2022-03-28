@@ -20,6 +20,30 @@ export default {
           heading: ' Block Chain Development ',
         },
       ],
+      article: {
+        title: 'Blockchain developing',
+        description:
+          'Blockchain development, integration of your project into cloud services. Integration blockchain tools into your application.',
+        keywords: ['blockchain', 'developing', 'clouds', 'services', 'tools'],
+      },
+    }
+  },
+
+  head() {
+    return {
+      title: this.article.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.article.description,
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: this.article.keywords.join(),
+        },
+      ],
     }
   },
 }

@@ -21,6 +21,7 @@
                 <img
                   class="image_item"
                   :src="item.url_img ? item.url_img : 'default.png'"
+                  :alt="item.name + ' logo'"
                 />
               </div>
               <div class="col-12 col-sm-8">

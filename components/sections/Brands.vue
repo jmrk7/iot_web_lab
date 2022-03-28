@@ -30,7 +30,11 @@
                   width="140"
                   flat
                 >
-                  <a :href="item.url" target="blanc">
+                  <a
+                    :href="item.url"
+                    target="blanc"
+                    class="body-1 font-weight-black text-center grey--text mt-2"
+                  >
                     <v-img
                       height="90"
                       contain
