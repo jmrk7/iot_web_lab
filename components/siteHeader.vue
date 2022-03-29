@@ -117,10 +117,6 @@ export default {
           to: '/services',
           submenu: [
             {
-              title: 'Services Page',
-              to: '/services',
-            },
-            {
               title: 'Websites',
               to: '/services/websites',
             },
