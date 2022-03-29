@@ -132,21 +132,31 @@
               </div>
             </div>
             <div class="mt-8">
-              <div v-if="item.urls" class="d-flex">
-                <div
-                  v-for="url in item.urls"
-                  :key="url"
-                  class="v-btn v-btn--outlined theme--light v-size--default primary--text example__link"
+              <div class="d-flex">
+                <a
+                  :href="item.urls[0]"
+                  target="_blank"
+                  class="v-btn v-btn--outlined v-size--default primary--text example__link"
+                  :class="
+                    $vuetify.theme.dark ? '' : ' black--text text--darken-2'
+                  "
                 >
-                  <a
-                    :href="url"
-                    :class="
-                      $vuetify.theme.dark ? '' : ' black--text text--darken-2'
-                    "
-                  >
-                    More
-                  </a>
-                </div>
+                  Site
+                </a>
+                <v-btn
+                  v-if="item.urls.length > 1"
+                  class="v-btn v-btn--outlined v-size--default secondary--text example__link fs-11"
+                  :class="
+                    $vuetify.theme.dark ? '' : ' black--text text--darken-2'
+                  "
+                  @click="showLinks = !showLinks"
+                  >Other links</v-btn
+                >
+              </div>
+            </div>
+            <div v-if="showLinks" class="px-4">
+              <div v-for="url in item.urls" :key="url">
+                <a :href="url" target="_blank">{{ url }}</a>
               </div>
             </div>
           </v-container>
@@ -163,6 +173,7 @@ export default {
   },
   data() {
     return {
+      showLinks: false,
       article: {
         title: 'Projects',
         description:
@@ -208,15 +219,13 @@ li {
 }
 .example__link {
   width: 100px !important;
+  background-color: inherit !important;
   &:not(:last-child) {
     margin-right: 20px;
   }
   display: flex;
-  a {
-    margin: auto;
-    text-decoration: none;
-    font-weight: 700;
-    color: white;
-  }
+}
+.fs-11 {
+  font-size: 11px;
 }
 </style>

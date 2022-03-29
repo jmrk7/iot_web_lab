@@ -1,18 +1,15 @@
 import { FETCH_HERO_ITEMS } from '@/graphql/gql/hero/types'
-import axios from 'axios'
+import { hasura } from '@/axios'
 
 export const actions = {
   async fetchHeroCaruselItems({ commit }, data) {
-    const result = await axios({
-      url: 'http://localhost:8080/v1/graphql/',
-      method: 'post',
+    const result = await hasura({
       data: {
         query: FETCH_HERO_ITEMS(data),
       },
     })
-
-    if (result.data.data?.hero_carusel_item) {
-      commit('SET_HERO_CARUSEL_ITEMS', result.data.data.hero_carusel_item)
+    if (result.hero_carusel_item) {
+      commit('SET_HERO_CARUSEL_ITEMS', result.hero_carusel_item)
     } else {
       throw new Error("CANN'T SET_SCOPES in action 'solution'")
     }

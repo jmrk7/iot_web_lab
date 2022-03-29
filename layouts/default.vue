@@ -21,6 +21,13 @@ export default {
     footerTop,
     siteFooter,
   },
+  created() {
+    if (this.$cookies.get('theme') && this.$cookies.get('theme') === 'dark') {
+      this.$vuetify.theme.dark = true
+    } else {
+      this.$vuetify.theme.dark = false
+    }
+  },
   head() {
     return {
       // script: [

@@ -1,17 +1,15 @@
 import { FETCH_WEBSITES_TYPES } from '@/graphql/gql/websites/types'
-import axios from 'axios'
+import { hasura } from '@/axios'
 
 export const actions = {
   async fetchWebsitesTypes({ commit }, data) {
-    const result = await axios({
-      url: 'http://localhost:8080/v1/graphql/',
-      method: 'post',
+    const result = await hasura({
       data: {
         query: FETCH_WEBSITES_TYPES(data),
       },
     })
-    if (result.data.data?.websites_types) {
-      commit('SET_WEBSITES_TYPES', result.data.data.websites_types)
+    if (result.websites_types) {
+      commit('SET_WEBSITES_TYPES', result.websites_types)
     } else {
       throw new Error("CANN'T SET_WEBSITES_TYPES in action 'websites'")
     }

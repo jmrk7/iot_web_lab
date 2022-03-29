@@ -1,17 +1,14 @@
 import { GET_PROJECTS } from '@/graphql/gql/projects/types'
-import axios from 'axios'
+import { hasura } from '@/axios'
 
 export const actions = {
   async fetchProjects({ commit }) {
-    const result = await axios({
-      url: 'http://localhost:8080/v1/graphql/',
-      method: 'post',
+    const result = await hasura({
       data: {
         query: GET_PROJECTS,
       },
     })
-
-    commit('SET_PROJECTS', result.data.data.projects)
+    commit('SET_PROJECTS', result.projects)
   },
 }
 

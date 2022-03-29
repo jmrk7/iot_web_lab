@@ -973,6 +973,9 @@ COPY public.technologies (id, title, svg) FROM stdin;
 22	React	icon/tech/react.svg
 23	Redux	icon/tech/redux.svg
 24	Vue	icon/tech/vue.svg
+25	Quasar	icon/tech/quasar.svg
+26	Angular	icon/tech/angular.svg
+27	React Native	icon/tech/react-native.svg
 \.
 
 

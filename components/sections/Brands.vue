@@ -32,7 +32,7 @@
                 >
                   <a
                     :href="item.url"
-                    target="blanc"
+                    target="_blank"
                     class="body-1 font-weight-black text-center grey--text mt-2"
                   >
                     <v-img

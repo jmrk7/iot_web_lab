@@ -2,7 +2,7 @@
   <section id="hero">
     <v-carousel
       height="calc(100vh - 64px)"
-      dark
+      :light="$vuetify.theme.dark ? false : true"
       cycle
       show-arrows-on-hover
       draggable="true"
@@ -15,7 +15,14 @@
         class="gradient-fill"
       >
         <v-container fill-height>
-          <div style="max-width: 600px">
+          <div
+            style="max-width: 600px"
+            :class="
+              $vuetify.theme.dark
+                ? 'grey--text text--lighten-3'
+                : 'grey--text text--darken-3'
+            "
+          >
             <h2 class="text-md-h2 mb-3 text-sm-h3 text-h5 font-weight-black">
               {{ carousel.heading.toUpperCase() }}
             </h2>
@@ -64,12 +71,20 @@ export default {
 </script>
 
 <style>
-.gradient-fill .v-responsive__content {
+.theme--dark .gradient-fill .v-responsive__content {
   background: rgb(0, 0, 0);
   background: linear-gradient(
     to right,
     rgba(3, 12, 41, 0.75),
     rgba(5, 11, 31, 0.65)
+  );
+}
+.theme--light .gradient-fill .v-responsive__content {
+  background: rgb(211, 211, 211);
+  background: linear-gradient(
+    to right,
+    rgba(211, 211, 211, 0.75),
+    rgba(211, 211, 211, 0.65)
   );
 }
 </style>
