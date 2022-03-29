@@ -163,11 +163,8 @@ export default {
   },
   methods: {
     changeThemeColor() {
-      if (this.$vuetify.theme.dark === true) {
-        this.$vuetify.theme.dark = false
-      } else {
-        this.$vuetify.theme.dark = true
-      }
+      this.$vuetify.theme.dark = !this.$vuetify.theme.dark
+      this.$cookies.set('theme', this.$vuetify.theme.dark ? 'dark' : 'light')
     },
   },
 }

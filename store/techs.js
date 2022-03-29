@@ -1,18 +1,15 @@
 import { FETCH_TECHS } from '@/graphql/gql/techs/types'
-import axios from 'axios'
+import { hasura } from '@/axios'
 
 export const actions = {
   async fetchTechs({ commit }, data) {
-    const result = await axios({
-      url: 'http://localhost:8080/v1/graphql/',
-      method: 'post',
+    const result = await hasura({
       data: {
         query: FETCH_TECHS(data),
       },
     })
-
-    if (result.data.data?.technologies) {
-      commit('SET_TECHS', result.data.data.technologies)
+    if (result.technologies) {
+      commit('SET_TECHS', result.technologies)
     } else {
       throw new Error("CANN'T SET_SCOPES in action 'solution'")
     }

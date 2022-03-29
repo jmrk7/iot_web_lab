@@ -1,18 +1,15 @@
 import { FETCH_ECOMMERCE_SCOPES } from '@/graphql/gql/ecommerce/types'
-import axios from 'axios'
+import { hasura } from '@/axios'
 
 export const actions = {
   async fetchEcommerceScopes({ commit }, data) {
-    const result = await axios({
-      url: 'http://localhost:8080/v1/graphql/',
-      method: 'post',
+    const result = await hasura({
       data: {
         query: FETCH_ECOMMERCE_SCOPES(data),
       },
     })
-
-    if (result.data.data?.ecommerce_scope) {
-      commit('SET_ECOMMERCE_SCOPES', result.data.data.ecommerce_scope)
+    if (result.ecommerce_scope) {
+      commit('SET_ECOMMERCE_SCOPES', result.ecommerce_scope)
     } else {
       throw new Error("CANN'T SET_ECOMMERCE_SCOPES in action 'ecommerce'")
     }
