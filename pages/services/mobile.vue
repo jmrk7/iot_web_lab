@@ -7,6 +7,9 @@
 </template>
 <script>
 export default {
+  async fetch({ store }) {
+    await store.dispatch('meta/fetchMetaTags', this.name)
+  },
   data() {
     return {
       heroAlt: [
@@ -15,30 +18,10 @@ export default {
           heading: 'Mobile Application',
         },
       ],
-      article: {
-        title: 'Mobile Application',
-        description:
-          'Mobile app development and PWA. Integration of your application into popular stores.',
-        keywords: ['mobile', 'application', 'develop', 'store', 'tools'],
-      },
     }
   },
   head() {
-    return {
-      title: this.article.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.article.description,
-        },
-        {
-          hid: 'keywords',
-          name: 'keywords',
-          content: this.article.keywords.join(),
-        },
-      ],
-    }
+    return this.makeCurrentMeta(this.$store.getters['meta/meta'])
   },
 }
 </script>

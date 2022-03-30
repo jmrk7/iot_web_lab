@@ -8,6 +8,7 @@
 export default {
   async fetch({ store }) {
     await store.dispatch('ecommerce/fetchEcommerceScopes')
+    await store.dispatch('meta/fetchMetaTags', this.name)
   },
   data() {
     return {
@@ -17,38 +18,11 @@ export default {
           heading: 'Ecommerce and Store',
         },
       ],
-      article: {
-        title: 'E-commerce',
-        description:
-          'Development of electronic commerce, Creation of online stores, development of application software for your business.',
-        keywords: [
-          'e-commerce',
-          'develop',
-          'development',
-          'shop',
-          'b2b',
-          'b2c',
-        ],
-      },
     }
   },
 
   head() {
-    return {
-      title: this.article.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.article.description,
-        },
-        {
-          hid: 'keywords',
-          name: 'keywords',
-          content: this.article.keywords.join(),
-        },
-      ],
-    }
+    return this.makeCurrentMeta(this.$store.getters['meta/meta'])
   },
 }
 </script>

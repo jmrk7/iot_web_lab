@@ -11,6 +11,7 @@ export default {
   async fetch({ store }) {
     await store.dispatch('blockchain/fetchTechnologies')
     await store.dispatch('blockchain/fetchClouds')
+    await store.dispatch('meta/fetchMetaTags', this.name)
   },
   data() {
     return {
@@ -20,31 +21,11 @@ export default {
           heading: ' Block Chain Development ',
         },
       ],
-      article: {
-        title: 'Blockchain developing',
-        description:
-          'Blockchain development, integration of your project into cloud services. Integration blockchain tools into your application.',
-        keywords: ['blockchain', 'developing', 'clouds', 'services', 'tools'],
-      },
     }
   },
 
   head() {
-    return {
-      title: this.article.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.article.description,
-        },
-        {
-          hid: 'keywords',
-          name: 'keywords',
-          content: this.article.keywords.join(),
-        },
-      ],
-    }
+    return this.makeCurrentMeta(this.$store.getters['meta/meta'])
   },
 }
 </script>

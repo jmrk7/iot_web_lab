@@ -1,17 +1,18 @@
 import { FETCH_SCOPES } from '@/graphql/gql/solution/types'
 import { hasura } from '@/axios'
+import { errorHandler } from './helpers/helper'
 
 export const actions = {
   async fetchScopeAreas({ commit }, data) {
-    const result = await hasura({
+    const response = await hasura({
       data: {
         query: FETCH_SCOPES(data),
       },
     })
-    if (result.scope_area) {
-      commit('SET_SCOPES', result.scope_area)
+    if (response.scope_area) {
+      commit('SET_SCOPES', response.scope_area)
     } else {
-      throw new Error("CANN'T SET_SCOPES in action 'solution'")
+      errorHandler('SET_SCOPES', 'solution')
     }
   },
 }

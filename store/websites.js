@@ -1,17 +1,18 @@
 import { FETCH_WEBSITES_TYPES } from '@/graphql/gql/websites/types'
 import { hasura } from '@/axios'
+import { errorHandler } from './helpers/helper'
 
 export const actions = {
   async fetchWebsitesTypes({ commit }, data) {
-    const result = await hasura({
+    const response = await hasura({
       data: {
         query: FETCH_WEBSITES_TYPES(data),
       },
     })
-    if (result.websites_types) {
-      commit('SET_WEBSITES_TYPES', result.websites_types)
+    if (response.websites_types) {
+      commit('SET_WEBSITES_TYPES', response.websites_types)
     } else {
-      throw new Error("CANN'T SET_WEBSITES_TYPES in action 'websites'")
+      errorHandler('SET_WEBSITES_TYPES', 'websites')
     }
   },
 }

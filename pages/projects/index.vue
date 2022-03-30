@@ -21,7 +21,7 @@
           <v-container class="d-flex flex-column" fill-height>
             <div>
               <h2
-                :class="$vuetify.theme.dark ? '' : ' grey--text text--darken-2'"
+                :class="{ ' grey--text text--darken-2': !$vuetify.theme.dark }"
                 class="font-weight-black text-center text-uppercase"
               >
                 {{ item.name }}
@@ -42,21 +42,19 @@
             <div class="d-flex flex-column flex-sm-row mx-auto body-2">
               <div v-if="item.solution" class="mt-6 mr-6">
                 <h4
-                  :class="
-                    $vuetify.theme.dark ? '' : ' grey--text text--darken-2'
-                  "
+                  :class="{
+                    ' grey--text text--darken-2': !$vuetify.theme.dark,
+                  }"
                   class="mb-1 font-weight-black text-center text-uppercase mb-3"
                 >
                   Solution:
                 </h4>
                 <div
-                  :class="
-                    $vuetify.theme.dark ? '' : ' grey--text text--darken-2'
-                  "
+                  :class="{ ' grey--text text--darken-2': $vuetify.theme.dark }"
                 >
                   <span
-                    v-for="solution in item.solution"
-                    :key="solution"
+                    v-for="(solution, index) in item.solution"
+                    :key="solution + '_' + index"
                     class="mb-8 font-italic text--secondary font-weight-regular body-2"
                   >
                     {{ solution }},
@@ -66,22 +64,22 @@
 
               <div v-if="item.challenge" class="mt-6 mr-6">
                 <div
-                  :class="
-                    $vuetify.theme.dark ? '' : ' grey--text text--darken-2'
-                  "
+                  :class="{
+                    ' grey--text text--darken-2': !$vuetify.theme.dark,
+                  }"
                 >
                   <h4
-                    :class="
-                      $vuetify.theme.dark ? '' : ' grey--text text--darken-2'
-                    "
+                    :class="{
+                      ' grey--text text--darken-2': !$vuetify.theme.dark,
+                    }"
                     class="mb-1 font-weight-black text-center text-uppercase mb-3"
                   >
                     Challenge:
                   </h4>
                   <template v-if="item.challenge">
                     <span
-                      v-for="challenge in item.challenge"
-                      :key="challenge"
+                      v-for="(challenge, index) in item.challenge"
+                      :key="challenge + '_' + index"
                       class="text-left body-2 text--secondary"
                     >
                       {{ challenge }},
@@ -92,17 +90,17 @@
 
               <div v-if="item.integrations">
                 <h4
-                  :class="
-                    $vuetify.theme.dark ? '' : ' grey--text text--darken-2'
-                  "
+                  :class="{
+                    ' grey--text text--darken-2': !$vuetify.theme.dark,
+                  }"
                   class="mb-1 font-weight-black text-uppercase mb-3"
                 >
                   Intagrations with:
                 </h4>
                 <div>
                   <span
-                    v-for="integrations in item.integrations"
-                    :key="integrations"
+                    v-for="(integrations, index) in item.integrations"
+                    :key="integrations + '_' + index"
                   >
                     {{ integrations }},
                   </span>
@@ -111,17 +109,17 @@
             </div>
             <div v-if="item.technologies" class="mt-8">
               <h4
-                :class="$vuetify.theme.dark ? '' : ' grey--text text--darken-2'"
+                :class="{ ' grey--text text--darken-2': !$vuetify.theme.dark }"
                 class="mb-1 font-weight-black text-center text-uppercase mb-3"
               >
                 Technologies:
               </h4>
               <div
-                :class="$vuetify.theme.dark ? '' : ' grey--text text--darken-4'"
+                :class="{ ' grey--text text--darken-4': !$vuetify.theme.dark }"
               >
                 <span
-                  v-for="technologies in item.technologies"
-                  :key="technologies"
+                  v-for="(technologies, index) in item.technologies"
+                  :key="technologies + '_' + index"
                   class="font-weight-bold text-uppercase text-left body-2"
                   :class="
                     $vuetify.theme.dark ? 'text--secondary' : ' black--text'
@@ -137,25 +135,25 @@
                   :href="item.urls[0]"
                   target="_blank"
                   class="v-btn v-btn--outlined v-size--default primary--text example__link"
-                  :class="
-                    $vuetify.theme.dark ? '' : ' black--text text--darken-2'
-                  "
+                  :class="{
+                    ' black--text text--darken-2': !$vuetify.theme.dark,
+                  }"
                 >
                   Site
                 </a>
                 <v-btn
                   v-if="item.urls.length > 1"
                   class="v-btn v-btn--outlined v-size--default secondary--text example__link fs-11"
-                  :class="
-                    $vuetify.theme.dark ? '' : ' black--text text--darken-2'
-                  "
+                  :class="{
+                    ' black--text text--darken-2': !$vuetify.theme.dark,
+                  }"
                   @click="showLinks = !showLinks"
                   >Other links</v-btn
                 >
               </div>
             </div>
             <div v-if="showLinks" class="px-4">
-              <div v-for="url in item.urls" :key="url">
+              <div v-for="(url, index) in item.urls" :key="url + '_' + index">
                 <a :href="url" target="_blank">{{ url }}</a>
               </div>
             </div>
@@ -170,16 +168,12 @@
 export default {
   async fetch({ store }) {
     await store.dispatch('projects/fetchProjects')
+    await store.dispatch('meta/fetchMetaTags', this.name)
   },
+
   data() {
     return {
       showLinks: false,
-      article: {
-        title: 'Projects',
-        description:
-          'You can see the list of our projects. We can develop any solution for you. ',
-        keywords: ['projects', 'development', 'example'],
-      },
     }
   },
   computed: {
@@ -188,21 +182,7 @@ export default {
     },
   },
   head() {
-    return {
-      title: this.article.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.article.description,
-        },
-        {
-          hid: 'keywords',
-          name: 'keywords',
-          content: this.article.keywords.join(),
-        },
-      ],
-    }
+    return this.makeCurrentMeta(this.$store.getters['meta/meta'])
   },
 }
 </script>

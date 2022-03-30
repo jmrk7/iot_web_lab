@@ -23,40 +23,11 @@ export default {
     await store.dispatch('projects/fetchProjects')
     await store.dispatch('solution/fetchScopeAreas')
     await store.dispatch('techs/fetchTechs')
+    await store.dispatch('meta/fetchMetaTags', this.name)
   },
-  data() {
-    return {
-      article: {
-        title: 'Web Development',
-        description:
-          'IOT WEBLAB specializes in web development and application software development. Our specialists can help you solve your business problems.',
-        keywords: [
-          'development',
-          'blockchain',
-          'mobile',
-          'website',
-          'solution',
-          'technologies',
-        ],
-      },
-    }
-  },
+
   head() {
-    return {
-      title: this.article.title,
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.article.description,
-        },
-        {
-          hid: 'keywords',
-          name: 'keywords',
-          content: this.article.keywords.join(),
-        },
-      ],
-    }
+    return this.makeCurrentMeta(this.$store.getters['meta/meta'])
   },
 }
 </script>

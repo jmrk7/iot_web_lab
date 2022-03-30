@@ -7,7 +7,7 @@
       <v-row>
         <v-col cols="12" sm="4" align-self="center">
           <h3
-            :class="$vuetify.theme.dark ? 'grey--text' : null"
+            :class="{ 'grey--text': $vuetify.theme.dark }"
             class="text-h4 text-center font-weight-light mb-xs-4"
           >
             OUR PARTNERS
@@ -46,7 +46,7 @@
               </v-slide-item>
               <v-responsive
                 v-if="index < partners.length - 1"
-                :key="index"
+                :key="'partner_' + index"
                 height="50"
                 class="my-auto"
               >

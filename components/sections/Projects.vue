@@ -27,9 +27,9 @@
               <div class="col-12 col-sm-8">
                 <div style="max-width: 700px" class="mx-auto body-2">
                   <h3
-                    :class="
-                      $vuetify.theme.dark ? '' : ' grey--text text--darken-2'
-                    "
+                    :class="{
+                      ' grey--text text--darken-2': $vuetify.theme.dark,
+                    }"
                     class="mb-1 font-weight-black text-center text-uppercase"
                   >
                     {{ item.name }}
@@ -42,15 +42,13 @@
                   <v-row>
                     <v-col v-if="item.solution" cols="12">
                       <div
-                        :class="
-                          $vuetify.theme.dark
-                            ? ''
-                            : ' grey--text text--darken-2'
-                        "
+                        :class="{
+                          ' grey--text text--darken-2': !$vuetify.theme.dark,
+                        }"
                       >
                         <span
-                          v-for="solution in item.solution"
-                          :key="solution"
+                          v-for="(solution, index) in item.solution"
+                          :key="solution + '_' + index"
                           class="mb-8 font-italic text--secondary font-weight-regular body-2"
                         >
                           {{ solution }},
@@ -61,16 +59,14 @@
                   <v-row>
                     <v-col v-if="item.challenge">
                       <div
-                        :class="
-                          $vuetify.theme.dark
-                            ? ''
-                            : ' grey--text text--darken-2'
-                        "
+                        :class="{
+                          ' grey--text text--darken-2': !$vuetify.theme.dark,
+                        }"
                       >
                         <template v-if="item.challenge">
                           <span
-                            v-for="challenge in item.challenge"
-                            :key="challenge"
+                            v-for="(challenge, index) in item.challenge"
+                            :key="challenge + '_' + index"
                             class="text-left body-2 text--secondary"
                           >
                             {{ challenge }},
@@ -82,25 +78,21 @@
                   <v-row>
                     <v-col v-if="item.technologies">
                       <h4
-                        :class="
-                          $vuetify.theme.dark
-                            ? ''
-                            : ' grey--text text--darken-2'
-                        "
+                        :class="{
+                          ' grey--text text--darken-2': !$vuetify.theme.dark,
+                        }"
                         class="mb-1 font-weight-black text-center text-uppercase mb-3"
                       >
                         Technologies:
                       </h4>
                       <div
-                        :class="
-                          $vuetify.theme.dark
-                            ? ''
-                            : ' grey--text text--darken-4'
-                        "
+                        :class="{
+                          ' grey--text text--darken-2': !$vuetify.theme.dark,
+                        }"
                       >
                         <span
-                          v-for="technologies in item.technologies"
-                          :key="technologies"
+                          v-for="(technologies, index) in item.technologies"
+                          :key="technologies + '_' + index"
                           class="font-weight-bold text-uppercase text-left body-2"
                           :class="
                             $vuetify.theme.dark
@@ -114,19 +106,17 @@
                     </v-col>
                     <v-col v-if="item.integrations">
                       <h4
-                        :class="
-                          $vuetify.theme.dark
-                            ? ''
-                            : ' grey--text text--darken-2'
-                        "
+                        :class="{
+                          ' grey--text text--darken-2': !$vuetify.theme.dark,
+                        }"
                         class="mb-1 font-weight-black text-uppercase mb-3"
                       >
                         Intagrations with:
                       </h4>
                       <div>
                         <span
-                          v-for="integrations in item.integrations"
-                          :key="integrations"
+                          v-for="(integrations, index) in item.integrations"
+                          :key="integrations + '_' + index"
                         >
                           {{ integrations }},
                         </span>
@@ -140,22 +130,18 @@
                           :href="item.urls[0]"
                           target="_blank"
                           class="v-btn v-btn--outlined v-size--default primary--text example__link"
-                          :class="
-                            $vuetify.theme.dark
-                              ? ''
-                              : ' black--text text--darken-2'
-                          "
+                          :class="{
+                            ' grey--text text--darken-2': !$vuetify.theme.dark,
+                          }"
                         >
                           Site
                         </a>
                         <v-btn
                           v-if="item.urls.length > 1"
                           class="v-btn v-btn--outlined v-size--default secondary--text example__link fs-11"
-                          :class="
-                            $vuetify.theme.dark
-                              ? ''
-                              : ' black--text text--darken-2'
-                          "
+                          :class="{
+                            ' grey--text text--darken-2': !$vuetify.theme.dark,
+                          }"
                           @click="showLinks = !showLinks"
                           >Other links</v-btn
                         >
@@ -165,7 +151,7 @@
                 </div>
               </div>
               <div v-if="showLinks" class="px-4">
-                <div v-for="url in item.urls" :key="url">
+                <div v-for="(url, index) in item.urls" :key="url + '_' + index">
                   <a :href="url" target="_blank">{{ url }}</a>
                 </div>
               </div>

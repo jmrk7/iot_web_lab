@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export const hasura = axios.create({
-  baseURL: `http://localhost:8080/v1/graphql/`,
+  baseURL: process.env.HASURA_SERVER_HOST,
   method: 'POST',
 })
 
@@ -15,7 +15,7 @@ hasura.interceptors.response.use(
 )
 
 export const email = axios.create({
-  baseURL: `http://localhost:7000/public/send_mail.php`,
+  baseURL: process.env.EMAIL_SERVER_HOST,
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
