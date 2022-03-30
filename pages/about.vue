@@ -126,6 +126,9 @@
 
 <script>
 export default {
+  async fetch({ store }) {
+    await store.dispatch('meta/fetchMetaTags', this.name)
+  },
   data() {
     return {
       heroAlt: [
@@ -202,17 +205,7 @@ export default {
     }
   },
   head() {
-    return {
-      title: 'About Us',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Infographic hypotheses influencer user experience Long madel ture gen-z paradigm shift client partner network product seilans solve management influencer analytics leverage virality. incubator seed round massmarket. buyer agile development growth hacking business-to-consumer ecosystem',
-        },
-      ],
-    }
+    return this.makeCurrentMeta(this.$store.getters['meta/meta'])
   },
 }
 </script>

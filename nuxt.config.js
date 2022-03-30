@@ -33,7 +33,7 @@ export default {
   ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ['~/plugins/mixin'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   // components: true,
@@ -59,7 +59,10 @@ export default {
   axios: {
     
   },
-
+  env: {
+    HASURA_SERVER_HOST: process.env.HASURA_SERVER_HOST,
+    EMAIL_SERVER_HOST: process.env.EMAIL_SERVER_HOST
+  },
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     customVariables: ['~/assets/variables.scss'],

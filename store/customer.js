@@ -3,38 +3,37 @@ import {
   FETCH_REQUEST_BY_EMAIL,
 } from '@/graphql/gql/customer/types'
 import { hasura, email } from '@/axios'
+import { errorHandler } from './helpers/helper'
 
 export const actions = {
   async insertCustomerRequest({ commit }, data) {
-    const result = await hasura({
+    const response = await hasura({
       data: {
         query: INSERT_REQUEST(data),
       },
     })
-    if (result.insert_customer_requests_one.id) {
-      return result.insert_customer_requests_one.id
+    if (response.insert_customer_requests_one.id) {
+      return response.insert_customer_requests_one.id
     } else {
-      throw new Error("Can't insert message to DB")
+      errorHandler('inserrt message to db', 'customer')
     }
   },
 
   async sendCustomerRequestToMail({ commit }, data) {
-    const result = await email({
+    return await email({
       data: JSON.stringify(data),
     })
-
-    return result
   },
 
   async fetchCustomerRequestByEamil({ commit }, data) {
-    const result = await hasura({
+    const response = await hasura({
       data: {
         query: FETCH_REQUEST_BY_EMAIL(data),
       },
     })
 
-    if (result.customer_requests.length > 0) {
-      return result.customer_requests[0]
+    if (response.customer_requests.length > 0) {
+      return response.customer_requests[0]
     } else {
       return null
     }

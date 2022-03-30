@@ -3,30 +3,31 @@ import {
   FETCH_BLOCKCHAIN_CLOUDS,
 } from '@/graphql/gql/blockchain/types'
 import { hasura } from '@/axios'
+import { errorHandler } from './helpers/helper'
 
 export const actions = {
   async fetchTechnologies({ commit }, data) {
-    const result = await hasura({
+    const response = await hasura({
       data: {
         query: FETCH_BLOCKCHAIN_TECHNOLOGIES(data),
       },
     })
-    if (result.blockchain_technologies) {
-      commit('SET_BLOCKCHAIN_TECHNOLOGIES', result.blockchain_technologies)
+    if (response.blockchain_technologies) {
+      commit('SET_BLOCKCHAIN_TECHNOLOGIES', response.blockchain_technologies)
     } else {
-      throw new Error("CANN'T SET_ECOMMERCE_SCOPES in action 'blockchain'")
+      errorHandler('SET_ECOMMERCE_SCOPES', 'blockchain')
     }
   },
   async fetchClouds({ commit }, data) {
-    const result = await hasura({
+    const response = await hasura({
       data: {
         query: FETCH_BLOCKCHAIN_CLOUDS(data),
       },
     })
-    if (result.blockchain_clouds) {
-      commit('SET_BLOCKCHAIN_CLOUDS', result.blockchain_clouds)
+    if (response.blockchain_clouds) {
+      commit('SET_BLOCKCHAIN_CLOUDS', response.blockchain_clouds)
     } else {
-      throw new Error("CANN'T SET_BLOCKCHAIN_CLOUDS in action 'blockchain'")
+      errorHandler('SET_BLOCKCHAIN_CLOUDS', 'blockchain')
     }
   },
 }

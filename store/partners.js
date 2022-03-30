@@ -3,12 +3,12 @@ import { hasura } from '@/axios'
 
 export const actions = {
   async fetchPartners({ commit }) {
-    const result = await hasura({
+    const { partners } = await hasura({
       data: {
         query: GET_PARTNERS,
       },
     })
-    commit('SET_PARTNERS', result.partners)
+    commit('SET_PARTNERS', partners)
   },
 }
 
