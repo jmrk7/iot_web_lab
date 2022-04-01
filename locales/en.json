@@ -1,0 +1,343 @@
+{
+    "policy":{ 
+        "text": [
+            "Cookies are small text files. Websites send cookies to those who visit them ('users'). They are stored on the computer's hard drive, which allows the website to recognize users and store some information about them in order to provide or improve the service they offer. This applies to the user's personal computer as well as any other device that the user may use to visit the website.",
+            "There are different types of cookies. Some of them are necessary for users to browse the site, others have other purposes, such as providing internal security, performing system administration tasks, performing statistical analysis, understanding which sections of the website are most important to users, or allowing personalization. site visit. The site only uses technical cookies, while it does not use any of the so-called consumer profiling cookies. Technical cookies are cookies used exclusively for the transmission of messages over an electronic communications network. They are strictly required by the service provider if the subscriber or user has explicitly requested the service. They are not used for any other purpose and are usually set by the owner or operator of the website.",
+            "They can be divided into browsing cookies, also called session cookies, which guarantee the correct browsing and use of the website (for example, allow you to make a purchase or authenticate to access restricted areas); analytical cookies, similar to technical cookies, are used directly by the site operator to collect information about the number of users and how they actually visit the site; functional cookies that allow the user to browse according to selected criteria (for example, by language or by products selected for purchase) in order to improve the service. Disabling cookies may limit your ability to use a particular website, preventing you from taking full advantage of certain features and services on the Site. The user can decide what to accept or reject. A description of the cookies used on this Site is provided below.",
+            "First-party cookies: First-party cookies (cookies that actually belong to the publisher's site that created them) are set by the website visited by the user whose address appears in the URL bar. The use of these cookies allows us to effectively manage the site and track visitor behavior. Third Party Cookies. Third party cookies are set by a different domain, except for single user visits. If a user visits a site and another company sends information using that site, we have so-called 'third party cookies'. So-called 'session cookies' are stored only temporarily. They are actually removed when the user closes the browser.",
+            "Once one person is registered on the Site, cookies may be used to collect personal data to identify the user on subsequent visits, and to facilitate login and access to the site (for example, storing your username and password) and navigating such same. Taxileader.net also uses cookies for system administration. The Site may contain links to other sites. Taxileader.net does not have access to or control over cookies, web beacons and any other tracking technologies used on third party sites that the user can access from the site itself. Taxileader.net does not control the availability of any content and materials published or obtained through such sites and the procedures they use when processing personal data. Taxileader.net, given the number of such third party websites, expressly disclaims all liability.",
+            "You should always check the privacy policies of third party sites available from the Site for the terms and conditions applicable to the processing of personal data, as Taxileader.net's 'Privacy Policy' applies only to the Site, as defined above.",
+            "Persistent cookies: Persistent cookies are stored on the user's device between browser pages, allowing the user to remember settings or actions on the site. They can be used for a variety of purposes, such as remembering preferences and choices when using the site.",
+            "Essential cookies: These cookies are essential for the website to function properly. Without them, some parts of the site will not work. For example, they include cookies that provide access to secure areas of the Site. These cookies do not collect information for marketing purposes and cannot be disabled.",
+            "Functional cookies: these cookies are used to recognize the user who returns to the site again. They allow you to customize content and remember your preferences (such as your chosen language or area). These cookies do not collect information that can identify the user. All information collected is anonymous."
+        ],
+        "heroAlt": [
+            {
+            "src": "pexels-ekaterina-bolovtsova-4048767.jpg",
+            "heading": "Cookies Policy"
+            }
+        ]
+    },
+    "projects": {
+        "heroAlt": [
+            {
+            "src": "pexels-ekaterina-bolovtsova-4048767.jpg",
+            "heading": "Projects"
+            }
+        ]
+    },
+    "blockchain": {
+        "heroAlt": [
+            {
+              "src": "pexels-ekaterina-bolovtsova-4048767.jpg",
+              "heading": "Block Chain Development"
+            }
+          ]
+    },
+    "ecommerce": {
+        "heroAlt": [
+            {
+              "src": "pexels-ekaterina-bolovtsova-4048767.jpg",
+              "heading": "Ecommerce and Store"
+            }
+          ]
+    },
+    "mobile": {
+        "heroAlt": [
+            {
+              "src": "pexels-ekaterina-bolovtsova-4048767.jpg",
+              "heading": "Mobile Application"
+            }
+          ]
+    }, 
+    "websites": {
+        "heroAlt": [
+            {
+              "src": "pexels-ekaterina-bolovtsova-4048767.jpg",
+              "heading": "Websites"
+            }
+          ]
+    },
+    "contact": {
+        "heroAlt": [
+            {
+              "src": "pexels-andrea-piacquadio-3830745.jpg",
+              "heading": "Contact Us"
+            }
+          ],
+        "our-office": "Our Office",
+        "address": "ADDRESS",
+        "index": "01032",
+        "street": "Klovski Descent 7A",
+        "city": "Kyiv, Ukraine", 
+        "email": {
+            "title": "EMAIL",
+            "first": "info@iotwlab.com",
+            "second": "support@iotwlab.com"
+        },
+        "business-time": {
+            "title": "Business Hours",
+            "week-main": "MONDAY to FRIDAY",
+            "time-main": "9am to 5pm",
+            "week-additional":"SATURDAY",
+            "time-additional": "9am to 2pm",
+            "holidays": "SUNDAY",
+            "status-closed": "Closed"
+        },
+        "title": "Contact Us",
+        "descripotion": "Do you have or are you planning your business? Please, feel free to write to us. We will help you find the best solution for organizing your business. We will provide the necessary consultations. You can send us your project or layout and our specialists will evaluate and prepare solutions for your business project."
+    },
+
+    "about":{
+      "title": "Who we are?",
+      "subtitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "about": "IOT WEB LAB, LLC is a digital solution development company as well as an exclusive developers' network. We partner up with companies to build something amazing we scale up your team with real seniors for short or long-term projects. We have software developers, project managers, QA testers and product designers available to start working with you now. We are a 'remote first' company with talents mostly from Europe/East-Europe/USA. We are well-suited to small, agile projects for lean and start up businesses as well as to extend a team of an enterprise with 100% senior developers with fluent english.",
+      "top-description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "bottom-description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "blockquote": "…Lorem Ipsum proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis",
+      "vision": {
+        "title": "Our Vision",
+        "subtitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium. Doloremque laudantium, totam rem aperiam."
+      },
+      "mission": {
+        "title": "Our Mission",
+        "subtitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium. Doloremque laudantium, totam rem aperiam."
+      },
+      "heroAlt": [
+        {
+          "src": "pexels-moose-photos-1036641.jpg",
+          "heading": "About Us"
+        }
+      ]  
+    },
+
+    "sections": {
+        "blockchainClouds":{
+            "title": "We will help to integrate your prodject into services"
+        },
+        "blockchainServicesList": {
+            "title":"Find your service",
+            "services": [
+                "Product design workshop",
+                "Public blockchain network integration",
+                "Permissioned and Permissionless blockchain development",
+                "Distributed applications (DApps) development",
+                "Smart Contracts development and audit within a project scope",
+                "Hybrid centralized systems development with blockchain components",
+                "Blockchain technology consulting",
+                "Proof of Concept design workshop",
+                "Proof of Concept development",
+                "Private and permissioned blockchain development",
+                "Consortium networks",
+                "Integrating blockchain into legacy infrastructure",
+                "Migrating to blockchain infrastructure",
+                "Public blockchain networks integration",
+                "Blockchain technology consulting"
+              ]
+        },
+        "blockchainTechnologies": {
+            "title": "We will help to integrate technologies or any tools into your project."
+        },
+        "brands": {
+            "title": "OUR PARTNERS"
+        },
+        "contactForm": {
+            "labels": {
+                "name": "Name *",
+                "email": "Email *",
+                "subject": "Subject *",
+                "message": "Your Message *"
+
+            },
+            "submit": "SEND MESSAGE",
+            "clear": "Clear"
+        },
+        "ecommerceList":{
+            "title": "Make your business",
+            "description": "E-commerce today unites many branches of business. Distribution, advertising, promotion, sale of services or goods via the Internet is the subject of electronic commerce. Our specialists will help you create an architectures and turn your business project into reality."
+        },
+        "features": {
+            "title": "Blockchain Development",
+            "description": "Explore the world of secure, scalable, and interoperable decentralized applications with our end-to-end blockchain development services. We help enterprises leverage the power of blockchain technologies and solutions to achieve next-level transparency and automation in their business processes.",
+            "cards": [
+                {
+                  "title": "Cryptocurrency",
+                  "subtitle": "Best Productivity",
+                  "callout": "01"
+                },
+                {
+                  "title": "Smart Contract",
+                  "subtitle": "Special Offers",
+                  "callout": "02"
+                },
+                {
+                  "title": "NFT",
+                  "subtitle": "Income Flow",
+                  "callout": "03"
+                }
+            ]
+        },
+        "footerContactForm": {
+            "labels": {
+                "name": "Name *",
+                "email": "Email *",
+                "link": "Link",
+                "subject": "Subject *",
+                "message": "Your Message *"
+
+            },
+            "submit": "SEND MESSAGE"
+        },
+        "intro": {
+            "title": "IoT Digital Solution",
+            "subtitle": "BUILDING HIGH QUALITY SOFTWARE AND SCALING TEAMS ON DEMAND",
+            "descripotion": "We have a wide experience and we will help you find the solution youneed in any business area.",
+            "title-list": "We help you with:"
+        },
+        "mobileStores": {
+            "title": "Make your application accessible.",
+            "description": "One of the important tasks today is the integration of applications into mobile platforms. The ability to provide access to your services through mobile devices is one of the tasks in which we are ready to help you. Our experts will help you both in creating an application and integrating it to any of the popular stores. We will solve or help you work out all the technical requirements that are necessary to host your application.",
+            "technologies": [
+                { "name": "Apple Store", "icon": "/services/mobile/apple.svg" },
+                { "name": "Google Play", "icon": "/services/mobile/gplay.svg" },
+                { "name": "Galaxy Store", "icon": "/services/mobile/galaxy.svg" }
+            ]
+        }, 
+        "mobileWellcome":{
+            "title-first": "Mobile applications priority",
+            "title-second": "Make business accessible from your smartphone",
+            "title-in-img-top": "Priority Mobile Developing",
+            "title-in-img-down": "Best of mobile solutiions",
+            "about": "Smartphones and other mobile devices have not only become part of our daily lives, they are a complete offer of us. With the help of mobile phones, we not only communicate with each other, but also order goods from stores, buy tickets, book accommodation, call a taxi, use phones as navigators, photo and video cameras, readers, online banks, and just as a way to have fun and pass time. According to statistics published in Datareportal, 67% of adults worldwide use smartphones daily, which is almost 5.19 billion people (out of a total population of 7.75 billion). The trend towards the transition from simple mobile devices to feature-rich smartphones is only increasing every year. It is assumed that in the near future a person will be directly connected with his smartphone, that is, all functions and all information from our gadgets will directly enter our brain. And while many inventors are working on it, people are wasting their time on seemingly useless apps like a low-frequency mosquito repeller, a watermelon ripeness indicator, a bubble wrap simulator, or an app that visually transforms a smartphone screen into a glass of beer. In short, the relevance of mobile application development is growing not only every year, but also every month. Hundreds of new mobile apps are released online every day. It would seem difficult to come up with something new, but good developments in collaboration with good marketing can bring a lot of money to the creator, a clear confirmation of this is the recently sensational TikTok, whose ratings continue to grow at lightning speed."
+        },
+        "projects": {
+            "title": "Projects"
+        },
+        "technologies": {
+            "title": "Technologies"
+        },
+        "websitesTypeList": {
+            "title": "Create your website",
+            "benefits-title": "Benefits:",
+            "btn-text-anchor": "Get Start"
+        },
+        "timeline": {
+          "title": "Our Journey",
+          "default-description": "Lorem ipsum dolor sit amet, no nam oblique veritus. Commune scaevola imperdiet nec ut, sed euismod convenire principes at. Est et nobis iisque percipit, an vim zril disputando voluptatibus, vix an salutandi sententiae."
+        },
+        "testimonials": {
+          "title": "Customer Reviews"
+        },
+        "team": {
+          "title": "Our Core Team",
+          "description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat."
+        }
+
+    },
+    "components": {
+        "footerTop": {
+            "address": {
+                "title":"ADDRESS",
+                "index": "01032",
+                "street": "Klovski Descent 7A",
+                "city": "Kyiv, Ukraine"
+            },
+            "email": {
+                "title": "EMAIL",
+                "first": "info@iotwlab.com",
+                "second": "support@iotwlab.com"
+            },
+            "business-time": {
+                "title": "Business Hours",
+                "week-main": "MONDAY to FRIDAY",
+                "time-main": "9am to 5pm",
+                "week-additional":"SATURDAY",
+                "time-additional": "9am to 2pm",
+                "holidays": "SUNDAY",
+                "status-closed": "Closed"
+            },
+            "social":[
+              {
+                "platform": "Linkedin",
+                "link": "https://www.linkedin.com/company/iotweblab",
+                "icon": "mdi-linkedin"
+              },
+              {
+                "platform": "Github",
+                "link": "https://github.com/iotweblab",
+                "icon": "mdi-github"
+              },
+              {
+                "platform": "Telegram",
+                "link": "https://t.me/iotweblab",
+                "icon": "icon-telegram"
+              }
+            ],
+            "title": "SEND YOUR MESSAGE",
+            "descripotion": "Do you have or are you planning your business? Please, feel free to write to us. We will help you find the best solution for organizing your business. We will provide the necessary consultations. You can send us your project or layout and our specialists will evaluate and prepare solutions for your business project."
+        },
+        "notification":{
+            "more": "More info",
+            "accert": "Accept" 
+        },
+        "siteFooter": {
+            "menu": [
+                { "text": "Support", "link": "contact" },
+                { "text": "Contact Us", "link": "contact" },
+                { "text": "Disclaimer", "link": "#" },
+                { "text": "Covid-19 Operation", "link": "#" }
+              ]
+        }, 
+        "siteHeader": {
+
+        }
+    },
+    "routes":  [
+        {
+          "icon": "mdi-folder-home-outline",
+          "title": "Home",
+          "to": "/"
+        },
+        {
+          "icon": "mdi-account",
+          "title": "About",
+          "to": "/about"
+        },
+        {
+          "icon": "mdi-tools",
+          "title": "Services",
+          "to": "/services",
+          "submenu": [
+            {
+              "title": "Websites",
+              "to": "/services/websites"
+            },
+            {
+              "title": "Mobile Applications",
+              "to": "/services/mobile"
+            },
+            {
+              "title": "Ecommerce and Store",
+              "to": "/services/ecommerce"
+            },
+            {
+              "title": "Block Chain Devemopment",
+              "to": "/services/blockchain"
+            }
+          ]
+        },
+        {
+          "icon": "mdi-cash-usd",
+          "title": "Projects",
+          "to": "/projects"
+        },
+
+        {
+          "icon": "mdi-contacts",
+          "title": "Contact",
+          "to": "/contact"
+        }
+    ]
+}

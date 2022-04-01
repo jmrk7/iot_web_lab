@@ -2,7 +2,11 @@
   <div>
     <v-navigation-drawer v-model="drawer" fixed app temporary>
       <v-list dense>
-        <v-list-item-group v-for="(item, i) in items" :key="i" color="primary">
+        <v-list-item-group
+          v-for="(item, i) in $t('routes')"
+          :key="i"
+          color="primary"
+        >
           <v-list-item v-if="!item.submenu" :to="item.to">
             <v-list-item-action>
               <v-icon>{{ item.icon }}</v-icon>
@@ -40,7 +44,7 @@
       </nuxt-link>
       <v-spacer />
 
-      <template v-for="(name, menuitem) in items">
+      <template v-for="(name, menuitem) in $t('routes')">
         <template v-if="name.submenu">
           <v-menu
             :key="menuitem"
@@ -100,61 +104,6 @@ export default {
     return {
       clipped: false,
       drawer: false,
-      items: [
-        {
-          icon: 'mdi-folder-home-outline',
-          title: 'Home',
-          to: '/',
-        },
-        {
-          icon: 'mdi-account',
-          title: 'About',
-          to: '/about',
-        },
-        {
-          icon: 'mdi-tools',
-          title: 'Services',
-          to: '/services',
-          submenu: [
-            {
-              title: 'Websites',
-              to: '/services/websites',
-            },
-            {
-              title: 'Mobile Applications',
-              to: '/services/mobile',
-            },
-            {
-              title: 'Ecommerce and Store',
-              to: '/services/ecommerce',
-            },
-            {
-              title: 'Block Chain Devemopment',
-              to: '/services/blockchain',
-            },
-          ],
-        },
-        {
-          icon: 'mdi-cash-usd',
-          title: 'Projects',
-          to: '/projects',
-        },
-        // {
-        //   icon: 'mdi-folder-image',
-        //   title: 'Gallery',
-        //   to: '/gallery',
-        // },
-        // {
-        //   icon: 'mdi-blogger',
-        //   title: 'Blog',
-        //   to: '/blog',
-        // },
-        {
-          icon: 'mdi-contacts',
-          title: 'Contact',
-          to: '/contact',
-        },
-      ],
     }
   },
   methods: {

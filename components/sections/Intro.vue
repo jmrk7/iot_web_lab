@@ -6,10 +6,10 @@
           <v-icon x-large dark>mdi-web</v-icon>
         </v-avatar>
         <h2 class="text-h4 text-md-h3 text-center font-weight-black mb-7">
-          IoT Digital Solution <br />
+          {{ $t('sections.intro.title') }} <br />
         </h2>
         <p class="title font-weight-light">
-          BUILDING HIGH QUALITY SOFTWARE AND SCALING TEAMS ON DEMAND
+          {{ $t('sections.intro.subtitle') }}
           <!-- <strong>Vue.js</strong>
           and
           <strong>Nuxt.js</strong>, it comes with the features you need to
@@ -17,10 +17,9 @@
         </p>
       </v-responsive>
       <p>
-        We have a wide experience and we will help you find the solution you
-        need in any business area.
+        {{ $t('sections.intro.descripotion') }}
       </p>
-      <h3>We help you with:</h3>
+      <h3>{{ $t('sections.intro.title-list') }}</h3>
       <v-row v-show="galleryIsShow" class="pt-12">
         <v-col v-for="card in cards" :key="card.title" cols="12" md="4">
           <div class="d-flex pa-3 industy__block" @click="viewDeteils(card)">

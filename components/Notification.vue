@@ -9,10 +9,10 @@
 
     <template v-slot:action="{ attrs }">
       <v-btn color="info" small v-bind="attrs" @click="showPolicy">
-        More info
+        {{ $t('components.notification.more') }}
       </v-btn>
       <v-btn color="primary ml-3" small v-bind="attrs" @click="acceptPolicy">
-        Accept
+        {{ $t('components.notification.accert') }}
       </v-btn>
     </template>
   </v-snackbar>

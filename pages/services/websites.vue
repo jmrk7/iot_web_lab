@@ -1,6 +1,6 @@
 <template>
   <article id="mobile">
-    <SectionsHeroAlt :hero-alt="heroAlt" />
+    <SectionsHeroAlt :hero-alt="$t('websites.heroAlt')" />
     <SectionsWebsitesTypeList />
   </article>
 </template>
@@ -10,17 +10,6 @@ export default {
     await store.dispatch('websites/fetchWebsitesTypes')
     await store.dispatch('meta/fetchMetaTags', this.name)
   },
-  data() {
-    return {
-      heroAlt: [
-        {
-          src: 'pexels-ekaterina-bolovtsova-4048767.jpg',
-          heading: 'Websites',
-        },
-      ],
-    }
-  },
-
   head() {
     return this.makeCurrentMeta(this.$store.getters['meta/meta'])
   },

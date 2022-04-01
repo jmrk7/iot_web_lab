@@ -53,8 +53,20 @@ export default {
   // Modules (https://go.nuxtjs.dev/config-modules)
   modules: [
     '@nuxtjs/axios',
+    '@nuxtjs/i18n', 
     'cookie-universal-nuxt',
   ],
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
+    vueI18n:{
+
+      fallbackLocale: 'en',
+      messages: {
+         en: require('./locales/en.json'),
+      }}
+    
+  },
 
   axios: {
     

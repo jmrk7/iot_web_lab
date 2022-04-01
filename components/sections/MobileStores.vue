@@ -9,23 +9,17 @@
           <h3
             class="text-uppercase text-h4 text-md-h4 text-center font-weight-black ma-16"
           >
-            Make your application accessible.
+            {{ $t('sections.mobileStores.title') }}
           </h3>
           <p
             class="grey--text text--lighten-2"
             :class="$vuetify.theme.dark ? 'text--lighten-2' : 'text--darken-2'"
           >
-            One of the important tasks today is the integration of applications
-            into mobile platforms. The ability to provide access to your
-            services through mobile devices is one of the tasks in which we are
-            ready to help you. Our experts will help you both in creating an
-            application and integrating it to any of the popular stores. We will
-            solve or help you work out all the technical requirements that are
-            necessary to host your application.
+            {{ $t('sections.mobileStores.description') }}
           </p>
           <ul class="my-5 d-flex flex-column flex-sm-row">
             <li
-              v-for="tech in technologies"
+              v-for="tech in $t('sections.mobileStores.technologies')"
               :key="tech.name"
               class="font-weight-black mx-auto py-2"
             >
@@ -58,11 +52,6 @@ export default {
     return {
       propertiesWidth: '200px',
       propertiesHeight: '100px',
-      technologies: [
-        { name: 'Apple Store', icon: '/services/mobile/apple.svg' },
-        { name: 'Google Play', icon: '/services/mobile/gplay.svg' },
-        { name: 'Galaxy Store', icon: '/services/mobile/galaxy.svg' },
-      ],
     }
   },
 }

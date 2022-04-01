@@ -5,9 +5,8 @@
     class="py-16"
   >
     <h2 class="text-h4 text-md-h3 text-center font-weight-black mb-2 my-2">
-      Technologies
+      {{ $t('sections.technologies.title') }}
     </h2>
-
     <v-row class="pa-12">
       <v-col
         v-for="tech in techs"

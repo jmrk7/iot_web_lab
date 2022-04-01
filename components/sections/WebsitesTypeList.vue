@@ -10,7 +10,7 @@
     <h2
       class="primary text-uppercase text-h4 text-md-h3 text-center font-weight-black py-16"
     >
-      Create your website
+      {{ $t('sections.websitesTypeList.title') }}
     </h2>
     <ul>
       <li
@@ -57,7 +57,7 @@
               <h4
                 class="text-uppercase text-h6 text-md-h5 font-weight-black my-4"
               >
-                Benefits:
+                {{ $t('sections.websitesTypeList.benefits-title') }}
               </h4>
               <div v-for="fit in item.benefits" :key="fit">
                 <v-icon v-if="!$vuetify.theme.dark" light left>
@@ -86,7 +86,7 @@
                     })
                   "
                 >
-                  Get Start
+                  {{ $t('sections.websitesTypeList.btn-text-anchor') }}
                 </v-btn>
               </div>
             </v-col>

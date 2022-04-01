@@ -10,7 +10,7 @@
             :class="{ 'grey--text': $vuetify.theme.dark }"
             class="text-h4 text-center font-weight-light mb-xs-4"
           >
-            OUR PARTNERS
+            {{ $t('sections.brands.title') }}
           </h3>
         </v-col>
         <v-col cols="12" sm="8">

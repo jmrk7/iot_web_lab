@@ -24,14 +24,18 @@
                       </v-list-item-icon>
 
                       <v-list-item-content>
-                        <v-list-item-title>ADDRESS</v-list-item-title>
-                        <v-list-item-subtitle>01032</v-list-item-subtitle>
+                        <v-list-item-title>{{
+                          $t('components.footerTop.address.title')
+                        }}</v-list-item-title>
+                        <v-list-item-subtitle>{{
+                          $t('components.footerTop.address.index')
+                        }}</v-list-item-subtitle>
                         <v-list-item-subtitle>
-                          Klovski Descent 7A
+                          {{ $t('components.footerTop.address.street') }}
                         </v-list-item-subtitle>
-                        <v-list-item-subtitle
-                          >Kyiv, Ukraine</v-list-item-subtitle
-                        >
+                        <v-list-item-subtitle>{{
+                          $t('components.footerTop.address.city')
+                        }}</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                   </div>
@@ -42,13 +46,15 @@
                       </v-list-item-icon>
 
                       <v-list-item-content>
-                        <v-list-item-title>EMAIL</v-list-item-title>
-                        <v-list-item-subtitle
-                          >info@iotwlab.com</v-list-item-subtitle
-                        >
-                        <v-list-item-subtitle
-                          >support@iotwlab.com</v-list-item-subtitle
-                        >
+                        <v-list-item-title>{{
+                          $t('components.footerTop.email.title')
+                        }}</v-list-item-title>
+                        <v-list-item-subtitle>{{
+                          $t('components.footerTop.email.first')
+                        }}</v-list-item-subtitle>
+                        <v-list-item-subtitle>{{
+                          $t('components.footerTop.email.second')
+                        }}</v-list-item-subtitle>
                       </v-list-item-content>
                     </v-list-item>
                   </div>
@@ -74,22 +80,19 @@
         </v-col> -->
         <v-col cols="12" md="12" class="pt-2">
           <div v-show="isFooterShow">
-            <h3 class="mb-6 text--primary text-center">SEND YOUR MESSAGE</h3>
+            <h3 class="mb-6 text--primary text-center">
+              {{ $t('components.footerTop.title') }}
+            </h3>
             <v-col cols="12">
               <p class="text-justify">
-                Do you have or are you planning your business? Please, feel free
-                to write to us. We will help you find the best solution for
-                organizing your business. We will provide the necessary
-                consultations. You can send us your project or layout and our
-                specialists will evaluate and prepare solutions for your
-                business project.
+                {{ $t('components.footerTop.descripotion') }}
               </p>
             </v-col>
             <footerContactForm />
           </div>
           <div class="d-flex justify-center mt-5">
             <v-btn
-              v-for="(socialm, i) in social"
+              v-for="(socialm, i) in $t('components.footerTop.social')"
               :key="`social-${i}`"
               class="d-flex"
               icon
@@ -115,44 +118,12 @@ export default {
   },
   data() {
     return {
-      social: [
-        // {
-        //   platform: 'Facebook',
-        //   link: 'https://www.facebook.com/',
-        //   icon: 'mdi-facebook',
-        // },
-        // {
-        //   platform: 'Twitter',
-        //   link: 'https://twitter.com/',
-        //   icon: 'mdi-twitter',
-        // },
-        // {
-        //   platform: 'Instagram',
-        //   link: 'https://www.instagram.com/',
-        //   icon: 'mdi-instagram',
-        // },
-        {
-          platform: 'Linkedin',
-          link: 'https://www.linkedin.com/company/iotweblab',
-          icon: 'mdi-linkedin',
-        },
-        {
-          platform: 'Github',
-          link: 'https://github.com/iotweblab',
-          icon: 'mdi-github',
-        },
-        {
-          platform: 'Telegram',
-          link: 'https://t.me/iotweblab',
-          icon: 'icon-telegram',
-        },
-      ],
       isFooterShow: true,
     }
   },
   watch: {
     $route() {
-      if (this.$router.history.current.name === 'contact') {
+      if (this.$router.history.current.path === '/contact') {
         this.isFooterShow = false
       } else {
         this.isFooterShow = true
@@ -160,7 +131,7 @@ export default {
     },
   },
   mounted() {
-    if (this.$router.history.current.name === 'contact') {
+    if (this.$router.history.current.path === '/contact') {
       this.isFooterShow = false
     }
   },

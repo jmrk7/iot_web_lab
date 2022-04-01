@@ -6,7 +6,7 @@
           <h3
             class="text-uppercase text-h6 text-md-h5 text-center font-weight-black my-16"
           >
-            We will help to integrate your prodject into services
+            {{ $t('sections.blockchainClouds.title') }}
           </h3>
           <v-row>
             <v-col v-for="item in clouds" :key="item.name">
