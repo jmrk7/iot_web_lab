@@ -1,7 +1,7 @@
 <template>
   <section id="projects" class="py-16">
     <h2 class="text-h4 text-md-h3 text-center font-weight-black mb-16">
-      Projects
+      {{ $t('sections.projects.title') }}
     </h2>
     <v-carousel
       draggable="false"

@@ -3,6 +3,7 @@
     id="projects_page"
     :class="$vuetify.theme.dark ? 'grey darken-4' : 'grey lighten-4'"
   >
+    <SectionsHeroAlt :hero-alt="$t('projects.heroAlt')" />
     <ul>
       <template v-for="(item, index) in projects">
         <li

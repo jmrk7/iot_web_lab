@@ -1,7 +1,9 @@
 <template>
   <section id="timeline" class="py-16">
     <v-container>
-      <h2 class="text-h3 text-center font-weight-black mb-8">Our Journey</h2>
+      <h2 class="text-h3 text-center font-weight-black mb-8">
+        {{ $t('sections.timeline.title') }}
+      </h2>
       <template>
         <v-timeline>
           <v-timeline-item
@@ -25,10 +27,7 @@
               <div>
                 {{
                   year.description ||
-                  `Lorem ipsum dolor sit amet, no nam oblique veritus. Commune
-                scaevola imperdiet nec ut, sed euismod convenire principes at.
-                Est et nobis iisque percipit, an vim zril disputando
-                voluptatibus, vix an salutandi sententiae.`
+                  $t('sections.timeline.default-description')
                 }}
               </div>
             </div>
@@ -41,46 +40,10 @@
 
 <script>
 export default {
-  data() {
-    return {
-      years: [
-        {
-          color: 'cyan',
-          year: '2019',
-          title: 'Birthday',
-          decsription: `Lorem ipsum dolor sit amet, no nam oblique veritus. Commune
-                scaevola imperdiet nec ut, sed euismod convenire principes at.
-                Est et nobis iisque percipit, an vim zril disputando
-                voluptatibus, vix an salutandi sententiae.`,
-        },
-        {
-          color: 'green',
-          year: '2020',
-          title: '',
-          decsription: '',
-        },
-        {
-          color: 'pink',
-          year: '2021',
-          title: '',
-          decsription: '',
-        },
-        {
-          color: 'amber',
-          year: '2022',
-          title: '',
-          decsription: '',
-        },
-        // {
-        //   color: 'orange',
-        //   year: '2023',
-        // },
-        // {
-        //   color: 'teal',
-        //   year: '2024',
-        // },
-      ],
-    }
+  computed: {
+    years() {
+      return this.$store.getters['timeline/years']
+    },
   },
 }
 </script>

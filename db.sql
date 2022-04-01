@@ -431,6 +431,43 @@ ALTER SEQUENCE public.hero_carusel_item_id_seq OWNED BY public.hero_carusel_item
 
 
 --
+-- Name: meta_tags; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.meta_tags (
+    id integer NOT NULL,
+    title bpchar NOT NULL,
+    description text,
+    keywords json,
+    host bpchar NOT NULL
+);
+
+
+ALTER TABLE public.meta_tags OWNER TO postgres;
+
+--
+-- Name: meta_tags_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.meta_tags_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.meta_tags_id_seq OWNER TO postgres;
+
+--
+-- Name: meta_tags_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.meta_tags_id_seq OWNED BY public.meta_tags.id;
+
+
+--
 -- Name: partners; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -522,6 +559,43 @@ ALTER SEQUENCE public.projects_id_seq OWNED BY public.projects.id;
 
 
 --
+-- Name: reviews; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.reviews (
+    id integer NOT NULL,
+    avatar bpchar NOT NULL,
+    name bpchar NOT NULL,
+    post bpchar,
+    review text NOT NULL
+);
+
+
+ALTER TABLE public.reviews OWNER TO postgres;
+
+--
+-- Name: review_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.review_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.review_id_seq OWNER TO postgres;
+
+--
+-- Name: review_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.review_id_seq OWNED BY public.reviews.id;
+
+
+--
 -- Name: scope_area; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -568,6 +642,44 @@ ALTER SEQUENCE public.skopes_id_seq OWNED BY public.scope_area.id;
 
 
 --
+-- Name: team; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.team (
+    id integer NOT NULL,
+    name bpchar NOT NULL,
+    "position" bpchar NOT NULL,
+    phone bpchar,
+    email bpchar,
+    photo bpchar NOT NULL
+);
+
+
+ALTER TABLE public.team OWNER TO postgres;
+
+--
+-- Name: team_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.team_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.team_id_seq OWNER TO postgres;
+
+--
+-- Name: team_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.team_id_seq OWNED BY public.team.id;
+
+
+--
 -- Name: technologies; Type: TABLE; Schema: public; Owner: postgres
 --
 
@@ -600,6 +712,43 @@ ALTER TABLE public.technologies_id_seq OWNER TO postgres;
 --
 
 ALTER SEQUENCE public.technologies_id_seq OWNED BY public.technologies.id;
+
+
+--
+-- Name: timeline; Type: TABLE; Schema: public; Owner: postgres
+--
+
+CREATE TABLE public.timeline (
+    id integer NOT NULL,
+    color bpchar NOT NULL,
+    year bpchar NOT NULL,
+    title bpchar,
+    decsription text
+);
+
+
+ALTER TABLE public.timeline OWNER TO postgres;
+
+--
+-- Name: timeline_id_seq; Type: SEQUENCE; Schema: public; Owner: postgres
+--
+
+CREATE SEQUENCE public.timeline_id_seq
+    AS integer
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.timeline_id_seq OWNER TO postgres;
+
+--
+-- Name: timeline_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: postgres
+--
+
+ALTER SEQUENCE public.timeline_id_seq OWNED BY public.timeline.id;
 
 
 --
@@ -684,6 +833,13 @@ ALTER TABLE ONLY public.hero_carusel_item ALTER COLUMN id SET DEFAULT nextval('p
 
 
 --
+-- Name: meta_tags id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.meta_tags ALTER COLUMN id SET DEFAULT nextval('public.meta_tags_id_seq'::regclass);
+
+
+--
 -- Name: partners id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -698,6 +854,13 @@ ALTER TABLE ONLY public.projects ALTER COLUMN id SET DEFAULT nextval('public.pro
 
 
 --
+-- Name: reviews id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.reviews ALTER COLUMN id SET DEFAULT nextval('public.review_id_seq'::regclass);
+
+
+--
 -- Name: scope_area id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
@@ -705,10 +868,24 @@ ALTER TABLE ONLY public.scope_area ALTER COLUMN id SET DEFAULT nextval('public.s
 
 
 --
+-- Name: team id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.team ALTER COLUMN id SET DEFAULT nextval('public.team_id_seq'::regclass);
+
+
+--
 -- Name: technologies id; Type: DEFAULT; Schema: public; Owner: postgres
 --
 
 ALTER TABLE ONLY public.technologies ALTER COLUMN id SET DEFAULT nextval('public.technologies_id_seq'::regclass);
+
+
+--
+-- Name: timeline id; Type: DEFAULT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.timeline ALTER COLUMN id SET DEFAULT nextval('public.timeline_id_seq'::regclass);
 
 
 --
@@ -747,7 +924,7 @@ COPY hdb_catalog.hdb_cron_events (id, trigger_name, scheduled_time, status, trie
 --
 
 COPY hdb_catalog.hdb_metadata (id, metadata, resource_version) FROM stdin;
-1	{"sources":[{"kind":"postgres","name":"iotweblab","tables":[{"table":{"schema":"public","name":"blockchain_clouds"}},{"table":{"schema":"public","name":"blockchain_technologies"}},{"table":{"schema":"public","name":"customer_requests"}},{"table":{"schema":"public","name":"ecommerce_scope"}},{"table":{"schema":"public","name":"features"}},{"table":{"schema":"public","name":"hero_carusel_item"}},{"table":{"schema":"public","name":"partners"}},{"table":{"schema":"public","name":"projects"}},{"table":{"schema":"public","name":"scope_area"}},{"table":{"schema":"public","name":"technologies"}},{"table":{"schema":"public","name":"websites_types"}}],"configuration":{"connection_info":{"use_prepared_statements":false,"database_url":{"from_env":"PG_DATABASE_URL"},"isolation_level":"read-committed"}}}],"version":3}	32
+1	{"sources":[{"kind":"postgres","name":"iotweblab","tables":[{"table":{"schema":"public","name":"blockchain_clouds"}},{"table":{"schema":"public","name":"blockchain_technologies"}},{"table":{"schema":"public","name":"customer_requests"}},{"table":{"schema":"public","name":"ecommerce_scope"}},{"table":{"schema":"public","name":"features"}},{"table":{"schema":"public","name":"hero_carusel_item"}},{"table":{"schema":"public","name":"meta_tags"}},{"table":{"schema":"public","name":"partners"}},{"table":{"schema":"public","name":"projects"}},{"table":{"schema":"public","name":"reviews"}},{"table":{"schema":"public","name":"scope_area"}},{"table":{"schema":"public","name":"team"}},{"table":{"schema":"public","name":"technologies"}},{"table":{"schema":"public","name":"timeline"}},{"table":{"schema":"public","name":"websites_types"}}],"configuration":{"connection_info":{"use_prepared_statements":false,"database_url":{"from_env":"PG_DATABASE_URL"},"isolation_level":"read-committed"}}}],"version":3}	39
 \.
 
 
@@ -772,7 +949,7 @@ COPY hdb_catalog.hdb_scheduled_events (id, webhook_conf, scheduled_time, retry_c
 --
 
 COPY hdb_catalog.hdb_schema_notifications (id, notification, resource_version, instance_id, updated_at) FROM stdin;
-1	{"metadata":false,"remote_schemas":[],"sources":[]}	32	9afa1be0-4b8a-4cf8-8566-808b06bbd1b9	2022-03-01 13:56:20.993921+00
+1	{"metadata":false,"remote_schemas":[],"sources":[]}	39	91ea6954-b179-4642-bc99-753530628f72	2022-03-01 13:56:20.993921+00
 \.
 
 
@@ -896,6 +1073,23 @@ COPY public.hero_carusel_item (id, src, heading, "subHeading") FROM stdin;
 
 
 --
+-- Data for Name: meta_tags; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.meta_tags (id, title, description, keywords, host) FROM stdin;
+11	Web Development	IOT WEBLAB specializes in web development and application software development. Our specialists can help you solve your business problems.	["development","blockchain","mobile","website","solution","technologies"]	pages/index.vue
+3	Contact Us	Visit our office 01032 Klovski Descent 7A Kyiv, Ukraine, or send email to info@iotwlab.com, support@iotwlab.com	\N	pages/contact.vue
+2	About Us	IOT WEBLAB - outsourcing / outstaff company. Specializes in web application development	\N	pages/about.vue
+4	Projects	You can see the list of our projects. We can develop any solution for you. 	["projects","development","example"]	pages/projects/index.vue
+5	Cookies Policy	'Cookies policy on IOT WEBLAB	\N	pages/policy/cookies.vue
+7	E-commerce	Development of electronic commerce, Creation of online stores, development of application software for your business.	["e-commerce","develop","development","shop","b2b","b2c"]	pages/services/ecommerce.vue
+6	Blockchain development	Blockchain development, integration of your project into cloud services. Integration blockchain tools into your application.	["blockchain","developing","clouds","services","tools"]	pages/services/blockchain.vue
+9	Websites	Creation of websites. Qualified approach to website development. Sites of any complexity.	["website","development","landing","internet","marketing"]	pages/services/websites.vue
+8	Mobile Application	Mobile app development and PWA. Integration of your application into popular stores.	["mobile","application","develop","store","tools"]	pages/services/mobile.vue
+\.
+
+
+--
 -- Data for Name: partners; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -931,6 +1125,16 @@ COPY public.projects (id, description, challenge, solution, technologies, urls, 
 
 
 --
+-- Data for Name: reviews; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.reviews (id, avatar, name, post, review) FROM stdin;
+1	person-4.jpg	Mario Speedwagon	Creative Editor of ABC LTD	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam aspernatur, sint recusandae cum temporibus quos saepe repellendus consectetur et reprehenderit. Ratione ipsam consequuntur quo eligendi mollitia veniam facere possimus inventore.
+2	person-8.jpg	Petey Cruiser	CEO of Json LLC	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam aspernatur, sint recusandae cum temporibus quos saepe repellendus consectetur et reprehenderit. Ratione ipsam consequuntur quo eligendi mollitia veniam facere possimus inventore.
+\.
+
+
+--
 -- Data for Name: scope_area; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
@@ -941,6 +1145,17 @@ COPY public.scope_area (id, title, subtitle, tools, svg, description, collout) F
 4	Marketplace	Retail and wholesale	["Analysis and statistics tools","Implementation of E-commerce services","Development and launch of trading platforms and marketplaces","Development of plugins for popular marketplaces"]	icon/grocery-15.svg	\N	04
 3	Media	Digital technologies	["Media content tools","Billing systems","Implementation of communication services and voip tools","Software development for broadcasting systems"]	icon/play-button-svgrepo-com.svg	\N	03
 2	Marketing	Product promotion tools	["SEO-optimization","Social media tools","Analysis and content implementation","Contextual advertising tools","Tools for mailing and feedback"]	icon/1515442620.svg	\N	02
+\.
+
+
+--
+-- Data for Name: team; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.team (id, name, "position", phone, email, photo) FROM stdin;
+1	John Churchill	Marketing Director	+1 (987) 1625346	john@example.com	person-1.jpg
+2	Fiona\tRoss	Project Manager	+1 (987) 5894684	fiona@example.com	person-2.jpg
+3	Justin\tRees	VP Marketing	+1 (987) 6982456	justin@example.com	person-3.jpg
 \.
 
 
@@ -976,6 +1191,18 @@ COPY public.technologies (id, title, svg) FROM stdin;
 25	Quasar	icon/tech/quasar.svg
 26	Angular	icon/tech/angular.svg
 27	React Native	icon/tech/react-native.svg
+\.
+
+
+--
+-- Data for Name: timeline; Type: TABLE DATA; Schema: public; Owner: postgres
+--
+
+COPY public.timeline (id, color, year, title, decsription) FROM stdin;
+1	cyan	2019	Birthday	Lorem ipsum dolor sit amet, no nam oblique veritus. Commune                 scaevola imperdiet nec ut, sed euismod convenire principes at.                 Est et nobis iisque percipit, an vim zril disputando                 voluptatibus, vix an salutandi sententiae.
+2	green	2020	\N	\N
+3	pink	2021	\N	\N
+4	amber	2022	\N	\N
 \.
 
 
@@ -1037,6 +1264,13 @@ SELECT pg_catalog.setval('public.hero_carusel_item_id_seq', 4, true);
 
 
 --
+-- Name: meta_tags_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.meta_tags_id_seq', 11, true);
+
+
+--
 -- Name: partners_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1051,6 +1285,13 @@ SELECT pg_catalog.setval('public.projects_id_seq', 13, true);
 
 
 --
+-- Name: review_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.review_id_seq', 2, true);
+
+
+--
 -- Name: skopes_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
@@ -1058,10 +1299,24 @@ SELECT pg_catalog.setval('public.skopes_id_seq', 6, true);
 
 
 --
+-- Name: team_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.team_id_seq', 3, true);
+
+
+--
 -- Name: technologies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
 SELECT pg_catalog.setval('public.technologies_id_seq', 24, true);
+
+
+--
+-- Name: timeline_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
+--
+
+SELECT pg_catalog.setval('public.timeline_id_seq', 4, true);
 
 
 --
@@ -1200,6 +1455,14 @@ ALTER TABLE ONLY public.hero_carusel_item
 
 
 --
+-- Name: meta_tags meta_tags_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.meta_tags
+    ADD CONSTRAINT meta_tags_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: partners partners_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1224,6 +1487,14 @@ ALTER TABLE ONLY public.projects
 
 
 --
+-- Name: reviews review_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.reviews
+    ADD CONSTRAINT review_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: scope_area skopes_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1240,6 +1511,14 @@ ALTER TABLE ONLY public.scope_area
 
 
 --
+-- Name: team team_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.team
+    ADD CONSTRAINT team_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: technologies technologies_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
 --
 
@@ -1253,6 +1532,14 @@ ALTER TABLE ONLY public.technologies
 
 ALTER TABLE ONLY public.technologies
     ADD CONSTRAINT technologies_title_key UNIQUE (title);
+
+
+--
+-- Name: timeline timeline_pkey; Type: CONSTRAINT; Schema: public; Owner: postgres
+--
+
+ALTER TABLE ONLY public.timeline
+    ADD CONSTRAINT timeline_pkey PRIMARY KEY (id);
 
 
 --

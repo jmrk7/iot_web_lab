@@ -6,8 +6,7 @@
           <h3
             class="text-uppercase text-h6 text-md-h5 text-center font-weight-black ma-16"
           >
-            We will help to integrate technologies or any tools into your
-            project.
+            {{ $t('sections.blockchainTechnologies.title') }}
           </h3>
           <v-row class="my-5">
             <v-col

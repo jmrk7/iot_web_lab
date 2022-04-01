@@ -16,11 +16,11 @@ services:
       - './email-server:/usr/share/nginx/html' 
       - './email-server/docker/nginx/conf.d:/etc/nginx/conf.d' 
     
-  nginx_server:
+  nginx_web_server:
     image: nginx
     restart: always
     ports:
-      - 6000:80
+      - 80:80
     volumes: 
       - './dist:/usr/share/nginx/html/' 
       - './nginx-server:/etc/nginx/conf.d' 

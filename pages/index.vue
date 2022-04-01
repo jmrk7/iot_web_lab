@@ -23,6 +23,7 @@ export default {
     await store.dispatch('projects/fetchProjects')
     await store.dispatch('solution/fetchScopeAreas')
     await store.dispatch('techs/fetchTechs')
+    await store.dispatch('reviews/fetchReviews')
     await store.dispatch('meta/fetchMetaTags', this.name)
   },
 

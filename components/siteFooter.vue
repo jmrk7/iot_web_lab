@@ -14,17 +14,16 @@
           ><div
             class="d-flex flex-wrap justify-md-start justify-center justify-md-none"
           >
-            <template v-for="(s, i) in menu">
+            <template v-for="(s, i) in $t('components.siteFooter.menu')">
               <a
                 :key="i"
                 class="text--secondary pa-1 pa-md-0"
                 :href="s.link"
-                target="_blank"
                 v-text="s.text"
               />
 
               <v-responsive
-                v-if="i < menu.length - 1"
+                v-if="i < $t('components.siteFooter.menu').length - 1"
                 :key="`divider-${i}`"
                 class="mx-4 shrink hidden-sm-and-down"
                 max-height="18"
@@ -43,22 +42,6 @@
     </v-container>
   </v-footer>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      menu: [
-        { text: 'Support', link: '#' },
-        { text: 'Contact Us', link: '#' },
-        { text: 'Disclaimer', link: '#' },
-        { text: 'Covid-19 Operation', link: '#' },
-      ],
-    }
-  },
-}
-</script>
-
 <style>
 .site-footer a {
   text-decoration: none;

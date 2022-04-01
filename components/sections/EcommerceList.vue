@@ -4,13 +4,10 @@
       <h2
         class="text-uppercase text-h4 text-md-h4 text-center font-weight-black mt-16"
       >
-        Make your business
+        {{ $t('sections.ecommerceList.title') }}
       </h2>
       <p class="secondary--text mt-6">
-        E-commerce today unites many branches of business. Distribution,
-        advertising, promotion, sale of services or goods via the Internet is
-        the subject of electronic commerce. Our specialists will help you create
-        an architectures and turn your business project into reality.
+        {{ $t('sections.ecommerceList.description') }}
       </p>
     </v-container>
     <section

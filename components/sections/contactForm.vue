@@ -5,7 +5,7 @@
         ><v-text-field
           v-model="name"
           :rules="isRuled ? fieldRules : [(v) => true]"
-          label="Name *"
+          :label="$t('sections.contactForm.labels.name')"
           dense
           outlined
         ></v-text-field
@@ -13,7 +13,7 @@
       <v-col
         ><v-text-field
           v-model="email"
-          label="Email *"
+          :label="$t('sections.contactForm.labels.email')"
           dense
           outlined
           :rules="isRuled ? emailRules : [(v) => true]"
@@ -25,7 +25,7 @@
       <v-col
         ><v-text-field
           v-model="subject"
-          label="Subject *"
+          :label="$t('sections.contactForm.labels.subject')"
           dense
           outlined
           :rules="isRuled ? fieldRules : [(v) => true]"
@@ -37,7 +37,7 @@
         <v-textarea
           v-model="message"
           dense
-          label="Your Message *"
+          :label="$t('sections.contactForm.labels.message')"
           auto-grow
           outlined
           rows="8"
@@ -48,8 +48,12 @@
     </v-row>
     <v-row>
       <v-col
-        ><v-btn class="my-2" color="primary" type="submit">SEND MESSAGE</v-btn
-        ><v-btn class="my-2 ml-3" @click="clearReference">clear</v-btn></v-col
+        ><v-btn class="my-2" color="primary" type="submit">{{
+          $t('sections.contactForm.submit')
+        }}</v-btn
+        ><v-btn class="my-2 ml-3" @click="clearReference">{{
+          $t('sections.contactForm.clear')
+        }}</v-btn></v-col
       >
     </v-row>
   </v-form>

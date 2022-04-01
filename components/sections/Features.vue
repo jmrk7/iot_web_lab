@@ -4,20 +4,16 @@
       <v-row>
         <v-col class="text-center">
           <h2 class="text-h4 text-md-h3 text-center font-weight-black">
-            Blockchain Development
+            {{ $t('sections.features.title') }}
           </h2>
           <p class="text-center mt-4">
-            Explore the world of secure, scalable, and interoperable
-            decentralized applications with our end-to-end blockchain
-            development services. We help enterprises leverage the power of
-            blockchain technologies and solutions to achieve next-level
-            transparency and automation in their business processes.
+            {{ $t('sections.features.description') }}
           </p>
         </v-col>
       </v-row>
       <v-row>
         <v-col
-          v-for="(card, index) in cards"
+          v-for="(card, index) in $t('sections.features.cards')"
           :key="index"
           cols="12"
           sm="4"
@@ -46,29 +42,3 @@
     </v-container>
   </section>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      cards: [
-        {
-          title: 'Cryptocurrency',
-          subtitle: 'Best Productivity',
-          callout: '01',
-        },
-        {
-          title: 'Smart Contract',
-          subtitle: 'Special Offers',
-          callout: '02',
-        },
-        {
-          title: 'NFT',
-          subtitle: 'Income Flow',
-          callout: '03',
-        },
-      ],
-    }
-  },
-}
-</script>

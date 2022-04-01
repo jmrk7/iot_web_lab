@@ -2,11 +2,13 @@
   <section>
     <v-row no-gutters>
       <v-col cols="12">
-        <SectionsHeroAlt :hero-alt="heroAlt" />
+        <SectionsHeroAlt :hero-alt="$t('contact.heroAlt')" />
         <v-container>
           <v-row class="py-16">
             <v-col md="5" cols="12">
-              <div class="text-h6 font-weight-bold mb-5">Our Office</div>
+              <div class="text-h6 font-weight-bold mb-5">
+                {{ $t('contact.our-office') }}
+              </div>
               <v-list two-line class="transparent">
                 <v-list-item>
                   <v-list-item-icon>
@@ -14,12 +16,18 @@
                   </v-list-item-icon>
 
                   <v-list-item-content>
-                    <v-list-item-title>ADDRESS</v-list-item-title>
-                    <v-list-item-subtitle>01032</v-list-item-subtitle>
+                    <v-list-item-title>{{
+                      $t('contact.address')
+                    }}</v-list-item-title>
+                    <v-list-item-subtitle>{{
+                      $t('contact.index')
+                    }}</v-list-item-subtitle>
                     <v-list-item-subtitle>
-                      Klovski Descent 7A
+                      {{ $t('contact.street') }}
                     </v-list-item-subtitle>
-                    <v-list-item-subtitle>Kyiv, Ukraine</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{
+                      $t('contact.city')
+                    }}</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
 
@@ -29,13 +37,15 @@
                   </v-list-item-icon>
 
                   <v-list-item-content>
-                    <v-list-item-title>EMAIL</v-list-item-title>
-                    <v-list-item-subtitle
-                      >info@iotwlab.com</v-list-item-subtitle
-                    >
-                    <v-list-item-subtitle
-                      >support@iotwlab.com</v-list-item-subtitle
-                    >
+                    <v-list-item-title>{{
+                      $t('contact.email.title')
+                    }}</v-list-item-title>
+                    <v-list-item-subtitle>{{
+                      $t('contact.email.first')
+                    }}</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{
+                      $t('contact.email.second')
+                    }}</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
 
@@ -52,7 +62,7 @@
                 </v-list-item> -->
               </v-list>
               <div class="text-h6 font-weight-bold mt-12 mb-5">
-                Business Hours
+                {{ $t('contact.business-time.title') }}
               </div>
               <v-list two-line class="transparent">
                 <v-list-item>
@@ -60,8 +70,12 @@
                     <v-icon color="primary"> mdi-clock </v-icon>
                   </v-list-item-icon>
                   <v-list-item-content>
-                    <v-list-item-title>MONDAY to FRIDAY </v-list-item-title>
-                    <v-list-item-subtitle>9am to 5pm</v-list-item-subtitle>
+                    <v-list-item-title
+                      >{{ $t('contact.business-time.week-main') }}
+                    </v-list-item-title>
+                    <v-list-item-subtitle>{{
+                      $t('contact.business-time.time-main')
+                    }}</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
 
@@ -70,8 +84,12 @@
                     <v-icon color="primary"> mdi-clock </v-icon>
                   </v-list-item-icon>
                   <v-list-item-content>
-                    <v-list-item-title>SATURDAY</v-list-item-title>
-                    <v-list-item-subtitle>9am to 2pm</v-list-item-subtitle>
+                    <v-list-item-title>{{
+                      $t('contact.business-time.week-additional')
+                    }}</v-list-item-title>
+                    <v-list-item-subtitle>{{
+                      $t('contact.business-time.time-additional')
+                    }}</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
 
@@ -80,21 +98,22 @@
                     <v-icon color="primary"> mdi-clock </v-icon>
                   </v-list-item-icon>
                   <v-list-item-content>
-                    <v-list-item-title>SUNDAY</v-list-item-title>
-                    <v-list-item-subtitle>Closed</v-list-item-subtitle>
+                    <v-list-item-title>{{
+                      $t('contact.business-time.holidays')
+                    }}</v-list-item-title>
+                    <v-list-item-subtitle>{{
+                      $t('contact.business-time.status-closed')
+                    }}</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
               </v-list>
             </v-col>
             <v-col md="7" cols="12">
-              <div class="text-h4 font-weight-black mb-8">Contact Us</div>
+              <div class="text-h4 font-weight-black mb-8">
+                {{ $t('contact.title') }}
+              </div>
               <p class="mb-10">
-                Do you have or are you planning your business? Please, feel free
-                to write to us. We will help you find the best solution for
-                organizing your business. We will provide the necessary
-                consultations. You can send us your project or layout and our
-                specialists will evaluate and prepare solutions for your
-                business project.
+                {{ $t('contact.descripotion') }}
               </p>
               <contactForm />
             </v-col>
@@ -126,16 +145,7 @@ export default {
   async fetch({ store }) {
     await store.dispatch('meta/fetchMetaTags', this.name)
   },
-  data() {
-    return {
-      heroAlt: [
-        {
-          src: 'pexels-andrea-piacquadio-3830745.jpg',
-          heading: ' Contact Us ',
-        },
-      ],
-    }
-  },
+
   head() {
     return this.makeCurrentMeta(this.$store.getters['meta/meta'])
   },

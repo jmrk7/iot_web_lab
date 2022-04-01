@@ -6,11 +6,11 @@
           <h2
             class="text-uppercase text-h4 text-md-h3 text-center font-weight-black"
           >
-            Find your service
+            {{ $t('sections.blockchainServicesList.title') }}
           </h2>
           <v-row class="mt-16">
             <v-col
-              v-for="item in services"
+              v-for="item in $t('sections.blockchainServicesList.services')"
               :key="item"
               cols="12"
               sm="6"
@@ -30,28 +30,3 @@
     </v-row>
   </section>
 </template>
-<script>
-export default {
-  data() {
-    return {
-      services: [
-        'Product design workshop',
-        'Public blockchain network integration',
-        'Permissioned and Permissionless blockchain development',
-        'Distributed applications (DApps) development',
-        'Smart Contracts development and audit within a project scope',
-        'Hybrid centralized systems development with blockchain components',
-        'Blockchain technology consulting',
-        'Proof of Concept design workshop',
-        'Proof of Concept development',
-        'Private and permissioned blockchain development',
-        'Consortium networks',
-        'Integrating blockchain into legacy infrastructure',
-        'Migrating to blockchain infrastructure',
-        'Public blockchain networks integration',
-        'Blockchain technology consulting',
-      ],
-    }
-  },
-}
-</script>
