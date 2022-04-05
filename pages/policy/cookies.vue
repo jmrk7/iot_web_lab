@@ -12,11 +12,8 @@
 </template>
 <script>
 export default {
-  async fetch({ store }) {
-    await store.dispatch('meta/fetchMetaTags', this.name)
-  },
   head() {
-    return this.makeCurrentMeta(this.$store.getters['meta/meta'])
+    // return this.makeCurrentMeta($t('policy.meta_tags'))
   },
 }
 </script>

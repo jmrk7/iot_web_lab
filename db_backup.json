@@ -826,5 +826,70 @@
           "name": "LANDING",
           "text": "Landing or landing page (landing page) is a one-page type of site for capturing the attention of the client for the subsequent performance of the targeted action. A minimum of all distractions: the landing page contains only key information that can interest and encourage you to make a purchase of a product or order services.  Other names for a landing page are a landing page, a capture page.  What is the correct landing?  First, it is a simple and user-friendly design. Due to its lightness, the landing page loads quickly and does not cause unnecessary questions.  Secondly, the landing page contains key information about why the client should make a purchase or take another targeted action (for example, subscribe to a newsletter). Benefits, time-limited promotions, high-quality photos, calls to action are the main points that make up a landing page.  Now there is a real flowering of landings. And there are reasons for this. The main advantage of this type of sites is increased conversion due to narrow focus (a specific product / service for a specific audience). Nothing superfluous - that's the secret to the success of the capture page.  Unlike a huge storefront of an online store, a landing page visitor sees only one thing. When we do not have a wide choice, then often we are even glad of this - there is no need to waste time and energy on comparison and choice.  The disadvantage of landing is just its advantage in the form of a narrow focus. It's like a double-edged sword. If you have a second (third, tenth, thousandth) product / service, then there are two ways out. The first one is once again to make a new landing page for it. The second is to create an online store with a wide range of products.  Some owners of online stores use landing pages at the same time. And this is quite justified. For example, they have a very popular product on sale. It sells well in the store, but if you additionally organize a landing page specifically for this product, then sales will go even better. This tactic of simultaneously attacking on all fronts is becoming more common in online commerce. Why not? After all, it is effective and does not require special costs."
         }
+      ],
+      "meta_tags": [
+        {
+          "description": "IOT WEBLAB specializes in web development and application software development. Our specialists can help you solve your business problems.",
+          "host": "pages/index.vue",
+          "id": 11,
+          "keywords": ["development","blockchain","mobile","website","solution","technologies"],
+          "title": "Web Development"
+        },
+        {
+          "description": "Visit our office 01032 Klovski Descent 7A Kyiv, Ukraine, or send email to info@iotwlab.com, support@iotwlab.com",
+          "host": "pages/contact.vue",
+          "id": 3,
+          "keywords": null,
+          "title": "Contact Us"
+        },
+        {
+          "description": "IOT WEBLAB - outsourcing / outstaff company. Specializes in web application development",
+          "host": "pages/about.vue",
+          "id": 2,
+          "keywords": null,
+          "title": "About Us"
+        },
+        {
+          "description": "You can see the list of our projects. We can develop any solution for you. ",
+          "host": "pages/projects/index.vue",
+          "id": 4,
+          "keywords": ["projects","development","example"],
+          "title": "Projects"
+        },
+        {
+          "description": "Cookies policy on IOT WEBLAB",
+          "host": "pages/policy/cookies.vue",
+          "id": 5,
+          "keywords": null,
+          "title": "Cookies Policy"
+        },
+        {
+          "description": "Development of electronic commerce, Creation of online stores, development of application software for your business.",
+          "host": "pages/services/ecommerce.vue",
+          "id": 7,
+          "keywords": ["e-commerce","develop","development","shop","b2b","b2c"],
+          "title": "E-commerce"
+        },
+        {
+          "description": "Blockchain development, integration of your project into cloud services. Integration blockchain tools into your application.",
+          "host": "pages/services/blockchain.vue",
+          "id": 6,
+          "keywords": ["blockchain","developing","clouds","services","tools"],
+          "title": "Blockchain development"
+        },
+        {
+          "description": "Creation of websites. Qualified approach to website development. Sites of any complexity.",
+          "host": "pages/services/websites.vue",
+          "id": 9,
+          "keywords": ["website","development","landing","internet","marketing"],
+          "title": "Websites"
+        },
+        {
+          "description": "Mobile app development and PWA. Integration of your application into popular stores.",
+          "host": "pages/services/mobile.vue",
+          "id": 8,
+          "keywords": ["mobile","application","develop","store","tools"],
+          "title": "Mobile Application"
+        }
       ]
 }

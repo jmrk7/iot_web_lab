@@ -5,8 +5,6 @@
         <SectionsHero />
         <SectionsIntro />
         <SectionsBrands />
-        <!-- <SectionsCalloutBlock /> -->
-
         <SectionsFeatures />
         <SectionsTechnologies />
         <SectionsTestimonials />
@@ -17,18 +15,8 @@
 </template>
 <script>
 export default {
-  async fetch({ store }) {
-    await store.dispatch('hero/fetchHeroCaruselItems')
-    await store.dispatch('partners/fetchPartners')
-    await store.dispatch('projects/fetchProjects')
-    await store.dispatch('solution/fetchScopeAreas')
-    await store.dispatch('techs/fetchTechs')
-    await store.dispatch('reviews/fetchReviews')
-    await store.dispatch('meta/fetchMetaTags', this.name)
-  },
-
   head() {
-    return this.makeCurrentMeta(this.$store.getters['meta/meta'])
+    return this.makeCurrentMeta(this.$t('index.meta_tags'))
   },
 }
 </script>

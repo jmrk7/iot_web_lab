@@ -167,11 +167,6 @@
 
 <script>
 export default {
-  async fetch({ store }) {
-    await store.dispatch('projects/fetchProjects')
-    await store.dispatch('meta/fetchMetaTags', this.name)
-  },
-
   data() {
     return {
       showLinks: false,
@@ -183,7 +178,7 @@ export default {
     },
   },
   head() {
-    return this.makeCurrentMeta(this.$store.getters['meta/meta'])
+    // return this.makeCurrentMeta($t('projects.meta_tags'))
   },
 }
 </script>
