@@ -24,7 +24,7 @@ export const mutations = {
 }
 
 export const state = () => ({
-  scopes: [],
+  heroItems: [],
 })
 
 export const getters = {

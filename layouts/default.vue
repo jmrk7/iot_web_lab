@@ -21,6 +21,9 @@ export default {
     footerTop,
     siteFooter,
   },
+  async fetch({ store }) {
+    await store.dispatch('nuxtServerInit')
+  },
   created() {
     if (this.$cookies.get('theme') && this.$cookies.get('theme') === 'dark') {
       this.$vuetify.theme.dark = true

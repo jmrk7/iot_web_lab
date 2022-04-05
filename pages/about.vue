@@ -96,13 +96,8 @@
 
 <script>
 export default {
-  async fetch({ store }) {
-    await store.dispatch('meta/fetchMetaTags', this.name)
-    await store.dispatch('timeline/fetchTimeline')
-    await store.dispatch('team/fetchTeam')
-  },
   head() {
-    return this.makeCurrentMeta(this.$store.getters['meta/meta'])
+    // return this.makeCurrentMeta($t('about.meta_tags'))
   },
 }
 </script>

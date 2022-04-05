@@ -1,6 +1,6 @@
-export const GET_META_TAG = (data) => `
+export const GET_META_TAG = () => `
 query fetchMetaTag {
-  meta_tags(where: {host: {_eq: "${data}"}}) {
+  meta_tags {
     description
     host
     id
