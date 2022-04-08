@@ -120,12 +120,14 @@ export default {
           this.clearReference()
         })
 
-        this.sendCustomerRequestToMail({
-          name: this.name,
-          email: this.email,
-          subject: this.subject,
-          message: this.message,
-        })
+        const formData = new FormData()
+        formData.append('name', this.name)
+        formData.append('email', this.email)
+        formData.append('subject', this.subject)
+        formData.append('message', this.message)
+        formData.append('feedback', this.$t('send_mail.feedback'))
+
+        this.sendCustomerRequestToMail(formData)
       } else {
         this.sendAlert({
           type: 'error',

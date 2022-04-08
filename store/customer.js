@@ -21,7 +21,7 @@ export const actions = {
 
   async sendCustomerRequestToMail({ commit }, data) {
     return await email({
-      data: JSON.stringify(data),
+      data,
     })
   },
 

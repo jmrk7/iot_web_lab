@@ -18,6 +18,6 @@ export const email = axios.create({
   baseURL: process.env.EMAIL_SERVER_HOST,
   method: 'POST',
   headers: {
-    'Content-Type': 'application/json',
+    'Content-Type': 'multipart/form-data',
   },
 })

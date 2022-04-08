@@ -46,12 +46,12 @@
         row-height="21"
         :rules="isRuled ? messageRules : [(v) => true]"
       ></v-textarea>
-      <!-- <v-file-input
+      <v-file-input
         v-model="onloadedFile"
         label="File"
         dense
         outlined
-      ></v-file-input> -->
+      ></v-file-input>
       <v-btn type="submit" outlined block color="primary">{{
         $t('sections.footerContactForm.submit')
       }}</v-btn>
@@ -109,7 +109,6 @@ export default {
       }
 
       if (this.onloadedFile) {
-        // await this.fileReader(this.onloadedFile)
         this.file = this.onloadedFile
       }
 
@@ -120,7 +119,6 @@ export default {
           subject: this.subject,
           message: this.message,
           link: this.link,
-          // file: this.file,
         }).then((res) => {
           this.sendAlert({
             type: 'success',
@@ -130,23 +128,16 @@ export default {
           this.clearReference()
         })
 
-        // const formData = new FormData()
-        // formData.append('name', this.name)
-        // formData.append('email', this.email)
-        // formData.append('subject', this.subject)
-        // formData.append('message', this.message)
-        // formData.append('link', this.link)
-        // formData.append('file', this.file)
+        const formData = new FormData()
+        formData.append('name', this.name)
+        formData.append('email', this.email)
+        formData.append('subject', this.subject)
+        formData.append('message', this.message)
+        formData.append('link', this.link)
+        formData.append('file', this.file)
+        formData.append('feedback', this.$t('send_mail.feedback'))
 
-        // console.log('formData: ', formData)
-
-        this.sendCustomerRequestToMail({
-          name: this.name,
-          email: this.email,
-          subject: this.subject,
-          message: this.message,
-          link: this.link,
-        })
+        this.sendCustomerRequestToMail(formData)
       } else {
         this.sendAlert({
           type: 'error',
@@ -162,21 +153,6 @@ export default {
       this.message = null
       this.link = null
       this.file = null
-    },
-
-    async fileReader(file) {
-      return await new Promise((resolve, reject) => {
-        const reader = new FileReader()
-        reader.readAsArrayBuffer(file)
-        reader.onload = async () => {
-          try {
-            this.file = await reader.result
-            resolve(reader.result)
-          } catch (error) {
-            reject(error)
-          }
-        }
-      })
     },
   },
 }

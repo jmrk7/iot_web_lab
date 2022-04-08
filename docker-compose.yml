@@ -20,7 +20,7 @@ services:
     image: nginx
     restart: always
     ports:
-      - 80:80
+      - 5555:80
     volumes: 
       - './dist:/usr/share/nginx/html/' 
       - './nginx-server:/etc/nginx/conf.d' 

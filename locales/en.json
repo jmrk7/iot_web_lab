@@ -250,7 +250,8 @@
                 "email": "Email *",
                 "link": "Link",
                 "subject": "Subject *",
-                "message": "Your Message *"
+                "message": "Your Message *",
+                "file": "File *"
 
             },
             "submit": "SEND MESSAGE"
@@ -404,5 +405,8 @@
           "title": "Contact",
           "to": "/contact"
         }
-    ]
+    ],
+    "send_mail":{
+      "feedback": "Thanks for your question. Our experts will contact you."
+    }
 }
