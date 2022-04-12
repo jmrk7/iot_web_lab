@@ -4,7 +4,7 @@
     :class="$vuetify.theme.dark ? 'grey darken-4' : 'grey lighten-4'"
   >
     <v-container>
-      <v-row>
+      <v-row class="py-3">
         <v-col cols="12" sm="4" align-self="center">
           <h3
             :class="{ 'grey--text': $vuetify.theme.dark }"
@@ -14,7 +14,7 @@
           </h3>
         </v-col>
         <v-col cols="12" sm="8">
-          <v-slide-group show-arrows draggable="true">
+          <v-slide-group multiple :show-arrows="true" draggable="true">
             <template v-for="(item, index) in partners">
               <v-slide-item
                 v-if="checkIsShow(item.id)"
@@ -22,12 +22,11 @@
                 v-model="partners"
               >
                 <v-card
+                  class="mx-2 d-flex"
                   :class="
                     $vuetify.theme.dark ? 'grey darken-4' : 'grey lighten-4'
                   "
-                  class="mx-4 pa-0"
-                  height="90"
-                  width="140"
+                  height="70"
                   flat
                 >
                   <a
@@ -36,7 +35,8 @@
                     class="body-1 font-weight-black text-center grey--text mt-2"
                   >
                     <v-img
-                      height="90"
+                      height="60"
+                      width="120"
                       contain
                       :src="item.logo_url"
                       @error="disableImage(item)"
@@ -47,7 +47,6 @@
               <v-responsive
                 v-if="index < partners.length - 1"
                 :key="'partner_' + index"
-                height="50"
                 class="my-auto"
               >
                 <v-divider vertical></v-divider>

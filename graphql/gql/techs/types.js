@@ -4,6 +4,9 @@ export const FETCH_TECHS = () => {
           id
           svg
           title
+          link
+          stack
+          sort_priority
         }
       }  
     `

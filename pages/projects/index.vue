@@ -133,14 +133,14 @@
             <div class="mt-8">
               <div class="d-flex">
                 <a
-                  :href="item.urls[0]"
+                  :href="item.urls[0].link"
                   target="_blank"
                   class="v-btn v-btn--outlined v-size--default primary--text example__link"
                   :class="{
                     ' black--text text--darken-2': !$vuetify.theme.dark,
                   }"
                 >
-                  Site
+                  Open {{ item.urls[0].name }}
                 </a>
                 <v-btn
                   v-if="item.urls.length > 1"
@@ -154,8 +154,11 @@
               </div>
             </div>
             <div v-if="showLinks" class="px-4">
-              <div v-for="(url, index) in item.urls" :key="url + '_' + index">
-                <a :href="url" target="_blank">{{ url }}</a>
+              <div
+                v-for="(url, index) in item.urls"
+                :key="url.name + '_' + index"
+              >
+                <a :href="url.link" target="_blank">{{ url.link }}</a>
               </div>
             </div>
           </v-container>

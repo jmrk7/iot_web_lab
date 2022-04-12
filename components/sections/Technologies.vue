@@ -16,20 +16,22 @@
         md="2"
         lg="2"
       >
-        <div class="d-flex flex-column">
-          <div class="custom__item">
-            <SimpleSVG
-              :src="tech.svg"
-              :width="properties"
-              :height="properties"
-            />
+        <a :href="tech.link" target="_blank">
+          <div class="d-flex flex-column">
+            <div class="custom__item">
+              <SimpleSVG
+                :src="tech.svg"
+                :width="properties"
+                :height="properties"
+              />
+            </div>
+            <h4
+              class="text-uppercase text-center mt-1 mb-4"
+              style="letter-spacing: 0.15em"
+              v-text="tech.title"
+            ></h4>
           </div>
-          <h4
-            class="text-uppercase text-center mt-1 mb-4"
-            style="letter-spacing: 0.15em"
-            v-text="tech.title"
-          ></h4>
-        </div>
+        </a>
       </v-col>
     </v-row>
   </section>
@@ -43,7 +45,7 @@ export default {
   },
   data() {
     return {
-      properties: '100px',
+      properties: '80px',
     }
   },
   computed: {
