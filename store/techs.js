@@ -28,5 +28,8 @@ export const state = () => ({
 })
 
 export const getters = {
-  techs: (state) => state.techs,
+  techs: (state) =>
+    state.techs
+      .sort((a, b) => (a.stack > b.stack ? 1 : -1))
+      .sort((a, b) => (a.sort_priority > b.sort_priority ? 1 : -1)),
 }

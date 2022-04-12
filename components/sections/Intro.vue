@@ -32,15 +32,13 @@
               :fill="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
               :stroke="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
             />
-            <div class="ml-2">
-              <div class="pr-2">
-                <div class="text--disabled" v-text="card.subtitle"></div>
-                <h4
-                  class="text-uppercase mt-1 mb-4"
-                  style="letter-spacing: 0.15em"
-                  v-text="card.title"
-                ></h4>
-              </div>
+            <div class="ml-2 pr-2 d-flex flex-column justify-center">
+              <div class="text--disabled" v-text="card.subtitle"></div>
+              <h4
+                class="text-uppercase mt-1"
+                style="letter-spacing: 0.15em"
+                v-text="card.title"
+              ></h4>
             </div>
           </div>
         </v-col>
@@ -90,7 +88,7 @@ export default {
     return {
       galleryIsShow: true,
       currentCard: null,
-      properties: '100px',
+      properties: '70px',
     }
   },
   computed: {
@@ -120,7 +118,6 @@ export default {
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   &:hover {
     transform: scale(1.1);
-    box-shadow: 1px 1px 5px black;
   }
 }
 .back_button {
@@ -133,7 +130,6 @@ export default {
   border: 2px solid;
   &:hover {
     transform: scale(1.1);
-    box-shadow: 1px 1px 5px black;
   }
 }
 .dark {

@@ -50,6 +50,8 @@
         v-model="onloadedFile"
         label="File"
         dense
+        :prepend-icon="false"
+        prepend-inner-icon="mdi-paperclip"
         outlined
       ></v-file-input>
       <v-btn type="submit" outlined block color="primary">{{
