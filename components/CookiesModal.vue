@@ -1,6 +1,6 @@
 <template>
   <v-dialog
-    v-model="dialog"
+    v-model="isShow"
     fullscreen
     hide-overlay
     transition="dialog-bottom-transition"
@@ -17,9 +17,19 @@
 </template>
 <script>
 export default {
+  data() {
+    return {
+      isShow: false,
+    }
+  },
   computed: {
     dialog() {
       return this.$store.getters['cookies/isShow']
+    },
+  },
+  watch: {
+    dialog(value) {
+      this.isShow = value
     },
   },
 }

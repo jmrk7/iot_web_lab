@@ -28,8 +28,14 @@ export const state = () => ({
 })
 
 export const getters = {
-  techs: (state) =>
-    state.techs
-      .sort((a, b) => (a.stack > b.stack ? 1 : -1))
-      .sort((a, b) => (a.sort_priority > b.sort_priority ? 1 : -1)),
+  techs: (state) => {
+    if (state.techs.length) {
+      return state.techs
+        .map((item) => item)
+        .sort((a, b) => (a.stack > b.stack ? 1 : -1))
+        .sort((a, b) => (a.sort_priority > b.sort_priority ? 1 : -1))
+    } else {
+      return []
+    }
+  },
 }

@@ -686,10 +686,7 @@ ALTER SEQUENCE public.team_id_seq OWNED BY public.team.id;
 CREATE TABLE public.technologies (
     id integer NOT NULL,
     title bpchar NOT NULL,
-    svg bpchar NOT NULL,
-    link bpchar,
-    stack bpchar,
-    sort_priority integer
+    svg bpchar NOT NULL
 );
 
 
@@ -927,7 +924,7 @@ COPY hdb_catalog.hdb_cron_events (id, trigger_name, scheduled_time, status, trie
 --
 
 COPY hdb_catalog.hdb_metadata (id, metadata, resource_version) FROM stdin;
-1	{"sources":[{"kind":"postgres","name":"iotweblab","tables":[{"table":{"schema":"public","name":"blockchain_clouds"}},{"table":{"schema":"public","name":"blockchain_technologies"}},{"table":{"schema":"public","name":"customer_requests"}},{"table":{"schema":"public","name":"ecommerce_scope"}},{"table":{"schema":"public","name":"features"}},{"table":{"schema":"public","name":"hero_carusel_item"}},{"table":{"schema":"public","name":"meta_tags"}},{"table":{"schema":"public","name":"partners"}},{"table":{"schema":"public","name":"projects"}},{"table":{"schema":"public","name":"reviews"}},{"table":{"schema":"public","name":"scope_area"}},{"table":{"schema":"public","name":"team"}},{"table":{"schema":"public","name":"technologies"}},{"table":{"schema":"public","name":"timeline"}},{"table":{"schema":"public","name":"websites_types"}}],"configuration":{"connection_info":{"use_prepared_statements":false,"database_url":{"from_env":"PG_DATABASE_URL"},"isolation_level":"read-committed"}}}],"version":3}	42
+1	{"sources":[{"kind":"postgres","name":"iotweblab","tables":[{"table":{"schema":"public","name":"blockchain_clouds"}},{"table":{"schema":"public","name":"blockchain_technologies"}},{"table":{"schema":"public","name":"customer_requests"}},{"table":{"schema":"public","name":"ecommerce_scope"}},{"table":{"schema":"public","name":"features"}},{"table":{"schema":"public","name":"hero_carusel_item"}},{"table":{"schema":"public","name":"meta_tags"}},{"table":{"schema":"public","name":"partners"}},{"table":{"schema":"public","name":"projects"}},{"table":{"schema":"public","name":"reviews"}},{"table":{"schema":"public","name":"scope_area"}},{"table":{"schema":"public","name":"team"}},{"table":{"schema":"public","name":"technologies"}},{"table":{"schema":"public","name":"timeline"}},{"table":{"schema":"public","name":"websites_types"}}],"configuration":{"connection_info":{"use_prepared_statements":false,"database_url":{"from_env":"PG_DATABASE_URL"},"isolation_level":"read-committed"}}}],"version":3}	39
 \.
 
 
@@ -952,7 +949,7 @@ COPY hdb_catalog.hdb_scheduled_events (id, webhook_conf, scheduled_time, retry_c
 --
 
 COPY hdb_catalog.hdb_schema_notifications (id, notification, resource_version, instance_id, updated_at) FROM stdin;
-1	{"metadata":false,"remote_schemas":[],"sources":["iotweblab"]}	42	2ceeefec-25bf-4445-a25b-0ebe573cf0a3	2022-03-01 13:56:20.993921+00
+1	{"metadata":false,"remote_schemas":[],"sources":[]}	39	91ea6954-b179-4642-bc99-753530628f72	2022-03-01 13:56:20.993921+00
 \.
 
 
@@ -1002,8 +999,37 @@ COPY public.blockchain_technologies (id, name, icon) FROM stdin;
 --
 
 COPY public.customer_requests (id, name, email, subject, message, link, file) FROM stdin;
-61	Marvall	marvallua@gmail.com	Some Theme	how i cat got answer on my question	localhost:0000	\\x756e646566696e6564
-62	asdasdmar	yariknarik.xxx@gmail.com	asdasdasdasdas	asdasdasdasdasd	null	\\x756e646566696e6564
+1	Marvall	yariknarik.xxx@gmail.com	WebSite	How cost the landing with 15 sections?	\N	\N
+30	asdasd	asd@aa.ss	asdasdasd	asdasdasdasdasd	\N	\N
+31	asdas	asdas@ff.ff	asdasdasdasdasdas	asdasdasdasdasdasd	\N	\N
+32	asdasd	asda@sdasd.asd	asdasd	asdasdasdasda	\N	\N
+33	asd	asdasd	asda	sdasd	\N	\N
+34	NAme	asda@gg.do	asdasd	asdasdasdasdasdasdsa	\N	\N
+35	asdasdas	asdas@gg.asd	asdasd	asdasdsaddasd	\N	\N
+36	asd	asda@asd.sds	asdasdasd	asdasdasdasdasdasd	\N	\N
+37	asd	asda@sd.sd	asdasd	asdasdasdasdasdasdas	\N	\N
+38	asdasd	aasd@ss.ss	asdasd	asdasdasdasdad	\N	\N
+40	asdasdasda	sdfsdf@sdf.dd	asdasdasdas	asdasdasdasdasdasd	asdasdasdasdasdasdasd	\N
+41	asdasdasda	sdfsdf@sdf.dd	asdasdasdas	asdasdasdasdasdasd	asdasdasdasdasdasdasd	\N
+42	NAme	ASD@sads.sds	asdasd	asdasdasdasdasd	asdasdasda	\N
+43	NAme 	mail@mail.ss	Hey	sadasdasdasdasd	limnl/sd	\N
+44						\N
+45	Name	Asd@sd.sd	sadasdasdasd	sdasdasdasdasd	asdasdasda	\\x5b6f626a6563742041727261794275666665725d
+46	Name	dsf@asd.com	asdasdas	as;kdjajs;dlal;sdl;aksldkl;asdl;		\\x5b6f626a6563742041727261794275666665725d
+47	NAmee	sad@gv.sd	ASdasdk;	asdasdasdasdasd	null	\\x6e756c6c
+48	asda	asdasdasa@sd.sd	asdasd	dasdasdasdasd	asdasdas	\\x5b6f626a6563742041727261794275666665725d
+49	asdaa	sd@asd.sds	asd	asdasdasdasdasdasdas	asdasdasdac.sadasda	\\x5b6f626a6563742041727261794275666665725d
+50	asdasd	asd@asd.sds	asdasdasd	asdasdasdasd	asdasdasd	\\x756e646566696e6564
+51	asdasd	asda@sd.dds	asdasdasasdas	asdasdasdasdasd	asdasdasd	\\x756e646566696e6564
+52	asdas	asdasd@sd.sd	asdasd	asdasdasdasdasd	asdasda	\\x756e646566696e6564
+53	asdas	asdasda@wsdss.dsd	sdasda	asdasdasdasdasd	asdasdasda	\\x756e646566696e6564
+54	asdsdasda	asssda@sd.sd	asdasd	asdasdasdasd	asdasd	\\x756e646566696e6564
+55	12311	QWEQWE@SD.SDS	ASDASD	asdasdasdasd	ASDasdasd	\\x756e646566696e6564
+56	asdasd	asdasdasd@sds.sd	asdasdasd	asdasdasdasd	asdasdasdasd	\\x756e646566696e6564
+57	Marvall	marvallff@gmail.com	HowtoCreate	I find develoret how make sute for me	marvall.com	\\x756e646566696e6564
+58	asdas	asdasdasd@sdsd.sd	asdasdasdas	asdasdasdasdasdasd	dasdasdasdasd	\\x756e646566696e6564
+59	asdasdasdas	asdasdasdsa@asd.sd	asdasdasd	asdasdasdasdasdasdasd	asdasdasdasd	\\x756e646566696e6564
+60	asdasda	asdasdsssasd@sds.sd	asdasdasd	asdasdasdasdasd	undefined	\\x756e646566696e6564
 \.
 
 
@@ -1074,8 +1100,6 @@ COPY public.partners (id, name, url, logo_url) FROM stdin;
 4	Maxihost	https://www.maxihost.com/	https://downloads.intercomcdn.com/i/o/137289/65ba56132d4af8ffc67b8160/46c12f629087ccc3ae7aae6df2b79adc.png
 5	FriendFilter	https://friendfilter.io/	https://friendfilter.io/images/logo.png
 6	InfiniGrow	https://infinigrow.com/	https://media-exp1.licdn.com/dms/image/C4D0BAQHBEbryHT4f6A/company-logo_200_200/0?e=1595462400&v=beta&t=VnP_zF7v42rcah-C78ReeI2BkBB_XtuLE9GYVde1Afo
-9	Chanel	https://www.chanel.com/	https://www.chanel.com/media/images/apple-touch-icon-152x152.png
-10	Maxihost	https://www.maxihost.com/	https://downloads.intercomcdn.com/i/o/137289/65ba56132d4af8ffc67b8160/46c12f629087ccc3ae7aae6df2b79adc.png
 \.
 
 
@@ -1084,19 +1108,19 @@ COPY public.partners (id, name, url, logo_url) FROM stdin;
 --
 
 COPY public.projects (id, description, challenge, solution, technologies, urls, integrations, name, url_img) FROM stdin;
-6	Finance Tax Application Development	["Architecture Development","Strapi Application Development","Own Email Server Development"]	["Architecture Implementation","Application Development","Testing"]	["JavaScript","NodeJS","REST API","ReactJS"]	[{"link":"http://taxfinance.itjedi.co.nz/","name":"Site"}]	\N	Tax Finance	projects/tax_finance.png
-3		\N	\N	\N	[{"link":"https://dimusco.com/","name":"Site"}]	\N	Dimusco	\N
-2	FACEBOOK Chrome Extension Development / FACEBOOK API Integration	["MVP App support","Chrome Extension updates","New Features Development","UI/UX updates","Payment Subscription Integtration"]	["Customer Support","Chrome Extension Development and Testing","API Application Development","Stripe API Development Integration"]	["JavaScript","VueJS / VueX","Ruby (ActiveREcord)","Stripe","Facebook API","Chrome Extension API","PostgreSQL","AWS S3","Digital Ocean","DevOPS","Third party API integration (FreshDesk API, TapAffiliate API)"]	[{"link":"https://app.friendfilter.io/","name":"Site"},{"link":"https://friendfilter.io/","name":"Site"},{"link":"https://chrome.google.com/webstore/detail/friendfilter-for-facebook/bbahhbngjiangjdlmleihmlphoamikhg?hl=en","name":"Site"}]	\N	FriendFilter	projects/friend_filter.png
-9	IOS Remote Control Application / Desktop Application	["Desktop Application Development","IOS Remote Control Application for Desktop Application"]	["Design","IOS Application Development","Server Rendering Development","Desktop Application Development"]	["JavaScript","ElectronJS","React Native","PHP"]	[{"link":"https://www.chanel.com/","name":"Site"},{"link":"http://www.walterfilms.tv/","name":"Site"}]	\N	Chanel	projects/chanel.png
-11	\N	\N	\N	["ReactJS","Apollo Server","Apollo Client","GraphQL"]	[{"link":"https://www.humanos.me/","name":"Site"}]	\N	HumanOS	projects/human_os.png
-8	Web Development / Deployment	["Web Development"]	["Web Development","Testing"]	["JavaScript","NextJS","ReactJS"]	[{"link":"https://www.maxihost.com/","name":"Site"}]	\N	Maxihost	projects/maxihost.png
-7	\N	\N	\N	\N	[{"link":"https://lunie.io/","name":"Site"}]	\N	Luine	projects/lunie.png
-4	Marketing Platform/Dashboard Development	["Application Development/updates","Multicurrency Integration"]	["Application Dashboard Development","Testing"]	["JavaScript","ReactJS","NodeJS","MobX","Third party API integration (Facebook, LinkedIn, YouTube, Twitter, Google, Pinterest)"]	[{"link":"https://infinigrow.com","name":"Site"}]	\N	Infinigrow	projects/infinity.png
-1	Desktop Multiplatform Game Keyboard Configurator Application	["Connection and communication between Arduino and Application","Reset Arduino to default settings","Firmware updates","One touch setup, one touch text-creator","Usage external API for Arduino updates","New UI/UX Development","Multiplatform Development (Mac, Linux, Windows)"]	["Development Arduino listeners","Development Arduino flasher, firmware updates","Macros Development and Integration","Bazecor API Development and update","Development and update UI","Testing under Multiplatform"]	["JavaScript","C++","Arduino","BOSSA-Arduino","ReactJS","Material UI","ElectronJS","Lerna API","SerialPortJS","NodeJS"]	[{"link":"https://github.com/Dygmalab/Bazecor","name":"Git"},{"link":"https://github.com/Dygmalab/Bazecor-api","name":"Git"}]	\N	Dygma	projects/dygma.png
-13	\N	\N	\N	["TypeScript","Angular"]	[{"link":"https://www.smartlifepath.com/web-site/home","name":"Site"}]	\N	SmartLifePath	\N
-12	\N	\N	\N	["TypeScript","Angular"]	[{"link":"https://dvc.org/","name":"Site"}]	\N	DVC	\N
-10	\N	["Having information is not enough nowadays. It's much more important to use it in a right way. The goal was to create a solution to gather the collective intelligence of people and help them improve their impact within communities."]	["Using data analysis algorithms, graph technology and blockchain, protecting the Users security, NetworkOS represents a cutting-edge collaborative tool based on data sharing. It enables people knowing how their team, community or group is performing. It activates people and increases the opportunities of networking."]	["JavaScript","ReactJS","Apollo","GraphQL","PostgreSQL","Redis"]	[{"link":"https://www.collaboration.ai/","name":"Site"},{"link":"https://os.collaboration.ai/networkos","name":"Site"}]	["AWS","SendGrid","Ethereum"]	Collaboration	\N
-5	Upgrade UI	["Design"]	["Design Development","Design Implementation"]	["Java","Spring","JavaScript","VueJS, VueX","PostgreSQL"]	[{"link":"https://www.travelinsurancemaster.com/","name":"Site"}]	\N	Travel Insuranse	\N
+3		\N	\N	\N	["https://dimusco.com/"]	\N	Dimusco	\N
+5	Upgrade UI	["Design"]	["Design Development","Design Implementation"]	["Java","Spring","JavaScript","VueJS, VueX","PostgreSQL"]	["https://www.travelinsurancemaster.com/"]	\N	Travel Insuranse	\N
+10	\N	["Having information is not enough nowadays. It's much more important to use it in a right way. The goal was to create a solution to gather the collective intelligence of people and help them improve their impact within communities."]	["Using data analysis algorithms, graph technology and blockchain, protecting the Users security, NetworkOS represents a cutting-edge collaborative tool based on data sharing. It enables people knowing how their team, community or group is performing. It activates people and increases the opportunities of networking."]	["JavaScript","ReactJS","Apollo","GraphQL","PostgreSQL","Redis"]	["https://www.collaboration.ai/","https://os.collaboration.ai/networkos"]	["AWS","SendGrid","Ethereum"]	Collaboration	\N
+12	\N	\N	\N	["TypeScript","Angular"]	["https://dvc.org/"]	\N	DVC	\N
+13	\N	\N	\N	["TypeScript","Angular"]	["https://www.smartlifepath.com/web-site/home"]	\N	SmartLifePath	\N
+2	FACEBOOK Chrome Extension Development / FACEBOOK API Integration	["MVP App support","Chrome Extension updates","New Features Development","UI/UX updates","Payment Subscription Integtration"]	["Customer Support","Chrome Extension Development and Testing","API Application Development","Stripe API Development Integration"]	["JavaScript","VueJS / VueX","Ruby (ActiveREcord)","Stripe","Facebook API","Chrome Extension API","PostgreSQL","AWS S3","Digital Ocean","DevOPS","Third party API integration (FreshDesk API, TapAffiliate API)"]	["https://app.friendfilter.io/","https://friendfilter.io/","https://chrome.google.com/webstore/detail/friendfilter-for-facebook/bbahhbngjiangjdlmleihmlphoamikhg?hl=en"]	\N	FriendFilter	https://app.friendfilter.io/img/friendfilter_logo.579102a1.svg
+1	Desktop Multiplatform Game Keyboard Configurator Application	["Connection and communication between Arduino and Application","Reset Arduino to default settings","Firmware updates","One touch setup, one touch text-creator","Usage external API for Arduino updates","New UI/UX Development","Multiplatform Development (Mac, Linux, Windows)"]	["Development Arduino listeners","Development Arduino flasher, firmware updates","Macros Development and Integration","Bazecor API Development and update","Development and update UI","Testing under Multiplatform"]	["JavaScript","C++","Arduino","BOSSA-Arduino","ReactJS","Material UI","ElectronJS","Lerna API","SerialPortJS","NodeJS"]	["https://github.com/Dygmalab/Bazecor","https://github.com/Dygmalab/Bazecor-api"]	\N	Dygma	projects/dygma.png
+4	Marketing Platform/Dashboard Development	["Application Development/updates","Multicurrency Integration"]	["Application Dashboard Development","Testing"]	["JavaScript","ReactJS","NodeJS","MobX","Third party API integration (Facebook, LinkedIn, YouTube, Twitter, Google, Pinterest)"]	["https://infinigrow.com"]	\N	Infinigrow	projects/infinity.png
+6	Finance Tax Application Development	["Architecture Development","Strapi Application Development","Own Email Server Development"]	["Architecture Implementation","Application Development","Testing"]	["JavaScript","NodeJS","REST API","ReactJS"]	["http://taxfinance.itjedi.co.nz/"]	\N	Tax Finance	projects/tax_finance.png
+7	\N	\N	\N	\N	["https://lunie.io/"]	\N	Luine	projects/lunie.png
+8	Web Development / Deployment	["Web Development"]	["Web Development","Testing"]	["JavaScript","NextJS","ReactJS"]	["https://www.maxihost.com/"]	\N	Maxihost	projects/maxihost.png
+11	\N	\N	\N	["ReactJS","Apollo Server","Apollo Client","GraphQL"]	["https://www.humanos.me/"]	\N	HumanOS	projects/human_os.png
+9	IOS Remote Control Application / Desktop Application	["Desktop Application Development","IOS Remote Control Application for Desktop Application"]	["Design","IOS Application Development","Server Rendering Development","Desktop Application Development"]	["JavaScript","ElectronJS","React Native","PHP"]	["https://www.chanel.com/","http://www.walterfilms.tv/"]	\N	Chanel	projects/chanel.png
 \.
 
 
@@ -1139,40 +1163,34 @@ COPY public.team (id, name, "position", phone, email, photo) FROM stdin;
 -- Data for Name: technologies; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.technologies (id, title, svg, link, stack, sort_priority) FROM stdin;
-5	Firebase	icon/tech/firebase.svg	https://firebase.google.com/	cloud	10
-3	AWS	icon/tech/aws.svg	https://aws.amazon.com/free/	cloud	10
-9	Heroku	icon/tech/heroku2.svg	https://www.heroku.com/	cloud	10
-1	Javascript	icon/tech/javascript2.svg	https://developer.mozilla.org/en-US/docs/Web/JavaScript	js	1
-6	Typescript	icon/tech/typescript2.svg	https://www.typescriptlang.org/	js	1
-16	Node	icon/tech/node.svg	https://nodejs.org/	js	1
-24	Vue	icon/tech/vue.svg	https://vuejs.org/	vue	2
-29	Vuex	icon/tech/vuex.svg	https://vuex.vuejs.org/guide/getters.html#property-style-access	vue	2
-17	Nuxt	icon/tech/nuxt.svg	https://nuxtjs.org/	vue	2
-14	Nest	icon/tech/nest.svg	https://nestjs.com/	js	1
-25	Quasar	icon/tech/quasar.svg	https://quasar.dev/	vue	2
-22	React	icon/tech/react.svg	https://reactjs.org/	react	3
-23	Redux	icon/tech/redux.svg	https://redux.js.org/	react	3
-27	React Native	icon/tech/react-native.svg	https://reactnative.dev/	react	3
-28	C#	icon/tech/csharp.svg	https://docs.microsoft.com/en-us/dotnet/csharp/	c	4
-15	.NET	icon/tech/net3.svg	https://dotnet.microsoft.com/en-us/	c	4
-33	Entity	icon/tech/entity.svg	https://docs.microsoft.com/en-us/ef/	c	4
-30	Java	icon/tech/java.svg	https://docs.oracle.com/en/java/	java	5
-31	Spring	icon/tech/spring.svg	https://spring.io/	java	5
-32	Hibernate	icon/tech/hibernate.svg	https://hibernate.org/	java	5
-26	Angular	icon/tech/angular.svg	https://angular.io/	angular	6
-18	PHP	icon/tech/php.svg	https://www.php.net/	php	6
-10	Laravel	icon/tech/laravel.svg	https://laravel.com/	php	6
-4	Django	icon/tech/django.svg	https://www.djangoproject.com/	python	7
-20	Python	icon/tech/python.svg	https://www.python.org/	python	7
-21	Ruby & Rails	icon/tech/rails.svg	https://rubyonrails.org/	framework	8
-2	Apollo	icon/tech/apollo.svg	https://www.apollographql.com/	framework	8
-8	Hasura	icon/tech/hasura.svg	https://hasura.io/	framework	8
-7	Graphql	icon/tech/graphQL.svg	https://graphql.org/	framework	8
-19	Postgres	icon/tech/postgresql.svg	https://www.postgresql.org/	db	9
-11	MariaDB	icon/tech/mariadb.svg	https://mariadb.com/	db	9
-12	MongoDB	icon/tech/mongodb2.svg	https://www.mongodb.com/	db	9
-13	Mysql	icon/tech/mysql.svg	https://www.mysql.com/	db	9
+COPY public.technologies (id, title, svg) FROM stdin;
+1	Javascript	icon/tech/javascript2.svg
+2	Apollo	icon/tech/apollo.svg
+3	AWS	icon/tech/aws.svg
+4	Django	icon/tech/django.svg
+5	Firebase	icon/tech/firebase.svg
+6	Typescript	icon/tech/typescript2.svg
+7	Graphql	icon/tech/graphQL.svg
+8	Hasura	icon/tech/hasura.svg
+9	Heroku	icon/tech/heroku2.svg
+10	Laravel	icon/tech/laravel.svg
+11	MariaDB	icon/tech/mariadb.svg
+12	MongoDB	icon/tech/mongodb2.svg
+13	Mysql	icon/tech/mysql.svg
+14	Nest	icon/tech/nest.svg
+15	.NET	icon/tech/net3.svg
+16	Node	icon/tech/node.svg
+17	Nuxt	icon/tech/nuxt.svg
+18	PHP	icon/tech/php.svg
+19	Postgres	icon/tech/postgresql.svg
+20	Python	icon/tech/python.svg
+21	Ruby & Rails	icon/tech/rails.svg
+22	React	icon/tech/react.svg
+23	Redux	icon/tech/redux.svg
+24	Vue	icon/tech/vue.svg
+25	Quasar	icon/tech/quasar.svg
+26	Angular	icon/tech/angular.svg
+27	React Native	icon/tech/react-native.svg
 \.
 
 
@@ -1221,7 +1239,7 @@ SELECT pg_catalog.setval('public.blockchain_technologies_id_seq', 11, true);
 -- Name: customer_requests_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.customer_requests_id_seq', 62, true);
+SELECT pg_catalog.setval('public.customer_requests_id_seq', 60, true);
 
 
 --
@@ -1256,7 +1274,7 @@ SELECT pg_catalog.setval('public.meta_tags_id_seq', 11, true);
 -- Name: partners_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.partners_id_seq', 10, true);
+SELECT pg_catalog.setval('public.partners_id_seq', 6, true);
 
 
 --
@@ -1291,7 +1309,7 @@ SELECT pg_catalog.setval('public.team_id_seq', 3, true);
 -- Name: technologies_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.technologies_id_seq', 34, true);
+SELECT pg_catalog.setval('public.technologies_id_seq', 24, true);
 
 
 --
