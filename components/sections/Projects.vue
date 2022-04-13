@@ -7,7 +7,7 @@
       draggable="false"
       hide-delimiter-background
       hide-delimiters
-      show-arrows-on-hover
+      show-arrows
       height="auto"
       @change="showLinks = false"
       ><template v-for="item in projects">
@@ -15,16 +15,18 @@
           v-if="item.technologies && item.challenge && item.description"
           :key="item.id"
         >
-          <v-container fill-height>
-            <div class="row">
-              <div class="col-12 col-sm-4 d-flex align-item-center">
+          <v-container>
+            <div class="row g-0">
+              <div
+                class="col-12 col-sm-4 align-self-center d-flex align-item-center image-wrapper"
+              >
                 <img
                   class="image_item"
                   :src="item.url_img ? item.url_img : 'default.png'"
                   :alt="item.name + ' logo'"
                 />
               </div>
-              <div class="col-12 col-sm-8">
+              <div class="col-12 col-sm-8 align-self-start content-block">
                 <div style="max-width: 700px" class="mx-auto body-2">
                   <h3
                     :class="
@@ -147,12 +149,16 @@
                           >Other Links</v-btn
                         >
                       </div>
-                      <div v-if="showLinks" class="px-4 mt-4">
-                        <div
-                          v-for="(url, index) in item.urls"
-                          :key="url.name + '_' + index"
-                        >
-                          <a :href="url.link" target="_blank">{{ url.link }}</a>
+                      <div class="reserve_height">
+                        <div v-if="showLinks" class="px-4 mt-4">
+                          <div
+                            v-for="(url, index) in item.urls"
+                            :key="url.name + '_' + index"
+                          >
+                            <a :href="url.link" target="_blank">{{
+                              url.link
+                            }}</a>
+                          </div>
                         </div>
                       </div>
                     </v-col>
@@ -182,11 +188,22 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
-#projects .row {
-  height: 100%;
+.content-block {
+  height: 500px;
 }
 #projects .container {
   height: 500px;
+}
+@media (max-width: 768px) {
+  #projects .container {
+    height: 900px;
+  }
+  .content-block {
+    height: 600px;
+  }
+  .image-wrapper {
+    height: fit-content;
+  }
 }
 .image_item {
   width: 100%;

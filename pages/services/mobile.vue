@@ -8,7 +8,7 @@
 <script>
 export default {
   head() {
-    // return this.makeCurrentMeta($t('mobile.meta_tags'))
+    return this.makeCurrentMeta(this.$t('mobile.meta_tags'))
   },
 }
 </script>

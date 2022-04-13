@@ -352,8 +352,8 @@
             "menu": [
                 { "text": "Support", "link": "contact" },
                 { "text": "Contact Us", "link": "contact" },
-                { "text": "Disclaimer", "link": "#" },
-                { "text": "Covid-19 Operation", "link": "#" }
+                { "text": "Disclaimer", "link": "/" },
+                { "text": "Covid-19 Operation", "link": "/" }
               ]
         }, 
         "siteHeader": {

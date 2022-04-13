@@ -4,9 +4,16 @@
     :class="$vuetify.theme.dark ? 'grey darken-4' : 'grey lighten-4'"
   >
     <SectionsHeroAlt :hero-alt="$t('projects.heroAlt')" />
-    <ul>
+    <v-carousel
+      draggable="false"
+      hide-delimiter-background
+      hide-delimiters
+      show-arrows
+      height="auto"
+      @change="showLinks = false"
+    >
       <template v-for="(item, index) in projects">
-        <li
+        <v-carousel-item
           :key="item.id"
           class="py-8"
           :class="
@@ -19,7 +26,7 @@
               : ''
           "
         >
-          <v-container class="d-flex flex-column" fill-height>
+          <v-container class="d-flex flex-column projects_container">
             <div>
               <h2
                 :class="{ ' grey--text text--darken-2': !$vuetify.theme.dark }"
@@ -33,7 +40,7 @@
             >
               {{ item.description }}
             </div>
-            <div class="col-12 d-flex justify-center">
+            <div class="d-flex justify-center">
               <img
                 class="image_item"
                 :src="item.url_img ? item.url_img : 'projects/default.png'"
@@ -130,7 +137,7 @@
                 >,
               </div>
             </div>
-            <div class="mt-8">
+            <div class="mt-8 align-self-center">
               <div class="d-flex">
                 <a
                   :href="item.urls[0].link"
@@ -153,18 +160,22 @@
                 >
               </div>
             </div>
-            <div v-if="showLinks" class="px-4">
-              <div
-                v-for="(url, index) in item.urls"
-                :key="url.name + '_' + index"
-              >
-                <a :href="url.link" target="_blank">{{ url.link }}</a>
+            <div class="mt-4 align-self-center">
+              <div v-show="showLinks">
+                <div
+                  v-for="(url, index) in item.urls"
+                  :key="url.name + '_' + index"
+                >
+                  <a :href="url.link" target="_blank" class="link_item">{{
+                    url.link
+                  }}</a>
+                </div>
               </div>
             </div>
           </v-container>
-        </li>
+        </v-carousel-item>
       </template>
-    </ul>
+    </v-carousel>
   </section>
 </template>
 
@@ -181,19 +192,15 @@ export default {
     },
   },
   head() {
-    // return this.makeCurrentMeta($t('projects.meta_tags'))
+    return this.makeCurrentMeta(this.$t('projects.meta_tags'))
   },
 }
 </script>
 <style lang="scss" scoped>
-ul,
-li {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
+.projects_container {
+  height: 1100px;
 }
 .image_item {
-  max-width: 100%;
   max-height: 500px;
 }
 .example__link {
@@ -206,5 +213,18 @@ li {
 }
 .fs-11 {
   font-size: 11px;
+}
+
+@media (max-width: 768px) {
+  .projects_container {
+    height: 1000px;
+  }
+  .image_item {
+    max-height: 200px;
+  }
+  .link_item {
+    overflow: hidden;
+    text-overflow: hidden;
+  }
 }
 </style>

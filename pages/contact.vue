@@ -115,7 +115,7 @@
               <p class="mb-10">
                 {{ $t('contact.descripotion') }}
               </p>
-              <contactForm />
+              <footerContactForm />
             </v-col>
           </v-row>
         </v-container>
@@ -136,15 +136,15 @@
 </template>
 
 <script>
-import contactForm from '~/components/sections/contactForm.vue'
+import footerContactForm from '~/components/sections/footerContactForm.vue'
 
 export default {
   components: {
-    contactForm,
+    footerContactForm,
   },
 
   head() {
-    // return this.makeCurrentMeta($t('contact.meta_tags'))
+    return this.makeCurrentMeta(this.$t('contact.meta_tags'))
   },
 }
 </script>
