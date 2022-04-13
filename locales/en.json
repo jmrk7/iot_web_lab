@@ -350,8 +350,8 @@
         },
         "siteFooter": {
             "menu": [
-                { "text": "Support", "link": "contact" },
-                { "text": "Contact Us", "link": "contact" },
+                { "text": "Support", "link": "/contact" },
+                { "text": "Contact Us", "link": "/contact" },
                 { "text": "Disclaimer", "link": "/" },
                 { "text": "Covid-19 Operation", "link": "/" }
               ]
