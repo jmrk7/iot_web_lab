@@ -8,6 +8,7 @@
     </v-main>
     <siteFooter />
     <Notification />
+    <CookiesModal />
   </v-app>
 </template>
 
@@ -15,11 +16,13 @@
 import siteHeader from '~/components/siteHeader.vue'
 import footerTop from '~/components/footerTop.vue'
 import siteFooter from '~/components/siteFooter.vue'
+import CookiesModal from '~/components/CookiesModal.vue'
 export default {
   components: {
     siteHeader,
     footerTop,
     siteFooter,
+    CookiesModal,
   },
   async fetch({ store }) {
     await store.dispatch('nuxtServerInit')

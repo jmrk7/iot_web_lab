@@ -7,7 +7,7 @@
 <script>
 export default {
   head() {
-    // return this.makeCurrentMeta($t('websites.meta_tags'))
+    return this.makeCurrentMeta(this.$t('websites.meta_tags'))
   },
 }
 </script>

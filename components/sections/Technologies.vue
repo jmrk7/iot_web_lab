@@ -1,39 +1,41 @@
 <template>
   <section
-    id="testimonials"
+    id="technologies"
     :class="$vuetify.theme.dark ? 'grey darken-4' : 'grey lighten-2'"
     class="py-16"
   >
     <h2 class="text-h4 text-md-h3 text-center font-weight-black mb-2 my-2">
       {{ $t('sections.technologies.title') }}
     </h2>
-    <v-row class="pa-12">
-      <v-col
-        v-for="tech in techs"
-        :key="tech.title"
-        cols="6"
-        sm="3"
-        md="2"
-        lg="2"
-      >
-        <a :href="tech.link" target="_blank">
-          <div class="d-flex flex-column">
-            <div class="custom__item">
-              <SimpleSVG
-                :src="tech.svg"
-                :width="properties"
-                :height="properties"
-              />
+    <v-container>
+      <v-row>
+        <v-col
+          v-for="tech in techs"
+          :key="tech.title"
+          cols="6"
+          sm="3"
+          md="2"
+          lg="2"
+        >
+          <a :href="tech.link" target="_blank">
+            <div class="d-flex flex-column">
+              <div class="custom__item">
+                <SimpleSVG
+                  :src="tech.svg"
+                  :width="properties"
+                  :height="properties"
+                />
+              </div>
+              <h4
+                class="text-uppercase text-center mt-1 mb-4"
+                style="letter-spacing: 0.15em"
+                v-text="tech.title"
+              ></h4>
             </div>
-            <h4
-              class="text-uppercase text-center mt-1 mb-4"
-              style="letter-spacing: 0.15em"
-              v-text="tech.title"
-            ></h4>
-          </div>
-        </a>
-      </v-col>
-    </v-row>
+          </a>
+        </v-col>
+      </v-row>
+    </v-container>
   </section>
 </template>
 

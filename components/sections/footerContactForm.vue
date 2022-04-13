@@ -50,7 +50,7 @@
         v-model="onloadedFile"
         label="File"
         dense
-        :prepend-icon="false"
+        prepend-icon=""
         prepend-inner-icon="mdi-paperclip"
         outlined
       ></v-file-input>

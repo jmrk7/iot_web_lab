@@ -9,7 +9,7 @@
 <script>
 export default {
   head() {
-    // return this.makeCurrentMeta($t('blockchain.meta_tags'))
+    return this.makeCurrentMeta(this.$t('blockchain.meta_tags'))
   },
 }
 </script>

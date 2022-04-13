@@ -97,7 +97,7 @@
 <script>
 export default {
   head() {
-    // return this.makeCurrentMeta($t('about.meta_tags'))
+    return this.makeCurrentMeta(this.$t('about.meta_tags'))
   },
 }
 </script>
