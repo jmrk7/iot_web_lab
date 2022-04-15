@@ -61,11 +61,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   computed: {
-    carouselsData() {
-      return this.$store.getters['hero/heroItems']
-    },
+    ...mapGetters({
+      carouselsData: 'hero/heroItems',
+    }),
   },
 }
 </script>

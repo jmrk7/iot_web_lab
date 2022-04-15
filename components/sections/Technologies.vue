@@ -20,11 +20,7 @@
           <a :href="tech.link" target="_blank">
             <div class="d-flex flex-column">
               <div class="custom__item">
-                <SimpleSVG
-                  :src="tech.svg"
-                  :width="properties"
-                  :height="properties"
-                />
+                <SimpleSVG :src="tech.svg" :width="size" :height="size" />
               </div>
               <h4
                 class="text-uppercase text-center mt-1 mb-4"
@@ -41,19 +37,20 @@
 
 <script>
 import { SimpleSVG } from 'vue-simple-svg'
+import { mapGetters } from 'vuex'
 export default {
   components: {
     SimpleSVG,
   },
   data() {
     return {
-      properties: '80px',
+      size: '80px',
     }
   },
   computed: {
-    techs() {
-      return this.$store.getters['techs/techs']
-    },
+    ...mapGetters({
+      techs: 'techs/techs',
+    }),
   },
 }
 </script>

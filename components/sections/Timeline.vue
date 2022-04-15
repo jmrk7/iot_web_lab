@@ -39,11 +39,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   computed: {
-    years() {
-      return this.$store.getters['timeline/years']
-    },
+    ...mapGetters({
+      years: 'timeline/years',
+    }),
   },
 }
 </script>

@@ -69,11 +69,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   computed: {
-    testimonials() {
-      return this.$store.getters['reviews/reviews']
-    },
+    ...mapGetters({
+      testimonials: 'reviews/reviews',
+    }),
   },
 }
 </script>

@@ -21,8 +21,8 @@
                 <div class="custom__item">
                   <SimpleSVG
                     :src="tech.icon"
-                    :width="properties"
-                    :height="properties"
+                    :width="size"
+                    :height="size"
                     fill-class-name="fill-to-change"
                     :custom-id="tech.name"
                     :fill="$vuetify.theme.dark ? '#FBFBFB' : '#454545'"
@@ -43,19 +43,20 @@
 </template>
 <script>
 import { SimpleSVG } from 'vue-simple-svg'
+import { mapGetters } from 'vuex'
 export default {
   components: {
     SimpleSVG,
   },
   data() {
     return {
-      properties: '60px',
+      size: '60px',
     }
   },
   computed: {
-    technologies() {
-      return this.$store.getters['blockchain/technologies']
-    },
+    ...mapGetters({
+      technologies: 'blockchain/technologies',
+    }),
   },
 }
 </script>

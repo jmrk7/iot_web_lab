@@ -97,11 +97,12 @@
   </section>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
   computed: {
-    types() {
-      return this.$store.getters['websites/types']
-    },
+    ...mapGetters({
+      types: 'websites/types',
+    }),
   },
 }
 </script>

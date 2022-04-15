@@ -39,11 +39,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   computed: {
-    ourTeam() {
-      return this.$store.getters['team/team']
-    },
+    ...mapGetters({
+      ourTeam: 'team/team',
+    }),
   },
 }
 </script>

@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -67,9 +68,9 @@ export default {
     }
   },
   computed: {
-    partners() {
-      return this.$store.getters['partners/partners']
-    },
+    ...mapGetters({
+      partners: 'partners/partners',
+    }),
   },
   mounted() {
     this.isShow = this.$store.getters['partners/partners'].map(

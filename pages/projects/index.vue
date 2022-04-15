@@ -180,6 +180,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -187,9 +188,9 @@ export default {
     }
   },
   computed: {
-    projects() {
-      return this.$store.getters['projects/projects']
-    },
+    ...mapGetters({
+      projects: 'projects/projects',
+    }),
   },
   head() {
     return this.makeCurrentMeta(this.$t('projects.meta_tags'))

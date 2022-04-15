@@ -134,7 +134,7 @@
                   </v-row>
                   <v-row>
                     <v-col cols="12">
-                      <div class="d-flex">
+                      <div v-if="item.urls.length" class="d-flex">
                         <a
                           :href="item.urls[0].link"
                           target="_blank"
@@ -174,6 +174,7 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   data() {
     return {
@@ -181,9 +182,9 @@ export default {
     }
   },
   computed: {
-    projects() {
-      return this.$store.getters['projects/projects']
-    },
+    ...mapGetters({
+      projects: 'projects/projects',
+    }),
   },
 }
 </script>
