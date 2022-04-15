@@ -53,11 +53,12 @@
   </article>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
   computed: {
-    scopes() {
-      return this.$store.getters['ecommerce/scopes']
-    },
+    ...mapGetters({
+      scopes: 'ecommerce/scopes',
+    }),
   },
 }
 </script>

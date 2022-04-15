@@ -9,7 +9,7 @@
             {{ $t('sections.blockchainClouds.title') }}
           </h3>
           <v-row>
-            <v-col v-for="item in clouds" :key="item.name">
+            <v-col v-for="item in clouds" :key="item.name + item.id">
               <div class="image__wrapper">
                 <img width="100px" :src="item.src" dark />
               </div>
@@ -24,11 +24,12 @@
   </section>
 </template>
 <script>
+import { mapGetters } from 'vuex'
 export default {
   computed: {
-    clouds() {
-      return this.$store.getters['blockchain/clouds']
-    },
+    ...mapGetters({
+      clouds: 'blockchain/clouds',
+    }),
   },
 }
 </script>

@@ -1,5 +1,8 @@
 <template>
   <v-app dark>
+    <template>
+      <loader :is-show="loading"></loader>
+    </template>
     <Alert />
     <siteHeader />
     <v-main>
@@ -13,6 +16,7 @@
 </template>
 
 <script>
+import loader from '~/components/loader.vue'
 import siteHeader from '~/components/siteHeader.vue'
 import footerTop from '~/components/footerTop.vue'
 import siteFooter from '~/components/siteFooter.vue'
@@ -23,16 +27,29 @@ export default {
     footerTop,
     siteFooter,
     CookiesModal,
+    loader,
   },
   async fetch({ store }) {
     await store.dispatch('nuxtServerInit')
   },
-  created() {
-    if (this.$cookies.get('theme') && this.$cookies.get('theme') === 'dark') {
-      this.$vuetify.theme.dark = true
-    } else {
-      this.$vuetify.theme.dark = false
+  data() {
+    return {
+      loading: true,
     }
+  },
+  created() {
+    this.setTheme()
+  },
+  methods: {
+    async setTheme() {
+      const theme = await this.$cookies.get('theme')
+      if (theme && theme === 'dark') {
+        this.$vuetify.theme.dark = true
+      } else {
+        this.$vuetify.theme.dark = false
+      }
+      this.loading = false
+    },
   },
 }
 </script>

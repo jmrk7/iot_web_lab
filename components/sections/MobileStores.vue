@@ -27,8 +27,8 @@
                 <div class="custom__item">
                   <SimpleSVG
                     :src="tech.icon"
-                    :width="propertiesWidth"
-                    :height="propertiesHeight"
+                    :width="sizeWidth"
+                    :height="sizeHeight"
                     fill-class-name="fill-to-change"
                     :custom-id="tech.name"
                     :fill="$vuetify.theme.dark ? '#FBFBFB' : '#454545'"
@@ -50,8 +50,8 @@ export default {
   },
   data() {
     return {
-      propertiesWidth: '200px',
-      propertiesHeight: '100px',
+      sizeWidth: '200px',
+      sizeHeight: '100px',
     }
   },
 }

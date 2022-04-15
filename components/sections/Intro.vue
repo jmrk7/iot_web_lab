@@ -26,8 +26,8 @@
             <SimpleSVG
               fill-class-name="fill-to-change"
               :src="card.svg"
-              :width="properties"
-              :height="properties"
+              :width="size"
+              :height="size"
               :custom-id="card.title"
               :fill="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
               :stroke="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
@@ -48,8 +48,8 @@
           <SimpleSVG
             fill-class-name="fill-to-change"
             :src="currentCard.svg"
-            :width="properties"
-            :height="properties"
+            :width="size"
+            :height="size"
             :custom-id="currentCard.title"
             :fill="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
             :stroke="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
@@ -79,7 +79,7 @@
 
 <script>
 import { SimpleSVG } from 'vue-simple-svg'
-
+import { mapGetters } from 'vuex'
 export default {
   components: {
     SimpleSVG,
@@ -88,24 +88,24 @@ export default {
     return {
       galleryIsShow: true,
       currentCard: null,
-      properties: '70px',
+      size: '70px',
     }
   },
   computed: {
-    cards() {
-      return this.$store.getters['solution/scopes']
-    },
+    ...mapGetters({
+      cards: 'solution/scopes',
+    }),
   },
   methods: {
     viewDeteils(card) {
       this.currentCard = card
       this.galleryIsShow = false
-      this.properties = '200px'
+      this.size = '200px'
     },
     closeDeteils() {
       this.currentCard = null
       this.galleryIsShow = true
-      this.properties = '100px'
+      this.size = '100px'
     },
   },
 }
