@@ -13,12 +13,12 @@
         <div
           class="d-flex flex-wrap justify-md-start justify-center justify-md-none pa-3"
         >
-          <template v-for="(s, i) in $t('components.siteFooter.menu')">
+          <template v-for="(site, index) in $t('components.siteFooter.menu')">
             <nuxt-link
-              :key="i"
-              :to="s.link"
+              :key="site.text + index"
+              :to="siteFooter.link"
               class="text--secondary pa-1 pa-md-0 list_item mr-2"
-              >{{ s.text }}</nuxt-link
+              >{{ site.text }}</nuxt-link
             >
           </template>
         </div>
