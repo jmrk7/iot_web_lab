@@ -14,7 +14,7 @@
             <v-col cols="12">
               <Logo />
             </v-col>
-            <v-col cols="12">
+            <v-col v-show="isFooterShow" cols="12">
               <v-list two-line class="transparent">
                 <div class="row mt-2">
                   <div class="col-12 col-sm-6">
@@ -73,8 +73,9 @@
                 </v-list-item> -->
                 <v-divider></v-divider>
               </v-list>
-            </v-col> </v-row
-        ></v-col>
+            </v-col>
+          </v-row>
+        </v-col>
         <!-- <v-col cols="1" class="text-center hidden-sm-and-down col col-2 py-12">
           <v-divider vertical></v-divider>
         </v-col> -->

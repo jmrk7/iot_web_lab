@@ -395,7 +395,7 @@
           ]
         },
         {
-          "icon": "mdi-cash-usd",
+          "icon": "mdi-view-gallery",
           "title": "Projects",
           "to": "/projects"
         },

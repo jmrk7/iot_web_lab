@@ -7,7 +7,7 @@
 <script>
 export default {
   name: 'Circular',
-  props: ['isShow'],
+  props: { isShow: { type: Boolean, default: false } },
 }
 </script>
 
@@ -16,9 +16,9 @@ body.overflowHidden {
   overflow: hidden !important;
 }
 :root {
-  --color-animation1: #ff9900;
-  --color-animation2: #615ffc;
-  --color-animation3: #ffffff;
+  --color-animation1: #1976d2;
+  --color-animation2: #ffffff;
+  --color-animation3: #ff8f00;
   --border-size: 3px solid transparent;
 }
 
@@ -43,8 +43,8 @@ body.overflowHidden {
   position: relative;
   left: 50%;
   top: 50%;
-  width: 150px;
-  height: 150px;
+  width: 75px;
+  height: 75px;
   margin: -75px 0 0 -75px;
   border-radius: 50%;
   border: var(--border-size);

@@ -4,7 +4,8 @@
       height="calc(100vh - 64px)"
       :light="$vuetify.theme.dark ? false : true"
       cycle
-      show-arrows-on-hover
+      :show-arrows="showArrows"
+      :show-arrows-on-hover="showArrows"
       draggable="true"
       hide-delimiter-background
     >
@@ -63,10 +64,20 @@
 <script>
 import { mapGetters } from 'vuex'
 export default {
+  data() {
+    return {
+      showArrows: true,
+    }
+  },
   computed: {
     ...mapGetters({
       carouselsData: 'hero/heroItems',
     }),
+  },
+  mounted() {
+    if (window.matchMedia('(max-width: 768px)').matches) {
+      this.showArrows = false
+    }
   },
 }
 </script>

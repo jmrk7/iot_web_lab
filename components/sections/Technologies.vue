@@ -24,6 +24,11 @@
               </div>
               <h4
                 class="text-uppercase text-center mt-1 mb-4"
+                :class="
+                  $vuetify.theme.dark
+                    ? 'grey--text text--lighten-2'
+                    : 'grey--text text--darken-2'
+                "
                 style="letter-spacing: 0.15em"
                 v-text="tech.title"
               ></h4>
@@ -59,5 +64,8 @@ export default {
   width: fit-content;
   justify-self: center;
   align-self: center;
+}
+a {
+  text-decoration: none;
 }
 </style>

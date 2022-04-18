@@ -16,7 +16,7 @@
           <template v-for="(site, index) in $t('components.siteFooter.menu')">
             <nuxt-link
               :key="site.text + index"
-              :to="siteFooter.link"
+              :to="site.link"
               class="text--secondary pa-1 pa-md-0 list_item mr-2"
               >{{ site.text }}</nuxt-link
             >
