@@ -15,7 +15,7 @@ export const actions = {
     if (response.insert_customer_requests_one.id) {
       return response.insert_customer_requests_one.id
     } else {
-      errorHandler('inserrt message to db', 'customer')
+      errorHandler("Cann't insert message to db", 'customer')
     }
   },
 

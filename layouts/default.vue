@@ -44,11 +44,17 @@ export default {
     async setTheme() {
       const theme = await this.$cookies.get('theme')
       if (theme && theme === 'dark') {
-        this.$vuetify.theme.dark = true
+        this.changeTheme(true)
       } else {
-        this.$vuetify.theme.dark = false
+        this.changeTheme(false)
       }
-      this.loading = false
+    },
+
+    changeTheme(status) {
+      setTimeout(() => {
+        this.$vuetify.theme.dark = status
+        this.loading = false
+      }, 1000)
     },
   },
 }
