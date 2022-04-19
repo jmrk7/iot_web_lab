@@ -5,9 +5,14 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
   name: 'Circular',
-  props: { isShow: { type: Boolean, default: false } },
+  computed: {
+    ...mapGetters({
+      isShow: 'loader/isShow',
+    }),
+  },
 }
 </script>
 

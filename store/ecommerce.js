@@ -9,10 +9,10 @@ export const actions = {
         query: FETCH_ECOMMERCE_SCOPES(data),
       },
     })
-    if (response.ecommerce_scope) {
+    if (response && response.ecommerce_scope) {
       commit('SET_ECOMMERCE_SCOPES', response.ecommerce_scope)
     } else {
-      errorHandler('SET_ECOMMERCE_SCOPES', 'ecommerce')
+      return errorHandler('SET_ECOMMERCE_SCOPES', 'ecommerce')
     }
   },
 }

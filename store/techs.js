@@ -12,7 +12,7 @@ export const actions = {
     if (technologies) {
       commit('SET_TECHS', technologies)
     } else {
-      errorHandler('SET_TECHS', 'techs')
+      return errorHandler('SET_TECHS', 'techs')
     }
   },
 }

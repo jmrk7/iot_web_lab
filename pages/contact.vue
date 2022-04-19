@@ -6,8 +6,8 @@
         <v-container>
           <v-row class="py-16">
             <v-col md="5" cols="12">
-              <div class="text-h6 font-weight-bold mb-5">
-                {{ $t('contact.our-office') }}
+              <div class="text-h4 font-weight-black mb-8">
+                {{ $t('contact.title') }}
               </div>
               <v-list two-line class="transparent">
                 <v-list-item>
@@ -61,7 +61,7 @@
                   </v-list-item-content>
                 </v-list-item> -->
               </v-list>
-              <div class="text-h6 font-weight-bold mt-12 mb-5">
+              <!-- <div class="text-h6 font-weight-bold mt-12 mb-5">
                 {{ $t('contact.business-time.title') }}
               </div>
               <v-list two-line class="transparent">
@@ -106,12 +106,9 @@
                     }}</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
-              </v-list>
+              </v-list> -->
             </v-col>
             <v-col md="7" cols="12">
-              <div class="text-h4 font-weight-black mb-8">
-                {{ $t('contact.title') }}
-              </div>
               <p class="mb-10">
                 {{ $t('contact.descripotion') }}
               </p>

@@ -9,10 +9,10 @@ export const actions = {
         query: FETCH_HERO_ITEMS(data),
       },
     })
-    if (response.hero_carusel_item) {
+    if (response && response.hero_carusel_item) {
       commit('SET_HERO_CARUSEL_ITEMS', response.hero_carusel_item)
     } else {
-      errorHandler('SET_HERO_CARUSEL_ITEMS', 'hero')
+      return errorHandler('SET_HERO_CARUSEL_ITEMS', 'hero')
     }
   },
 }

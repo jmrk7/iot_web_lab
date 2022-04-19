@@ -5,7 +5,6 @@ export const INSERT_REQUEST = (data) => {
       name: "${data.name}", 
       message: "${data.message}", 
       email: "${data.email}", 
-      file: "${data.file}", 
       link: "${data.link}"
     }) {
       id

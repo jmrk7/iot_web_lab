@@ -1,5 +1,6 @@
 import { GET_PARTNERS } from '@/graphql/gql/partners/types'
 import { hasura } from '@/axios'
+import { errorHandler } from './helpers/helper'
 
 export const actions = {
   async fetchPartners({ commit }) {
@@ -8,7 +9,11 @@ export const actions = {
         query: GET_PARTNERS,
       },
     })
-    commit('SET_PARTNERS', partners)
+    if (partners) {
+      commit('SET_PARTNERS', partners)
+    } else {
+      return errorHandler('SET_PARTNERS', 'partners')
+    }
   },
 }
 

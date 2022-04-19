@@ -16,12 +16,14 @@
     "axios": "^0.26.0",
     "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.8.1",
+    "moment": "^2.29.3",
     "nuxt": "^2.14.12",
     "vue-simple-svg": "^2.0.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/vuetify": "^1.11.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.16.0",

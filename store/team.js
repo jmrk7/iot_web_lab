@@ -9,10 +9,10 @@ export const actions = {
         query: FETCH_TEAM(),
       },
     })
-    if (response.team) {
+    if (response && response.team) {
       commit('SET_TEAM', response.team)
     } else {
-      errorHandler('SET_TEAM', 'team')
+      return errorHandler('SET_TEAM', 'team')
     }
   },
 }

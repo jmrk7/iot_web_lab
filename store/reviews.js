@@ -9,10 +9,10 @@ export const actions = {
         query: FETCH_REVIEWS(),
       },
     })
-    if (response.reviews) {
+    if (response && response.reviews) {
       commit('SET_REVIEWS', response.reviews)
     } else {
-      errorHandler('SET_REVIEWS', 'reviews')
+      return errorHandler('SET_REVIEWS', 'reviews')
     }
   },
 }
