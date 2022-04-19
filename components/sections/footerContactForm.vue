@@ -94,41 +94,52 @@ export default {
       sendCustomerRequestToMail: 'customer/sendCustomerRequestToMail',
       fetchCustomerRequestByEamil: 'customer/fetchCustomerRequestByEamil',
       sendAlert: 'alert/sendAlert',
+      setStatus: 'loader/setStatus',
     }),
 
-    async sentForm(event) {
+    sentForm(event) {
       event.preventDefault()
       event.stopPropagation()
+      this.setStatus(true)
+      // if (await this.fetchCustomerRequestByEamil(this.email)) {
+      //   this.sendAlert({
+      //     type: 'warning',
+      //     message:
+      //       'You have one not ansvered message. Please, wait for ansver and check you email',
+      //   })
 
-      if (await this.fetchCustomerRequestByEamil(this.email)) {
-        this.sendAlert({
-          type: 'warning',
-          message:
-            'You have one not ansvered message. Please, wait for ansver and check you email',
-        })
-
-        return
-      }
+      //   return
+      // }
 
       if (this.onloadedFile) {
         this.file = this.onloadedFile
       }
 
       if (this.isValid && this.email) {
-        this.insertCustomerRequest({
-          name: this.name,
-          email: this.email,
-          subject: this.subject,
-          message: this.message,
-          link: this.link,
-        }).then((res) => {
-          this.sendAlert({
-            type: 'success',
-            message: `Fine, message has been sent. We will ansver to your email: ${this.email}`,
-          })
+        // await this.insertCustomerRequest({
+        //   name: this.name,
+        //   email: this.email,
+        //   subject: this.subject,
+        //   message: this.message,
+        //   link: this.link,
+        // }).then((res) => {
+        //   this.sendAlert({
+        //     type: 'success',
+        //     message: `Fine, message has been sent. We will ansver to your email: ${this.email}`,
+        //   })
+        //     .catch(() => {
+        //       this.sendAlert({
+        //         type: 'error',
+        //         message:
+        //           "Couldn't send message. The service is temporarily unavailable, please try again later.",
+        //       })
+        //     })
+        //     .finally(() => {
+        //       this.setStatus(false)
+        //     })
 
-          this.clearReference()
-        })
+        //   this.clearReference()
+        // })
 
         const formData = new FormData()
         formData.append('name', this.name)
@@ -140,7 +151,24 @@ export default {
         formData.append('feedback', this.$t('send_mail.feedback'))
 
         this.sendCustomerRequestToMail(formData)
+          .then((response) => {
+            this.sendAlert({
+              type: 'success',
+              message: `Fine, message has been sent. We will ansver to your email: ${this.email}`,
+            })
+          })
+          .catch(() => {
+            this.sendAlert({
+              type: 'error',
+              message:
+                "Couldn't send message. The service is temporarily unavailable, please try again later.",
+            })
+          })
+          .finally(() => {
+            this.setStatus(false)
+          })
       } else {
+        this.setStatus(false)
         this.sendAlert({
           type: 'error',
           message: "Cann't send message. Please, check fields and try again",

@@ -10,11 +10,11 @@
     <v-container>
       <v-row>
         <v-col cols="12" md="12" class="pt-8"
-          ><v-row no-gutters>
+          ><v-row v-show="isFooterShow" no-gutters>
             <v-col cols="12">
               <Logo />
             </v-col>
-            <v-col v-show="isFooterShow" cols="12">
+            <v-col cols="12">
               <v-list two-line class="transparent">
                 <div class="row mt-2">
                   <div class="col-12 col-sm-6">

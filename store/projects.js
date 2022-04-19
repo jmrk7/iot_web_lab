@@ -1,5 +1,6 @@
 import { GET_PROJECTS } from '@/graphql/gql/projects/types'
 import { hasura } from '@/axios'
+import { errorHandler } from './helpers/helper'
 
 export const actions = {
   async fetchProjects({ commit }) {
@@ -8,7 +9,11 @@ export const actions = {
         query: GET_PROJECTS,
       },
     })
-    commit('SET_PROJECTS', projects)
+    if (projects) {
+      commit('SET_PROJECTS', projects)
+    } else {
+      return errorHandler('SET_PROJECTS', 'projects')
+    }
   },
 }
 

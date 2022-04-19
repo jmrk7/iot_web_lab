@@ -10,7 +10,7 @@ hasura.interceptors.response.use(
     return response.data.data
   },
   (error) => {
-    return Promise.reject(error.message)
+    return Promise.reject(new Error(`message: ${error.message}`))
   }
 )
 

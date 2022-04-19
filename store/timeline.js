@@ -9,10 +9,10 @@ export const actions = {
         query: FETCH_TIMELINE_YEARS(),
       },
     })
-    if (response.timeline) {
+    if (response && response.timeline) {
       commit('SET_TIMELINE', response.timeline)
     } else {
-      errorHandler('SET_TIMELINE', 'timeline')
+      return errorHandler('SET_TIMELINE', 'timeline')
     }
   },
 }

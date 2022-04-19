@@ -9,10 +9,10 @@ export const actions = {
         query: FETCH_WEBSITES_TYPES(data),
       },
     })
-    if (response.websites_types) {
+    if (response && response.websites_types) {
       commit('SET_WEBSITES_TYPES', response.websites_types)
     } else {
-      errorHandler('SET_WEBSITES_TYPES', 'websites')
+      return errorHandler('SET_WEBSITES_TYPES', 'websites')
     }
   },
 }

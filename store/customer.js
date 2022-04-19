@@ -12,10 +12,10 @@ export const actions = {
         query: INSERT_REQUEST(data),
       },
     })
-    if (response.insert_customer_requests_one.id) {
+    if (response && response.insert_customer_requests_one.id) {
       return response.insert_customer_requests_one.id
     } else {
-      errorHandler("Cann't insert message to db", 'customer')
+      return errorHandler("Cann't insert message to db", 'customer')
     }
   },
 

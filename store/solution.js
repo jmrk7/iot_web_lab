@@ -9,10 +9,10 @@ export const actions = {
         query: FETCH_SCOPES(data),
       },
     })
-    if (response.scope_area) {
+    if (response && response.scope_area) {
       commit('SET_SCOPES', response.scope_area)
     } else {
-      errorHandler('SET_SCOPES', 'solution')
+      return errorHandler('SET_SCOPES', 'solution')
     }
   },
 }

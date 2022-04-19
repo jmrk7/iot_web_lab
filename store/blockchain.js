@@ -15,7 +15,7 @@ export const actions = {
     if (response.blockchain_technologies) {
       commit('SET_BLOCKCHAIN_TECHNOLOGIES', response.blockchain_technologies)
     } else {
-      errorHandler('SET_ECOMMERCE_SCOPES', 'blockchain')
+      return errorHandler('SET_ECOMMERCE_SCOPES', 'blockchain')
     }
   },
   async fetchClouds({ commit }, data) {
@@ -24,10 +24,10 @@ export const actions = {
         query: FETCH_BLOCKCHAIN_CLOUDS(data),
       },
     })
-    if (response.blockchain_clouds) {
+    if (response && response.blockchain_clouds) {
       commit('SET_BLOCKCHAIN_CLOUDS', response.blockchain_clouds)
     } else {
-      errorHandler('SET_BLOCKCHAIN_CLOUDS', 'blockchain')
+      return errorHandler('SET_BLOCKCHAIN_CLOUDS', 'blockchain')
     }
   },
 }
