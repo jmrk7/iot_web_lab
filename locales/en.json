@@ -266,9 +266,9 @@
             "title": "Make your application accessible.",
             "description": "One of the important tasks today is the integration of applications into mobile platforms. The ability to provide access to your services through mobile devices is one of the tasks in which we are ready to help you. Our experts will help you both in creating an application and integrating it to any of the popular stores. We will solve or help you work out all the technical requirements that are necessary to host your application.",
             "technologies": [
-                { "name": "Apple Store", "icon": "/services/mobile/apple.svg" },
-                { "name": "Google Play", "icon": "/services/mobile/gplay.svg" },
-                { "name": "Galaxy Store", "icon": "/services/mobile/galaxy.svg" }
+                { "name": "Apple Store", "icon": "/services/mobile/apple.svg", "link": "https://apps.apple.com/app/apple-store/id375380948" },
+                { "name": "Google Play", "icon": "/services/mobile/gplay.svg", "link": "https://play.google.com/store/apps" },
+                { "name": "Galaxy Store", "icon": "/services/mobile/galaxy.svg", "link": "https://www.samsung.com/ru/apps/galaxy-store/" }
             ]
         }, 
         "mobileWellcome":{

@@ -23,19 +23,21 @@
               :key="tech.name"
               class="font-weight-black mx-auto py-2"
             >
-              <div class="d-flex flex-column">
-                <div class="custom__item">
-                  <SimpleSVG
-                    :src="tech.icon"
-                    :width="sizeWidth"
-                    :height="sizeHeight"
-                    fill-class-name="fill-to-change"
-                    :custom-id="tech.name"
-                    :fill="$vuetify.theme.dark ? '#FBFBFB' : '#454545'"
-                    :stroke="$vuetify.theme.dark ? '#FBFBFB' : '#454545'"
-                  />
+              <a :href="tech.link" target="_blank" :aria-label="tech.name">
+                <div class="d-flex flex-column">
+                  <div class="custom__item">
+                    <SimpleSVG
+                      :src="tech.icon"
+                      :width="sizeWidth"
+                      :height="sizeHeight"
+                      fill-class-name="fill-to-change"
+                      :custom-id="tech.name"
+                      :fill="$vuetify.theme.dark ? '#FBFBFB' : '#454545'"
+                      :stroke="$vuetify.theme.dark ? '#FBFBFB' : '#454545'"
+                    />
+                  </div>
                 </div>
-              </div>
+              </a>
             </li>
           </ul> </v-container
       ></v-col>

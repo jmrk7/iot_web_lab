@@ -4,6 +4,7 @@ export const FETCH_BLOCKCHAIN_TECHNOLOGIES = () => {
           name
           id
           icon
+          link
         }
       }  
     `
@@ -15,6 +16,7 @@ export const FETCH_BLOCKCHAIN_CLOUDS = () => {
           name
           id
           src
+          link
         }
       }  
     `

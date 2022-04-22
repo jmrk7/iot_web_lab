@@ -1,6 +1,6 @@
 <template>
   <section id="intro" class="py-16">
-    <v-container>
+    <v-container class="static_height">
       <v-responsive class="max-auto mx-auto text-center" max-width="600">
         <v-avatar color="primary" size="70" class="mb-8">
           <v-icon x-large dark>mdi-web</v-icon>
@@ -54,7 +54,7 @@
             :fill="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
             :stroke="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
           />
-          <div class="ml-2">
+          <div class="ml-2 mt-4 mt-sm-0">
             <div class="pr-2">
               <h4
                 class="text-uppercase mt-1 mb-4"
@@ -111,6 +111,14 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.static_height {
+  height: 650px;
+}
+@media (max-width: 768px) {
+  .static_height {
+    height: 1075px;
+  }
+}
 .industy__block {
   cursor: pointer;
   transition-property: all;

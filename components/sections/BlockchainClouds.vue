@@ -10,14 +10,20 @@
           </h3>
           <v-row>
             <v-col v-for="item in clouds" :key="item.name + item.id">
-              <div class="image__wrapper">
-                <img width="100px" :src="item.src" dark />
-              </div>
-              <h4
-                class="text-uppercase body-2 text-center mt-1 mb-4"
-                style="letter-spacing: 0.15em"
-                v-text="item.name"
-              ></h4>
+              <a
+                :href="item.link"
+                target="_blank"
+                class="grey--text text--lighten-1"
+              >
+                <div class="image__wrapper">
+                  <img width="100px" :src="item.src" dark />
+                </div>
+                <h4
+                  class="text-uppercase body-2 text-center mt-1 mb-4"
+                  style="letter-spacing: 0.15em"
+                  v-text="item.name"
+                ></h4>
+              </a>
             </v-col> </v-row></v-container
       ></v-col>
     </v-row>
@@ -34,6 +40,9 @@ export default {
 }
 </script>
 <style scoped>
+a {
+  text-decoration: none;
+}
 .image__wrapper {
   display: flex;
   height: 100px;
