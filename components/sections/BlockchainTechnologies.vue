@@ -17,24 +17,34 @@
               xl="1"
               class="font-weight-black py-2"
             >
-              <div class="d-flex flex-column">
-                <div class="custom__item">
-                  <SimpleSVG
-                    :src="tech.icon"
-                    :width="size"
-                    :height="size"
-                    fill-class-name="fill-to-change"
-                    :custom-id="tech.name"
-                    :fill="$vuetify.theme.dark ? '#FBFBFB' : '#454545'"
-                    :stroke="$vuetify.theme.dark ? '#FBFBFB' : '#454545'"
-                  />
+              <a
+                :href="tech.link"
+                target="_blank"
+                :class="
+                  $vuetify.theme.dark
+                    ? 'grey--text text--lighten-2'
+                    : 'grey--text text--darken-2'
+                "
+              >
+                <div class="d-flex flex-column">
+                  <div class="custom__item">
+                    <SimpleSVG
+                      :src="tech.icon"
+                      :width="size"
+                      :height="size"
+                      fill-class-name="fill-to-change"
+                      :custom-id="tech.name"
+                      :fill="$vuetify.theme.dark ? '#FBFBFB' : '#454545'"
+                      :stroke="$vuetify.theme.dark ? '#FBFBFB' : '#454545'"
+                    />
+                  </div>
+                  <h6
+                    class="text-uppercase text-center mt-1 mb-4"
+                    style="letter-spacing: 0.15em"
+                    v-text="tech.name"
+                  ></h6>
                 </div>
-                <h6
-                  class="text-uppercase text-center mt-1 mb-4"
-                  style="letter-spacing: 0.15em"
-                  v-text="tech.name"
-                ></h6>
-              </div>
+              </a>
             </v-col>
           </v-row> </v-container
       ></v-col>
@@ -61,6 +71,9 @@ export default {
 }
 </script>
 <style scoped>
+a {
+  text-decoration: none;
+}
 .custom__item {
   width: fit-content;
   justify-self: center;

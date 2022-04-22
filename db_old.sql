@@ -961,7 +961,7 @@ COPY hdb_catalog.hdb_schema_notifications (id, notification, resource_version, i
 --
 
 COPY hdb_catalog.hdb_version (hasura_uuid, version, upgraded_on, cli_state, console_state) FROM stdin;
-9e753273-de81-4cb3-90ce-ef767064dcfb	47	2022-03-01 13:55:35.3171+00	{}	{"onboardingShown": true, "console_notifications": {"admin": {"date": "2022-03-10T08:48:01.779Z", "read": [], "showBadge": false}}, "telemetryNotificationShown": true}
+9e753273-de81-4cb3-90ce-ef767064dcfb	47	2022-03-01 13:55:35.3171+00	{}	{"onboardingShown": true, "console_notifications": {"admin": {"date": "2022-03-10T08:48:01.779Z", "read": [], "showBadge": true}}, "telemetryNotificationShown": true}
 \.
 
 
@@ -1004,6 +1004,24 @@ COPY public.blockchain_technologies (id, name, icon) FROM stdin;
 COPY public.customer_requests (id, name, email, subject, message, link, file) FROM stdin;
 61	Marvall	marvallua@gmail.com	Some Theme	how i cat got answer on my question	localhost:0000	\\x756e646566696e6564
 62	asdasdmar	yariknarik.xxx@gmail.com	asdasdasdasdas	asdasdasdasdasd	null	\\x756e646566696e6564
+63	asdasdas	dasdasd@sdsd.sd	asdasdasd	asdasdasdasdasdasd	asdasdasd	\\x756e646566696e6564
+64	asdasda	sdasd@sd.sd	asdasdas	sdasdasdasdasd	dasdasdasda	\\x756e646566696e6564
+65	sdasdasd	asdasd@asd.asda	asdasdasd	asdasdasdas	asdasdasda	\\x756e646566696e6564
+66	asdasdasd	asdasd@asd.asd	asdasdasd	asdasdasdasd	asdasdasd	\\x756e646566696e6564
+67	dasdasd	asdasda@sds.sd	asdasdasd	sdasdasdasd	asdasdasda	\\x756e646566696e6564
+68	asdasdasd	asdasdasd@sds.sd	asdasdas	asdadasd	dasdasdasdasdasd	\\x756e646566696e6564
+69	MArvall	marvalbbblua@gmail.com	asdasd	asdasdasdasd	asdasdasd	\\x756e646566696e6564
+70	asdasdasd	asdasd@sds.sd	asdasdasd	dasdasdasdasd	asdasdasdas	\\x756e646566696e6564
+71	asdasd	yarinarik.xxx@gmail.com	asdas	dasdasd	dasdas	\\x756e646566696e6564
+72	asdasd	asdasdasd@sd.sd	asdasd	dasdasdasd	asdasdas	\\x756e646566696e6564
+73	sdasd	asdasd@asds.sd	sdasdasdasdasda	asdasdasdasd	sdasdasd	\N
+74	asdasd	asdasda@sdd.sas	das	dasdasdasdasdasd	dasdasdasdas	\N
+75	fsdfsd	fsdfsdf	sdfsdfs	fsdfsdf	dfsdfsd	\N
+76	asdasd	asdasdasd@sds.dss	dasdas	asdasdasdasd	dasdasdasd	\N
+77	sdfsdfsdf	sdfsds@sdf.dfs	fsdfs	dfsdfsdfsdfsdf	dfsdfsdfsdfsdfsdfsdfs	\N
+78	dfgdfgd	fgdfgdfg@Dsf.dfs	sdfsdfsdf	dfsdfsdfsdfsdf	sdfsdfsdfs	\N
+79	asdasd	asdasd@sd.sd	asdasdasda	dasdasdasdas	sdasdasdas	\N
+80	asdasda	asdasdas@sdsd.sd	sdasd	asdasdasdasd	sadasdasdasda	\N
 \.
 
 
@@ -1086,17 +1104,17 @@ COPY public.partners (id, name, url, logo_url) FROM stdin;
 COPY public.projects (id, description, challenge, solution, technologies, urls, integrations, name, url_img) FROM stdin;
 6	Finance Tax Application Development	["Architecture Development","Strapi Application Development","Own Email Server Development"]	["Architecture Implementation","Application Development","Testing"]	["JavaScript","NodeJS","REST API","ReactJS"]	[{"link":"http://taxfinance.itjedi.co.nz/","name":"Site"}]	\N	Tax Finance	projects/tax_finance.png
 3		\N	\N	\N	[{"link":"https://dimusco.com/","name":"Site"}]	\N	Dimusco	\N
-2	FACEBOOK Chrome Extension Development / FACEBOOK API Integration	["MVP App support","Chrome Extension updates","New Features Development","UI/UX updates","Payment Subscription Integtration"]	["Customer Support","Chrome Extension Development and Testing","API Application Development","Stripe API Development Integration"]	["JavaScript","VueJS / VueX","Ruby (ActiveREcord)","Stripe","Facebook API","Chrome Extension API","PostgreSQL","AWS S3","Digital Ocean","DevOPS","Third party API integration (FreshDesk API, TapAffiliate API)"]	[{"link":"https://app.friendfilter.io/","name":"Site"},{"link":"https://friendfilter.io/","name":"Site"},{"link":"https://chrome.google.com/webstore/detail/friendfilter-for-facebook/bbahhbngjiangjdlmleihmlphoamikhg?hl=en","name":"Site"}]	\N	FriendFilter	projects/friend_filter.png
-9	IOS Remote Control Application / Desktop Application	["Desktop Application Development","IOS Remote Control Application for Desktop Application"]	["Design","IOS Application Development","Server Rendering Development","Desktop Application Development"]	["JavaScript","ElectronJS","React Native","PHP"]	[{"link":"https://www.chanel.com/","name":"Site"},{"link":"http://www.walterfilms.tv/","name":"Site"}]	\N	Chanel	projects/chanel.png
 11	\N	\N	\N	["ReactJS","Apollo Server","Apollo Client","GraphQL"]	[{"link":"https://www.humanos.me/","name":"Site"}]	\N	HumanOS	projects/human_os.png
 8	Web Development / Deployment	["Web Development"]	["Web Development","Testing"]	["JavaScript","NextJS","ReactJS"]	[{"link":"https://www.maxihost.com/","name":"Site"}]	\N	Maxihost	projects/maxihost.png
 7	\N	\N	\N	\N	[{"link":"https://lunie.io/","name":"Site"}]	\N	Luine	projects/lunie.png
 4	Marketing Platform/Dashboard Development	["Application Development/updates","Multicurrency Integration"]	["Application Dashboard Development","Testing"]	["JavaScript","ReactJS","NodeJS","MobX","Third party API integration (Facebook, LinkedIn, YouTube, Twitter, Google, Pinterest)"]	[{"link":"https://infinigrow.com","name":"Site"}]	\N	Infinigrow	projects/infinity.png
-1	Desktop Multiplatform Game Keyboard Configurator Application	["Connection and communication between Arduino and Application","Reset Arduino to default settings","Firmware updates","One touch setup, one touch text-creator","Usage external API for Arduino updates","New UI/UX Development","Multiplatform Development (Mac, Linux, Windows)"]	["Development Arduino listeners","Development Arduino flasher, firmware updates","Macros Development and Integration","Bazecor API Development and update","Development and update UI","Testing under Multiplatform"]	["JavaScript","C++","Arduino","BOSSA-Arduino","ReactJS","Material UI","ElectronJS","Lerna API","SerialPortJS","NodeJS"]	[{"link":"https://github.com/Dygmalab/Bazecor","name":"Git"},{"link":"https://github.com/Dygmalab/Bazecor-api","name":"Git"}]	\N	Dygma	projects/dygma.png
 13	\N	\N	\N	["TypeScript","Angular"]	[{"link":"https://www.smartlifepath.com/web-site/home","name":"Site"}]	\N	SmartLifePath	\N
 12	\N	\N	\N	["TypeScript","Angular"]	[{"link":"https://dvc.org/","name":"Site"}]	\N	DVC	\N
-10	\N	["Having information is not enough nowadays. It's much more important to use it in a right way. The goal was to create a solution to gather the collective intelligence of people and help them improve their impact within communities."]	["Using data analysis algorithms, graph technology and blockchain, protecting the Users security, NetworkOS represents a cutting-edge collaborative tool based on data sharing. It enables people knowing how their team, community or group is performing. It activates people and increases the opportunities of networking."]	["JavaScript","ReactJS","Apollo","GraphQL","PostgreSQL","Redis"]	[{"link":"https://www.collaboration.ai/","name":"Site"},{"link":"https://os.collaboration.ai/networkos","name":"Site"}]	["AWS","SendGrid","Ethereum"]	Collaboration	\N
 5	Upgrade UI	["Design"]	["Design Development","Design Implementation"]	["Java","Spring","JavaScript","VueJS, VueX","PostgreSQL"]	[{"link":"https://www.travelinsurancemaster.com/","name":"Site"}]	\N	Travel Insuranse	\N
+2	FACEBOOK Chrome Extension Development / FACEBOOK API Integration	["MVP App support","Chrome Extension updates","New Features Development","UI/UX updates","Payment Subscription Integtration"]	["Customer Support","Chrome Extension Development and Testing","API Application Development","Stripe API Development Integration"]	["JavaScript","VueJS / VueX","Ruby (ActiveREcord)","Stripe","Facebook API","Chrome Extension API","PostgreSQL","AWS S3","Digital Ocean","DevOPS","Third party API integration (FreshDesk API, TapAffiliate API)"]	[{"link":"https://app.friendfilter.io/","name":"Application"},{"link":"https://friendfilter.io/","name":"Official Site"},{"link":"https://chrome.google.com/webstore/detail/friendfilter-for-facebook/bbahhbngjiangjdlmleihmlphoamikhg?hl=en","name":"Exstansion"}]	\N	FriendFilter	projects/friend_filter.png
+9	IOS Remote Control Application / Desktop Application	["Desktop Application Development","IOS Remote Control Application for Desktop Application"]	["Design","IOS Application Development","Server Rendering Development","Desktop Application Development"]	["JavaScript","ElectronJS","React Native","PHP"]	[{"link":"https://www.chanel.com/","name":"Official Site"},{"link":"http://www.walterfilms.tv/","name":"Additional Site"}]	\N	Chanel	projects/chanel.png
+1	Desktop Multiplatform Game Keyboard Configurator Application	["Connection and communication between Arduino and Application","Reset Arduino to default settings","Firmware updates","One touch setup, one touch text-creator","Usage external API for Arduino updates","New UI/UX Development","Multiplatform Development (Mac, Linux, Windows)"]	["Development Arduino listeners","Development Arduino flasher, firmware updates","Macros Development and Integration","Bazecor API Development and update","Development and update UI","Testing under Multiplatform"]	["JavaScript","C++","Arduino","BOSSA-Arduino","ReactJS","Material UI","ElectronJS","Lerna API","SerialPortJS","NodeJS"]	[{"link":"https://github.com/Dygmalab/Bazecor","name":"Repository Git"},{"link":"https://github.com/Dygmalab/Bazecor-api","name":"API Git"}]	\N	Dygma	projects/dygma.png
+10	\N	["Having information is not enough nowadays. It's much more important to use it in a right way. The goal was to create a solution to gather the collective intelligence of people and help them improve their impact within communities."]	["Using data analysis algorithms, graph technology and blockchain, protecting the Users security, NetworkOS represents a cutting-edge collaborative tool based on data sharing. It enables people knowing how their team, community or group is performing. It activates people and increases the opportunities of networking."]	["JavaScript","ReactJS","Apollo","GraphQL","PostgreSQL","Redis"]	[{"link":"https://www.collaboration.ai/","name":"Official Site"},{"link":"https://os.collaboration.ai/networkos","name":"Additional Site"}]	["AWS","SendGrid","Ethereum"]	Collaboration	\N
 \.
 
 
@@ -1221,7 +1239,7 @@ SELECT pg_catalog.setval('public.blockchain_technologies_id_seq', 11, true);
 -- Name: customer_requests_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.customer_requests_id_seq', 62, true);
+SELECT pg_catalog.setval('public.customer_requests_id_seq', 80, true);
 
 
 --
