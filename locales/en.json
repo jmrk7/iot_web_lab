@@ -143,7 +143,7 @@
             "status-closed": "Closed"
         },
         "title": "Contact Us",
-        "descripotion": "Do you have or are you planning your business? Please, feel free to write to us. We will help you find the best solution for organizing your business. We will provide the necessary consultations. You can send us your project or layout and our specialists will evaluate and prepare solutions for your business project."
+        "descripotion": "IoTWebLab is here to give A to Z solutions when it comes to defining, designing, developing a product, and then marketing it to reach its right users. Feel free to reach out to us and we will schedule consultations, plan and come up with solutions for your business problems and needs."
     },
 
     "about":{
@@ -156,19 +156,19 @@
       },
       "title": "Who we are?",
       "subtitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-      "about": "IOT WEB LAB, LLC is a digital solution development company as well as an exclusive developers' network. We partner up with companies to build something amazing we scale up your team with real seniors for short or long-term projects. We have software developers, project managers, QA testers and product designers available to start working with you now. We are a 'remote first' company with talents mostly from Europe/East-Europe/USA. We are well-suited to small, agile projects for lean and start up businesses as well as to extend a team of an enterprise with 100% senior developers with fluent english.",
+      "about": "IoTWebLad is here to provide simple solutions for complex problems through modern technology. We aim to power businesses and their ambitions by turning their wildest dreams into high-quality, competitive products",
       "top-description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "bottom-description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
       "blockquote": "…Lorem Ipsum proin gravida nibh vel velit auctor aliquet. Aenean sollicitudin, lorem quis",
       "vision": {
         "title": "Our Vision",
         "subtitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium. Doloremque laudantium, totam rem aperiam."
+        "text": "IoTWebLab’s vision is to unlock the potential business around the world have through technology and make innovation accessible for non-technical people."
       },
       "mission": {
         "title": "Our Mission",
         "subtitle": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
-        "text": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium. Doloremque laudantium, totam rem aperiam."
+        "text": "IoTWebLab’s mission is to unlock the imagination of business people through modern technology."
       },
       "heroAlt": [
         {
@@ -185,22 +185,21 @@
         "blockchainServicesList": {
             "title":"Find your service",
             "services": [
-                "Product design workshop",
-                "Public blockchain network integration",
-                "Permissioned and Permissionless blockchain development",
-                "Distributed applications (DApps) development",
-                "Smart Contracts development and audit within a project scope",
-                "Hybrid centralized systems development with blockchain components",
-                "Blockchain technology consulting",
-                "Proof of Concept design workshop",
-                "Proof of Concept development",
-                "Private and permissioned blockchain development",
-                "Consortium networks",
-                "Integrating blockchain into legacy infrastructure",
-                "Migrating to blockchain infrastructure",
-                "Public blockchain networks integration",
-                "Blockchain technology consulting"
-              ]
+              "Product design workshop",
+              "Public blockchain network integration",
+              "Blockchain development with or without permissions",
+              "Distributed applications (DAPPS) development",
+              "Smart contracts development and audit within a project scope",
+              "Hybrid centralized systems development with blockchain components",
+              "Blockchain technology consulting",
+              "Proof of concept design workshop",
+              "Proof of concept development",
+              "Consortium networks",
+              "Integrating blockchain into legacy infrastructure",
+              "Migrating to blockchain infrastructure",
+              "Public blockchain networks integration",
+              "Blockchain technology consulting"
+            ]
         },
         "blockchainTechnologies": {
             "title": "We will help to integrate technologies or any tools into your project."
@@ -259,8 +258,7 @@
         "intro": {
             "title": "IoT Digital Solution",
             "subtitle": "BUILDING HIGH QUALITY SOFTWARE AND SCALING TEAMS ON DEMAND",
-            "descripotion": "We have a wide experience and we will help you find the solution youneed in any business area.",
-            "title-list": "We help you with:"
+            "descripotion": "We have transformed businesses from a variety of sectors:"
         },
         "mobileStores": {
             "title": "Make your application accessible.",
@@ -279,7 +277,7 @@
             "about": "Smartphones and other mobile devices have not only become part of our daily lives, they are a complete offer of us. With the help of mobile phones, we not only communicate with each other, but also order goods from stores, buy tickets, book accommodation, call a taxi, use phones as navigators, photo and video cameras, readers, online banks, and just as a way to have fun and pass time. According to statistics published in Datareportal, 67% of adults worldwide use smartphones daily, which is almost 5.19 billion people (out of a total population of 7.75 billion). The trend towards the transition from simple mobile devices to feature-rich smartphones is only increasing every year. It is assumed that in the near future a person will be directly connected with his smartphone, that is, all functions and all information from our gadgets will directly enter our brain. And while many inventors are working on it, people are wasting their time on seemingly useless apps like a low-frequency mosquito repeller, a watermelon ripeness indicator, a bubble wrap simulator, or an app that visually transforms a smartphone screen into a glass of beer. In short, the relevance of mobile application development is growing not only every year, but also every month. Hundreds of new mobile apps are released online every day. It would seem difficult to come up with something new, but good developments in collaboration with good marketing can bring a lot of money to the creator, a clear confirmation of this is the recently sensational TikTok, whose ratings continue to grow at lightning speed."
         },
         "projects": {
-            "title": "Projects"
+            "title": "Portfolio"
         },
         "technologies": {
             "title": "Technologies"
@@ -342,7 +340,7 @@
               }
             ],
             "title": "SEND YOUR MESSAGE",
-            "descripotion": "Do you have or are you planning your business? Please, feel free to write to us. We will help you find the best solution for organizing your business. We will provide the necessary consultations. You can send us your project or layout and our specialists will evaluate and prepare solutions for your business project."
+            "descripotion": "IoTWebLab is here to give A to Z solutions when it comes to defining, designing, developing a product, and then marketing it to reach its right users. Feel free to reach out to us and we will schedule consultations, plan and come up with solutions for your business problems and needs."
         },
         "notification":{
             "more": "More info",

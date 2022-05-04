@@ -198,7 +198,8 @@ ALTER TABLE hdb_catalog.hdb_version OWNER TO postgres;
 CREATE TABLE public.blockchain_clouds (
     id integer NOT NULL,
     name bpchar NOT NULL,
-    src bpchar NOT NULL
+    src bpchar NOT NULL,
+    link bpchar
 );
 
 
@@ -233,7 +234,8 @@ ALTER SEQUENCE public.blockchain_clouds_id_seq OWNED BY public.blockchain_clouds
 CREATE TABLE public.blockchain_technologies (
     id integer NOT NULL,
     name bpchar NOT NULL,
-    icon bpchar NOT NULL
+    icon bpchar NOT NULL,
+    link bpchar
 );
 
 
@@ -927,7 +929,7 @@ COPY hdb_catalog.hdb_cron_events (id, trigger_name, scheduled_time, status, trie
 --
 
 COPY hdb_catalog.hdb_metadata (id, metadata, resource_version) FROM stdin;
-1	{"sources":[{"kind":"postgres","name":"iotweblab","tables":[{"table":{"schema":"public","name":"blockchain_clouds"}},{"table":{"schema":"public","name":"blockchain_technologies"}},{"table":{"schema":"public","name":"customer_requests"}},{"table":{"schema":"public","name":"ecommerce_scope"}},{"table":{"schema":"public","name":"features"}},{"table":{"schema":"public","name":"hero_carusel_item"}},{"table":{"schema":"public","name":"meta_tags"}},{"table":{"schema":"public","name":"partners"}},{"table":{"schema":"public","name":"projects"}},{"table":{"schema":"public","name":"reviews"}},{"table":{"schema":"public","name":"scope_area"}},{"table":{"schema":"public","name":"team"}},{"table":{"schema":"public","name":"technologies"}},{"table":{"schema":"public","name":"timeline"}},{"table":{"schema":"public","name":"websites_types"}}],"configuration":{"connection_info":{"use_prepared_statements":false,"database_url":{"from_env":"PG_DATABASE_URL"},"isolation_level":"read-committed"}}}],"version":3}	42
+1	{"sources":[{"kind":"postgres","name":"iotweblab","tables":[{"table":{"schema":"public","name":"blockchain_clouds"}},{"table":{"schema":"public","name":"blockchain_technologies"}},{"table":{"schema":"public","name":"customer_requests"}},{"table":{"schema":"public","name":"ecommerce_scope"}},{"table":{"schema":"public","name":"features"}},{"table":{"schema":"public","name":"hero_carusel_item"}},{"table":{"schema":"public","name":"meta_tags"}},{"table":{"schema":"public","name":"partners"}},{"table":{"schema":"public","name":"projects"}},{"table":{"schema":"public","name":"reviews"}},{"table":{"schema":"public","name":"scope_area"}},{"table":{"schema":"public","name":"team"}},{"table":{"schema":"public","name":"technologies"}},{"table":{"schema":"public","name":"timeline"}},{"table":{"schema":"public","name":"websites_types"}}],"configuration":{"connection_info":{"use_prepared_statements":false,"database_url":{"from_env":"PG_DATABASE_URL"},"isolation_level":"read-committed"}}}],"version":3}	44
 \.
 
 
@@ -952,7 +954,7 @@ COPY hdb_catalog.hdb_scheduled_events (id, webhook_conf, scheduled_time, retry_c
 --
 
 COPY hdb_catalog.hdb_schema_notifications (id, notification, resource_version, instance_id, updated_at) FROM stdin;
-1	{"metadata":false,"remote_schemas":[],"sources":["iotweblab"]}	42	2ceeefec-25bf-4445-a25b-0ebe573cf0a3	2022-03-01 13:56:20.993921+00
+1	{"metadata":false,"remote_schemas":[],"sources":["iotweblab"]}	44	f207fd36-565d-4fea-bd52-639d0e7ac822	2022-03-01 13:56:20.993921+00
 \.
 
 
@@ -969,12 +971,12 @@ COPY hdb_catalog.hdb_version (hasura_uuid, version, upgraded_on, cli_state, cons
 -- Data for Name: blockchain_clouds; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.blockchain_clouds (id, name, src) FROM stdin;
-1	Oracle Blockchain Cloud Service	/services/oracle.png
-2	IBM Blockchain Platform	/services/ibm2.png
-3	Azure Blockchain Workbench	/services/azure2.png
-4	Amazon Managed Blockchain	/services/aws2.png
-5	Google Cloud Platform	/services/google2.png
+COPY public.blockchain_clouds (id, name, src, link) FROM stdin;
+1	Oracle Blockchain Cloud Service	/services/oracle.png	https://www.oracle.com/cis/blockchain/
+3	Azure Blockchain Workbench	/services/azure2.png	https://azure.microsoft.com/en-us/features/blockchain-workbench/
+2	IBM Blockchain Platform	/services/ibm2.png	https://www.ibm.com/blockchain/platform
+5	Google Cloud Platform	/services/google2.png	https://cloud.google.com/customers/blockchain
+4	Amazon Managed Blockchain	/services/aws2.png	https://aws.amazon.com/ru/managed-blockchain/
 \.
 
 
@@ -982,18 +984,18 @@ COPY public.blockchain_clouds (id, name, src) FROM stdin;
 -- Data for Name: blockchain_technologies; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.blockchain_technologies (id, name, icon) FROM stdin;
-1	Ethereum	/services/blockchain/ethereum.svg
-2	Parity	/services/blockchain/parity.svg
-3	Hyperledger Fabric	/services/blockchain/hlf.svg
-4	Hyperledger Sawtooth	/services/blockchain/hyperledger-sawtooth.svg
-5	Hyperledger Indy	/services/blockchain/hyperledger-indy.svg
-6	EOS	/services/blockchain/eosio.svg
-7	Corda R3	/services/blockchain/icon-r3.svg
-8	Stellar	/services/blockchain/stellar-seeklogo.svg
-9	Exonum	/services/blockchain/icon-exonum.svg
-10	Multichain	/services/blockchain/icon-multichain.svg
-11	NXT	/services/blockchain/icon-nxt.svg
+COPY public.blockchain_technologies (id, name, icon, link) FROM stdin;
+1	Ethereum	/services/blockchain/ethereum.svg	https://ethereum.org/ru/
+2	Parity	/services/blockchain/parity.svg	https://www.parity.io/
+3	Hyperledger Fabric	/services/blockchain/hlf.svg	https://www.hyperledger.org/use/fabric
+4	Hyperledger Sawtooth	/services/blockchain/hyperledger-sawtooth.svg	https://www.hyperledger.org/use/sawtooth
+5	Hyperledger Indy	/services/blockchain/hyperledger-indy.svg	https://hyperledger-indy.readthedocs.io/en/latest/
+6	EOS	/services/blockchain/eosio.svg	https://coinmarketcap.com/ru/currencies/eos/
+7	Corda R3	/services/blockchain/icon-r3.svg	https://www.r3.com/
+8	Stellar	/services/blockchain/stellar-seeklogo.svg	https://www.stellar.org/
+9	Exonum	/services/blockchain/icon-exonum.svg	https://exonum.com/index
+10	Multichain	/services/blockchain/icon-multichain.svg	https://www.multichain.com/
+11	NXT	/services/blockchain/icon-nxt.svg	https://nxtportal.org/monitor/
 \.
 
 

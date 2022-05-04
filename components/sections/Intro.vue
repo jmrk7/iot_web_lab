@@ -19,9 +19,8 @@
       <p>
         {{ $t('sections.intro.descripotion') }}
       </p>
-      <h3>{{ $t('sections.intro.title-list') }}</h3>
       <v-row v-show="galleryIsShow" class="pt-12">
-        <v-col v-for="card in cards" :key="card.title" cols="12" md="4">
+        <v-col v-for="card in cards" :key="card.title" cols="12" sm="6" md="6">
           <div class="d-flex pa-3 industy__block" @click="viewDeteils(card)">
             <SimpleSVG
               fill-class-name="fill-to-change"
@@ -32,8 +31,10 @@
               :fill="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
               :stroke="$vuetify.theme.dark ? '#B2B2B2' : '#343434'"
             />
-            <div class="ml-2 pr-2 d-flex flex-column justify-center">
-              <div class="text--disabled" v-text="card.subtitle"></div>
+            <div
+              class="ml-2 pr-2 d-flex flex-column justify-center content__scope"
+            >
+              <div class="text--disabled caption" v-text="card.subtitle"></div>
               <h4
                 class="text-uppercase mt-1"
                 style="letter-spacing: 0.15em"
@@ -111,15 +112,21 @@ export default {
 }
 </script>
 <style lang="scss" scoped>
+.content__scope {
+  width: 300px;
+}
 .static_height {
-  height: 650px;
+  height: 800px;
 }
 @media (max-width: 768px) {
   .static_height {
-    height: 1075px;
+    height: 1200px;
   }
 }
 .industy__block {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   transition-property: all;
   transition-duration: 250ms;

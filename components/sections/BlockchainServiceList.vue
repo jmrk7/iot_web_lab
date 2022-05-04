@@ -17,10 +17,10 @@
               class="font-weight-black text-uppercase py-2"
             >
               <v-icon v-if="!$vuetify.theme.dark" light left>
-                mdi-bitcoin
+                mdi-circle-medium
               </v-icon>
               <v-icon v-if="$vuetify.theme.dark" dark left>
-                mdi-bitcoin
+                mdi-circle-medium
               </v-icon>
               {{ item }}
             </v-col>
