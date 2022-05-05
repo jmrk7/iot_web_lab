@@ -11,13 +11,13 @@
               >
                 {{ $t('about.title') }}
               </h2>
-              <h3
+              <!-- <h3
                 class="text-h4 text-uppercase font-weight-thin text-center my-8"
               >
                 {{ $t('about.subtitle') }}
-              </h3>
+              </h3> -->
             </v-col>
-            <v-col cols="12" md="6">
+            <!-- <v-col cols="12" md="6">
               <p>
                 {{ $t('about.top-description') }}
               </p>
@@ -27,8 +27,8 @@
               <p>
                 {{ $t('about.bottom-description') }}
               </p>
-            </v-col>
-            <v-col cols="12" md="6">
+            </v-col> -->
+            <v-col cols="12" md="12">
               <p>
                 {{ $t('about.about') }}
               </p>
@@ -48,14 +48,14 @@
           </v-col>
           <v-col cols="12" md="6" align-self="center">
             <div class="pa-lg-16 pa-md-10 px-4 py-16">
-              <h2 class="text-h3 text-center font-weight-black">
+              <h2 class="text-h3 text-center font-weight-black mb-8">
                 {{ $t('about.vision.title') }}
               </h2>
-              <h3
+              <!-- <h3
                 class="text-h5 text-uppercase font-weight-thin text-center my-8"
               >
                 {{ $t('about.vision.subtitle') }}
-              </h3>
+              </h3> -->
               <p>
                 {{ $t('about.vision.text') }}
               </p>
@@ -73,14 +73,14 @@
           </v-col>
           <v-col cols="12" md="6" align-self="center">
             <div class="pa-lg-16 pa-md-10 px-4 py-16">
-              <h2 class="text-h3 text-center font-weight-black">
+              <h2 class="text-h3 text-center font-weight-black mb-8">
                 {{ $t('about.mission.title') }}
               </h2>
-              <h3
+              <!-- <h3
                 class="text-h5 text-uppercase font-weight-thin text-center my-8"
               >
                 {{ $t('about.mission.subtitle') }}
-              </h3>
+              </h3> -->
               <p>
                 {{ $t('about.mission.text') }}
               </p>
