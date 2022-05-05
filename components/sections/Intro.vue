@@ -20,7 +20,7 @@
         {{ $t('sections.intro.descripotion') }}
       </p>
       <v-row v-show="galleryIsShow" class="pt-12">
-        <v-col v-for="card in cards" :key="card.title" cols="12" sm="6" md="6">
+        <v-col v-for="card in cards" :key="card.title" cols="12" sm="4" md="4">
           <div class="d-flex pa-3 industy__block" @click="viewDeteils(card)">
             <SimpleSVG
               fill-class-name="fill-to-change"
@@ -34,7 +34,7 @@
             <div
               class="ml-2 pr-2 d-flex flex-column justify-center content__scope"
             >
-              <div class="text--disabled caption" v-text="card.subtitle"></div>
+              <!-- <div class="text--disabled caption" v-text="card.subtitle"></div> -->
               <h4
                 class="text-uppercase mt-1"
                 style="letter-spacing: 0.15em"
@@ -47,6 +47,7 @@
       <v-row v-if="currentCard && !galleryIsShow">
         <div class="d-flex flex-column flex-sm-row width-100 pa-3">
           <SimpleSVG
+            class="flex-shrink-0"
             fill-class-name="fill-to-change"
             :src="currentCard.svg"
             :width="size"
@@ -62,16 +63,19 @@
                 style="letter-spacing: 0.15em"
                 v-text="currentCard.title"
               ></h4>
-              <div
+              <div class="text--disabled" v-text="currentCard.subtitle"></div>
+              <!-- <div
                 v-for="tool in currentCard.tools"
                 :key="tool"
                 class="text--disabled"
               >
                 - {{ tool }}
-              </div>
+              </div> -->
             </div>
           </div>
-          <button class="back_button" @click="closeDeteils()">back</button>
+          <button class="back_button flex-shrink-0" @click="closeDeteils()">
+            back
+          </button>
         </div>
       </v-row>
     </v-container>
@@ -116,11 +120,11 @@ export default {
   width: 300px;
 }
 .static_height {
-  height: 800px;
+  height: 600px;
 }
 @media (max-width: 768px) {
   .static_height {
-    height: 1200px;
+    height: 1070px;
   }
 }
 .industy__block {
