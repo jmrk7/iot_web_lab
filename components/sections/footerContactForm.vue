@@ -1,32 +1,30 @@
 <template>
-  <v-form
-    v-model="isValid"
-    class="row"
-    @input="isRuled = true"
-    @submit="sentForm"
-  >
+  <v-form ref="contactFrom" v-model="isValid" class="row" @submit="sentForm">
     <div class="col-12 col-sm-6">
       <v-text-field
         v-model="name"
         :label="$t('sections.footerContactForm.labels.name')"
-        :rules="isRuled ? fieldRules : [(v) => true]"
+        :rules="fieldRules"
         dense
         outlined
+        @input="setRulesField"
       >
       </v-text-field>
       <v-text-field
         v-model="email"
-        :rules="isRuled ? emailRules : [(v) => true]"
+        :rules="emailRules"
         :label="$t('sections.footerContactForm.labels.email')"
         dense
         outlined
+        @input="setRulesEmail"
       ></v-text-field>
       <v-text-field
         v-model="subject"
         :label="$t('sections.footerContactForm.labels.subject')"
         dense
         outlined
-        :rules="isRuled ? fieldRules : [(v) => true]"
+        :rules="subjectRules"
+        @input="setRulesSubject"
       ></v-text-field>
       <v-text-field
         v-model="link"
@@ -44,7 +42,8 @@
         outlined
         rows="5"
         row-height="21"
-        :rules="isRuled ? messageRules : [(v) => true]"
+        :rules="messageRules"
+        @input="setRulesMessage"
       ></v-textarea>
       <v-file-input
         v-model="onloadedFile"
@@ -74,18 +73,11 @@ export default {
       onloadedFile: null,
       subject: null,
       message: null,
-      isRuled: false,
-      emailRules: [
-        (v) =>
-          !v ||
-          /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-          'E-mail must be valid',
-      ],
-      fieldRules: [(v) => v?.length > 0 || 'Field is required'],
-      messageRules: [
-        (v) => v?.length > 0 || 'Field is required',
-        (v) => v?.length >= 10 || 'Name must be less than 10 characters',
-      ],
+      isRuled: true,
+      emailRules: [(v) => true],
+      fieldRules: [(v) => true],
+      messageRules: [(v) => true],
+      subjectRules: [(v) => true],
     }
   },
   methods: {
@@ -96,11 +88,48 @@ export default {
       sendAlert: 'alert/sendAlert',
       setStatus: 'loader/setStatus',
     }),
+    setRules() {
+      this.setRulesField()
+      this.setRulesEmail()
+      this.setRulesMessage()
+      this.setRulesSubject()
+    },
+    setRulesField() {
+      this.fieldRules = [
+        (v) => v?.length > 0 || 'Field is required',
+        (v) => v?.length >= 3 || 'Name must be less than 10 characters',
+      ]
+    },
+    setRulesEmail() {
+      this.emailRules = [
+        (v) => v?.length > 0 || 'Field is required',
+        (v) =>
+          !v ||
+          /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+          'E-mail must be valid',
+      ]
+    },
+    setRulesMessage() {
+      this.messageRules = [
+        (v) => v?.length > 0 || 'Field is required',
+        (v) => v?.length >= 10 || 'Name must be less than 10 characters',
+      ]
+    },
+    setRulesSubject() {
+      this.subjectRules = [
+        (v) => v?.length > 0 || 'Field is required',
+        (v) => v?.length >= 3 || 'Name must be less than 10 characters',
+      ]
+    },
 
     sentForm(event) {
       event.preventDefault()
       event.stopPropagation()
+
+      this.setRules()
+
       this.setStatus(true)
+      this.$refs.contactFrom.validate()
       // if (await this.fetchCustomerRequestByEamil(this.email)) {
       //   this.sendAlert({
       //     type: 'warning',
@@ -165,6 +194,9 @@ export default {
             })
           })
           .finally(() => {
+            setTimeout(() => {
+              this.clearReference()
+            }, 500)
             this.setStatus(false)
           })
       } else {
@@ -176,13 +208,17 @@ export default {
       }
     },
     clearReference() {
-      this.isRuled = false
       this.name = null
       this.email = null
       this.subject = null
       this.message = null
       this.link = null
       this.file = null
+      this.isValid = false
+      this.emailRules = [(v) => true]
+      this.fieldRules = [(v) => true]
+      this.messageRules = [(v) => true]
+      this.subjectRules = [(v) => true]
     },
   },
 }

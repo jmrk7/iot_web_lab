@@ -5,7 +5,14 @@
         "host": "pages/index.vue",
         "id": 11,
         "keywords": ["development","blockchain","mobile","website","solution","technologies"],
-        "title": "Web Development"
+        "title": "Web Development",
+        "additional":[
+          {"property":"og:title", "content": "Web Development"},
+          {"property":"og:site_name", "content": "IOT WEBLAB"},
+          {"property":"og:url", "content": "https://test.iotwlab.com"},
+          {"property":"og:description", "content": "IOT WEBLAB specializes in web development and application software development. Our specialists can help you solve your business problems."},
+          {"property":"og:image", "content": "logoIOT.jpg"}
+        ]
       }
     },
     "policy":{ 
