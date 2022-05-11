@@ -16,10 +16,18 @@ Vue.mixin({
           })
         }
         if (meta.keywards) {
-          head.push({
+          head.meta.push({
             hid: 'keywords',
             name: 'keywords',
             content: meta.keywords.join(),
+          })
+        }
+        if (meta.additional && meta.additional.length) {
+          meta.additional.forEach((element) => {
+            head.meta.push({
+              content: element.content,
+              property: element.property,
+            })
           })
         }
 
