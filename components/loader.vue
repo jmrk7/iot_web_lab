@@ -1,5 +1,13 @@
 <template>
   <div v-if="isShow" id="overlay-circular">
+    <!-- <div class="text-center">
+      <v-progress-circular
+        :size="70"
+        :width="7"
+        color="purple"
+        indeterminate
+      ></v-progress-circular>
+    </div> -->
     <div class="loader-circular"></div>
   </div>
 </template>
@@ -17,6 +25,17 @@ export default {
 </script>
 
 <style>
+/* #overlay-circular {
+  height: 100vh;
+  width: 100wh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: #5a5a5a;
+} */
 body.overflowHidden {
   overflow: hidden !important;
 }
@@ -33,8 +52,8 @@ body.overflowHidden {
   --time-animation3: spin-circular 3s linear infinite;
 }
 #overlay-circular {
-  height: 100%;
-  width: 100%;
+  height: 100vh;
+  width: 100vw;
   position: fixed;
   top: 0;
   left: 0;
@@ -50,7 +69,7 @@ body.overflowHidden {
   top: 50%;
   width: 75px;
   height: 75px;
-  margin: -75px 0 0 -75px;
+  margin: -75px 0 0 -40px;
   border-radius: 50%;
   border: var(--border-size);
   border-top-color: var(--color-animation1);
