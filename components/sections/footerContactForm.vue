@@ -78,6 +78,7 @@ export default {
       fieldRules: [(v) => true],
       messageRules: [(v) => true],
       subjectRules: [(v) => true],
+      isResetStyle: true,
     }
   },
   methods: {
@@ -144,7 +145,13 @@ export default {
         this.file = this.onloadedFile
       }
 
-      if (this.isValid && this.email) {
+      if (
+        this.isValid &&
+        this.email &&
+        this.name &&
+        this.message &&
+        this.message.length > 10
+      ) {
         // await this.insertCustomerRequest({
         //   name: this.name,
         //   email: this.email,
@@ -206,6 +213,12 @@ export default {
           message: "Cann't send message. Please, check fields and try again",
         })
       }
+      setTimeout(() => {
+        this.emailRules = [(v) => true]
+        this.fieldRules = [(v) => true]
+        this.messageRules = [(v) => true]
+        this.subjectRules = [(v) => true]
+      }, 5000)
     },
     clearReference() {
       this.name = null
