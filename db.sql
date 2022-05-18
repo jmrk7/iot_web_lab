@@ -608,7 +608,8 @@ CREATE TABLE public.scope_area (
     tools json,
     svg bpchar,
     description text,
-    collout text
+    collout text,
+    is_show boolean DEFAULT true NOT NULL
 );
 
 
@@ -767,7 +768,8 @@ CREATE TABLE public.websites_types (
     image bpchar,
     benefits json,
     text text,
-    additional_text text
+    additional_text text,
+    is_show boolean DEFAULT true NOT NULL
 );
 
 
@@ -929,7 +931,7 @@ COPY hdb_catalog.hdb_cron_events (id, trigger_name, scheduled_time, status, trie
 --
 
 COPY hdb_catalog.hdb_metadata (id, metadata, resource_version) FROM stdin;
-1	{"sources":[{"kind":"postgres","name":"iotweblab","tables":[{"table":{"schema":"public","name":"blockchain_clouds"}},{"table":{"schema":"public","name":"blockchain_technologies"}},{"table":{"schema":"public","name":"customer_requests"}},{"table":{"schema":"public","name":"ecommerce_scope"}},{"table":{"schema":"public","name":"features"}},{"table":{"schema":"public","name":"hero_carusel_item"}},{"table":{"schema":"public","name":"meta_tags"}},{"table":{"schema":"public","name":"partners"}},{"table":{"schema":"public","name":"projects"}},{"table":{"schema":"public","name":"reviews"}},{"table":{"schema":"public","name":"scope_area"}},{"table":{"schema":"public","name":"team"}},{"table":{"schema":"public","name":"technologies"}},{"table":{"schema":"public","name":"timeline"}},{"table":{"schema":"public","name":"websites_types"}}],"configuration":{"connection_info":{"use_prepared_statements":false,"database_url":{"from_env":"PG_DATABASE_URL"},"isolation_level":"read-committed"}}}],"version":3}	44
+1	{"sources":[{"kind":"postgres","name":"iotweblab","tables":[{"table":{"schema":"public","name":"blockchain_clouds"}},{"table":{"schema":"public","name":"blockchain_technologies"}},{"table":{"schema":"public","name":"customer_requests"}},{"table":{"schema":"public","name":"ecommerce_scope"}},{"table":{"schema":"public","name":"features"}},{"table":{"schema":"public","name":"hero_carusel_item"}},{"table":{"schema":"public","name":"meta_tags"}},{"table":{"schema":"public","name":"partners"}},{"table":{"schema":"public","name":"projects"}},{"table":{"schema":"public","name":"reviews"}},{"table":{"schema":"public","name":"scope_area"}},{"table":{"schema":"public","name":"team"}},{"table":{"schema":"public","name":"technologies"}},{"table":{"schema":"public","name":"timeline"}},{"table":{"schema":"public","name":"websites_types"}}],"configuration":{"connection_info":{"use_prepared_statements":false,"database_url":{"from_env":"PG_DATABASE_URL"},"isolation_level":"read-committed"}}}],"version":3}	46
 \.
 
 
@@ -954,7 +956,7 @@ COPY hdb_catalog.hdb_scheduled_events (id, webhook_conf, scheduled_time, retry_c
 --
 
 COPY hdb_catalog.hdb_schema_notifications (id, notification, resource_version, instance_id, updated_at) FROM stdin;
-1	{"metadata":false,"remote_schemas":[],"sources":["iotweblab"]}	44	f207fd36-565d-4fea-bd52-639d0e7ac822	2022-03-01 13:56:20.993921+00
+1	{"metadata":false,"remote_schemas":[],"sources":["iotweblab"]}	46	5074e9ed-c2e2-46ef-9155-4560837067b6	2022-03-01 13:56:20.993921+00
 \.
 
 
@@ -963,7 +965,7 @@ COPY hdb_catalog.hdb_schema_notifications (id, notification, resource_version, i
 --
 
 COPY hdb_catalog.hdb_version (hasura_uuid, version, upgraded_on, cli_state, console_state) FROM stdin;
-9e753273-de81-4cb3-90ce-ef767064dcfb	47	2022-03-01 13:55:35.3171+00	{}	{"onboardingShown": true, "console_notifications": {"admin": {"date": "2022-05-18T10:27:14.064Z", "read": "default", "showBadge": false}}, "telemetryNotificationShown": true}
+9e753273-de81-4cb3-90ce-ef767064dcfb	47	2022-03-01 13:55:35.3171+00	{}	{"onboardingShown": true, "console_notifications": {"admin": {"date": "2022-05-18T14:02:40.406Z", "read": "default", "showBadge": false}}, "telemetryNotificationShown": true}
 \.
 
 
@@ -1059,10 +1061,10 @@ COPY public.features (id, title, text, callout, subtitle) FROM stdin;
 --
 
 COPY public.hero_carusel_item (id, src, heading, "subHeading") FROM stdin;
-1	pexels-andrea-piacquadio-3884440.jpg	SOFTWARE DEVELOPMENT	Desktop, Web and Mobile development with the hint of data-science and data-engineering.
-3	pexels-thirdman-5961072.jpg	DIGITAL MARKETING	Digital marketing – Effective digital marketing solutions to help your business increase visibility, convert leads, and boost profitability. From SEO optimization to advertising, everything you may need to succeed
 4	pexels-andrea-piacquadio-3830745.jpg	OUTSOURCE & OUTSTAFF	Outsourcing and outstaffing – Helping to find the best project managers, designers, developers, QA specialists as well as marketers, and advertisers so that you never have a lack of professional resources.
 2	pexels-peter-olexa-4012966.jpg	UI/UX DESIGN	User interface and user experience design – From ideation to prototyping to designing we are here to help you throughout all of these steps. IoTWebLab will help you come up with a design that will solve complex user problems yet be easy to use.
+3	pexels-thirdman-5961072.jpg	DIGITAL MARKETING	Effective digital marketing solutions to help your business increase visibility, convert leads, and boost profitability. From SEO optimization to advertising, everything you may need to succeed
+1	pexels-andrea-piacquadio-3884440.jpg	SOFTWARE DEVELOPMENT	IoTWebLab offers high-quality software development to businesses with an idea of great software but do not have the means to create it. We are here to help with the newest technology and best solutions to implement your vision.
 \.
 
 
@@ -1134,13 +1136,13 @@ COPY public.reviews (id, avatar, name, post, review) FROM stdin;
 -- Data for Name: scope_area; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.scope_area (id, title, subtitle, tools, svg, description, collout) FROM stdin;
-5	Clouds	Databases and clouds	["Data storage architecture design","Data analysis systems","SQL query optimization","Running of your projects in Amazon Cloud Services or Google Cloud"]	icon/cloud-svgrepo-com.svg	\N	05
-2	Marketing	Product promotion tools	["SEO-optimization","Social media tools","Analysis and content implementation","Contextual advertising tools","Tools for mailing and feedback"]	icon/1515442620.svg	\N	02
-1	Production industry	Production industry –  helping companies that are producing automobile, electrical, and heavy machinery with automation.	["Production automation tools","Prototyping and design","Integration of devices and services","Administration and control systems"]	icon/industry-15.svg	\N	01
-6	Finance industry	Finance industry – supporting banks and financial companies in developing websites, applications, and platforms for internal use.	["Implementation of E-commerce services","Bank plugin implementation","Implementation and developing accounting services","Analysis tools developing"]	icon/dollar-svgrepo-com.svg	\N	06
-4	Retail and wholesale companies	Retail and wholesale companies – creating trading platforms and marketplaces as well as adding plugins to enhance the existing ones.	["Analysis and statistics tools","Implementation of E-commerce services","Development and launch of trading platforms and marketplaces","Development of plugins for popular marketplaces"]	icon/grocery-15.svg	\N	04
-3	Broadcasting and media industry	Broadcasting and media industry – developing software for broadcasting systems, and providing solutions from implementing billing systems to media content tools. 	["Media content tools","Billing systems","Implementation of communication services and voip tools","Software development for broadcasting systems"]	icon/play-button-svgrepo-com.svg	\N	03
+COPY public.scope_area (id, title, subtitle, tools, svg, description, collout, is_show) FROM stdin;
+5	Clouds	Databases and clouds	["Data storage architecture design","Data analysis systems","SQL query optimization","Running of your projects in Amazon Cloud Services or Google Cloud"]	icon/cloud-svgrepo-com.svg	\N	05	f
+2	Marketing	Product promotion tools	["SEO-optimization","Social media tools","Analysis and content implementation","Contextual advertising tools","Tools for mailing and feedback"]	icon/1515442620.svg	\N	02	f
+1	Production industry	Helping companies that are producing automobile, electrical, and heavy machinery with automation.	["Production automation tools","Prototyping and design","Integration of devices and services","Administration and control systems"]	icon/industry-15.svg	\N	01	t
+6	Finance industry	Supporting banks and financial companies in developing websites, applications, and platforms for internal use.	["Implementation of E-commerce services","Bank plugin implementation","Implementation and developing accounting services","Analysis tools developing"]	icon/dollar-svgrepo-com.svg	\N	06	t
+4	Retail and wholesale companies	Creating trading platforms and marketplaces as well as adding plugins to enhance the existing ones.	["Analysis and statistics tools","Implementation of E-commerce services","Development and launch of trading platforms and marketplaces","Development of plugins for popular marketplaces"]	icon/grocery-15.svg	\N	04	t
+3	Broadcasting and media industry	Developing software for broadcasting systems, and providing solutions from implementing billing systems to media content tools. 	["Media content tools","Billing systems","Implementation of communication services and voip tools","Software development for broadcasting systems"]	icon/play-button-svgrepo-com.svg	\N	03	t
 \.
 
 
@@ -1212,14 +1214,14 @@ COPY public.timeline (id, color, year, title, decsription) FROM stdin;
 -- Data for Name: websites_types; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.websites_types (id, name, icon, image, benefits, text, additional_text) FROM stdin;
-5	SITE SERVICE	\N	\N	\N	The service, as a rule, is focused on solving one or more of the same type of customer needs.  The best example would be online consultants. Probably, each of us met pop-up windows on modern sites with an appeal from managers or an offer to enter our number so that they would quickly call us back and advise. So, such online assistants are an example of a service - a type of site that provides services to meet a specific user need.  The same cloud hosting (Dropbox, Yandex.Disk), video hosting (Youtube, RuTube), various services for online file conversion, etc. — are a prime example of good and useful service.  There are a huge number of services on the Internet, new ones appear every day. In order to create your own successful service, you just need to understand what people lack. Guess how to solve someone's problem, become useful to people - and the service will certainly succeed. Of course, provided that it is developed and put into operation by professionals. Since a cool idea without a competent technical implementation is most likely to fail.	\N
-2	CORPORATE WEBSITE	\N	\N	["A centralized website covering everything you want to share about your business","Increasing the interaction between an organization and target audiences","A great tool for marketing purposes and conversions"]	At IoTWLac we will help you create a corporate website to communicate about your business with leads and clients as well as for achieving commercial goals. We will ensure that the information about your company is effectively communicated and presented to the target audiences in the most effective way possible.	\N
-3	PORTAL	\N	\N	["Targeted to the main audience","Interactive for visitors","Flexible and adjustable","Can meet the different needs people may have"]	Here at IoTWebLab, we will help to identify the needs of your target users and design portal websites specifically for meeting their needs. Such websites can be flexible enough to cover a variety of content and yet be designed in a way that does not overwhelm the visitors.	\N
-4	SITE-CATALOG	\N	/services/websites/catalog.png	["Fast to develop and launch","Simple to use for people who are not very tech-savvy","Budget-friendly solution for businesses with limited resources"]	A solution to showcase your products that does not support buying the products from the website (usually done through email, phone, or other methods).	\N
-6	ONLINE STORE		/services/websites/store.png	["A perfect solution for reaching as many people as possible","An affordable solution especially compared to on-site stores","A quick and convenient experience for users"]	We also develop websites that can serve as online stores. IoTWLab provides the best solution for presenting your products and enabling people to have an easy, simple, and transparent shopping experience.	\N
-1	Website-Card	\N	/services/websites/landing.png	["Low cost","Quick to launch","Easy to maintain","Can be upgraded to a more complex website"]	We design, develop and launch business card sites that have a simple structure covering company information, provided services, contact information, and some other section if necessary. These websites are static and are not designed for active user interaction.	\N
-8	Landing pages	\N	\N	["Perfect for startups and new products that need to be validated","Ideal solution for collecting a customer base","Has a high potential to increase conversions"]	IotWebLab.com is the perfect place to start if you need a landing page. We have the perfect experience of developing targeted, effective landing pages with minimum distractions that are perfect for triggering interest in the right people and encouraging them to take an action.	\N
+COPY public.websites_types (id, name, icon, image, benefits, text, additional_text, is_show) FROM stdin;
+2	CORPORATE WEBSITE	\N	\N	["A centralized website covering everything you want to share about your business","Increasing the interaction between an organization and target audiences","A great tool for marketing purposes and conversions"]	At IoTWLac we will help you create a corporate website to communicate about your business with leads and clients as well as for achieving commercial goals. We will ensure that the information about your company is effectively communicated and presented to the target audiences in the most effective way possible.	\N	t
+3	PORTAL	\N	\N	["Targeted to the main audience","Interactive for visitors","Flexible and adjustable","Can meet the different needs people may have"]	Here at IoTWebLab, we will help to identify the needs of your target users and design portal websites specifically for meeting their needs. Such websites can be flexible enough to cover a variety of content and yet be designed in a way that does not overwhelm the visitors.	\N	t
+4	SITE-CATALOG	\N	/services/websites/catalog.png	["Fast to develop and launch","Simple to use for people who are not very tech-savvy","Budget-friendly solution for businesses with limited resources"]	A solution to showcase your products that does not support buying the products from the website (usually done through email, phone, or other methods).	\N	t
+6	ONLINE STORE		/services/websites/store.png	["A perfect solution for reaching as many people as possible","An affordable solution especially compared to on-site stores","A quick and convenient experience for users"]	We also develop websites that can serve as online stores. IoTWLab provides the best solution for presenting your products and enabling people to have an easy, simple, and transparent shopping experience.	\N	t
+5	SITE SERVICE	\N	\N	\N	The service, as a rule, is focused on solving one or more of the same type of customer needs.  The best example would be online consultants. Probably, each of us met pop-up windows on modern sites with an appeal from managers or an offer to enter our number so that they would quickly call us back and advise. So, such online assistants are an example of a service - a type of site that provides services to meet a specific user need.  The same cloud hosting (Dropbox, Yandex.Disk), video hosting (Youtube, RuTube), various services for online file conversion, etc. — are a prime example of good and useful service.  There are a huge number of services on the Internet, new ones appear every day. In order to create your own successful service, you just need to understand what people lack. Guess how to solve someone's problem, become useful to people - and the service will certainly succeed. Of course, provided that it is developed and put into operation by professionals. Since a cool idea without a competent technical implementation is most likely to fail.	\N	f
+1	Website-Card	\N	/services/websites/landing.png	["Low cost","Quick to launch","Easy to maintain","Can be upgraded to a more complex website"]	We design, develop and launch business card sites that have a simple structure covering company information, provided services, contact information, and some other section if necessary. These websites are static and are not designed for active user interaction.	\N	t
+8	Landing pages	\N	\N	["Perfect for startups and new products that need to be validated","Ideal solution for collecting a customer base","Has a high potential to increase conversions"]	IotWebLab.com is the perfect place to start if you need a landing page. We have the perfect experience of developing targeted, effective landing pages with minimum distractions that are perfect for triggering interest in the right people and encouraging them to take an action.	\N	t
 \.
 
 

@@ -47,7 +47,7 @@
           "host": "pages/projects/index.vue",
           "id": 4,
           "keywords": ["projects","development","example"],
-          "title": "Projects"
+          "title": "Portfolio"
         },
         "heroAlt": [
             {
@@ -67,7 +67,7 @@
         "heroAlt": [
             {
               "src": "pexels-ekaterina-bolovtsova-4048767.jpg",
-              "heading": "Block Chain Development"
+              "heading": "BlockChain Development"
             }
           ]
     },
@@ -293,7 +293,7 @@
         "websitesTypeList": {
             "title": "Create your website",
             "benefits-title": "Benefits:",
-            "btn-text-anchor": "Get Start"
+            "btn-text-anchor": "Get Started"
         },
         "timeline": {
           "title": "Our Journey",
@@ -395,14 +395,14 @@
               "to": "/services/ecommerce"
             },
             {
-              "title": "Block Chain Devemopment",
+              "title": "BlockChain Devemopment",
               "to": "/services/blockchain"
             }
           ]
         },
         {
           "icon": "mdi-view-gallery",
-          "title": "Projects",
+          "title": "Portfolio",
           "to": "/projects"
         },
 

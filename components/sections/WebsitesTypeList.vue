@@ -35,9 +35,9 @@
                 {{ item.name }}
               </h3></v-col
             >
-            <v-col v-if="item.image" cols="12" sm="4" md="4"
+            <!-- <v-col v-if="item.image" cols="12" sm="4" md="4"
               ><v-img :src="item.image"> </v-img>
-            </v-col>
+            </v-col> -->
 
             <v-col
               cols="12"
@@ -47,9 +47,9 @@
               ><p class="align-self-end">{{ item.text }}</p>
             </v-col>
 
-            <v-col v-if="item.icon" cols="12" sm="4" md="3"
+            <!-- <v-col v-if="item.icon" cols="12" sm="4" md="3"
               ><v-img :src="item.icon"> </v-img>
-            </v-col>
+            </v-col> -->
             <v-col v-if="item.additional_text" cols="12" class="py-2"
               ><p>{{ item.additional_text }}</p>
             </v-col>
@@ -119,7 +119,7 @@ li {
   align-self: center;
 }
 .example__link {
-  width: 100px !important;
+  width: 120px !important;
   &:not(:last-child) {
     margin-right: 20px;
   }

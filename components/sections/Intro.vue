@@ -20,7 +20,7 @@
         {{ $t('sections.intro.descripotion') }}
       </p>
       <v-row v-show="galleryIsShow" class="pt-12">
-        <v-col v-for="card in cards" :key="card.title" cols="12" sm="4" md="4">
+        <v-col v-for="card in cards" :key="card.title" cols="12" sm="6" md="6">
           <div class="d-flex pa-3 industy__block" @click="viewDeteils(card)">
             <SimpleSVG
               fill-class-name="fill-to-change"

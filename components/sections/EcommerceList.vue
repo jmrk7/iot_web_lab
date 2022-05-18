@@ -1,11 +1,11 @@
 <template>
   <article id="service_list">
     <v-container class="py-8">
-      <h2
+      <!-- <h2
         class="text-uppercase text-h4 text-md-h4 text-center font-weight-black mt-16"
       >
         {{ $t('sections.ecommerceList.title') }}
-      </h2>
+      </h2> -->
       <p class="secondary--text mt-6">
         {{ $t('sections.ecommerceList.description') }}
       </p>
