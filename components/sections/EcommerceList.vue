@@ -10,7 +10,7 @@
         {{ $t('sections.ecommerceList.description') }}
       </p>
     </v-container>
-    <section
+    <!-- <section
       v-for="(scope, index) in scopes"
       :key="scope.name"
       cols="12"
@@ -49,7 +49,7 @@
           </div>
         </div>
       </v-container>
-    </section>
+    </section> -->
   </article>
 </template>
 <script>

@@ -963,7 +963,7 @@ COPY hdb_catalog.hdb_schema_notifications (id, notification, resource_version, i
 --
 
 COPY hdb_catalog.hdb_version (hasura_uuid, version, upgraded_on, cli_state, console_state) FROM stdin;
-9e753273-de81-4cb3-90ce-ef767064dcfb	47	2022-03-01 13:55:35.3171+00	{}	{"onboardingShown": true, "console_notifications": {"admin": {"date": "2022-03-10T08:48:01.779Z", "read": [], "showBadge": true}}, "telemetryNotificationShown": true}
+9e753273-de81-4cb3-90ce-ef767064dcfb	47	2022-03-01 13:55:35.3171+00	{}	{"onboardingShown": true, "console_notifications": {"admin": {"date": "2022-05-18T10:27:14.064Z", "read": "default", "showBadge": false}}, "telemetryNotificationShown": true}
 \.
 
 
@@ -1125,8 +1125,8 @@ COPY public.projects (id, description, challenge, solution, technologies, urls, 
 --
 
 COPY public.reviews (id, avatar, name, post, review) FROM stdin;
-1	person-4.jpg	Mario Speedwagon	Creative Editor of ABC LTD	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam aspernatur, sint recusandae cum temporibus quos saepe repellendus consectetur et reprehenderit. Ratione ipsam consequuntur quo eligendi mollitia veniam facere possimus inventore.
-2	person-8.jpg	Petey Cruiser	CEO of Json LLC	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam aspernatur, sint recusandae cum temporibus quos saepe repellendus consectetur et reprehenderit. Ratione ipsam consequuntur quo eligendi mollitia veniam facere possimus inventore.
+1	person-4.jpg	Mario Speedwagon	Creative Editor of ABC LTD	Working with IoTWebLab was a genuinely transformative experience. The team helped us create the website we had always envisioned but could never formulate.
+2	person-8.jpg	Petey Cruiser	CEO of Json LLC	IoTWLab helped us develop our mobile application. Working with these guys was amazing. If I were to describe them with a single phrase, that would be mission possible.
 \.
 
 
@@ -1201,10 +1201,10 @@ COPY public.technologies (id, title, svg, link, stack, sort_priority) FROM stdin
 --
 
 COPY public.timeline (id, color, year, title, decsription) FROM stdin;
-1	cyan	2019	Birthday	Lorem ipsum dolor sit amet, no nam oblique veritus. Commune                 scaevola imperdiet nec ut, sed euismod convenire principes at.                 Est et nobis iisque percipit, an vim zril disputando                 voluptatibus, vix an salutandi sententiae.
-2	green	2020	\N	\N
-3	pink	2021	\N	\N
-4	amber	2022	\N	\N
+5	cyan	2019	Birthday	The idea of founding IoTWlab was born when our founders noticed the increasing demand for technologies to solve business needs. They saw the big gap between the business and tech worlds and decided to bridge that.
+2	green	2020	\N	After researching and understanding the market needs more deeply, we defined a set of services that would be able to meet those needs from A to Z. We recruited a team of leading professionals to empower businesses through high technology.
+3	pink	2021	\N	We have reached our milestone of having ten long-term clients for whom the IoTWebLab created and continues to enhance an online platform. We have also helped some of our clients successfully outsource to solve the issues that IoTWLab did not cover.
+4	amber	2022	\N	IoTWebLab is a well-established and successful company that keeps growing every day while perfecting its services to meet market needs with the most up-to-date solutions.
 \.
 
 
@@ -1318,7 +1318,7 @@ SELECT pg_catalog.setval('public.technologies_id_seq', 34, true);
 -- Name: timeline_id_seq; Type: SEQUENCE SET; Schema: public; Owner: postgres
 --
 
-SELECT pg_catalog.setval('public.timeline_id_seq', 4, true);
+SELECT pg_catalog.setval('public.timeline_id_seq', 5, true);
 
 
 --

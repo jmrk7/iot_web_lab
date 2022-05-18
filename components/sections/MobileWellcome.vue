@@ -6,13 +6,18 @@
     <v-row no-gutters>
       <v-col cols="12">
         <v-container>
-          <h2
+          <!-- <h2
             class="text-uppercase text-h4 text-md-h3 text-center font-weight-black mt-16 mb-2"
           >
             {{ $t('sections.mobileWellcome.title-first') }}
           </h2>
           <h2
             class="text-uppercase grey--text text-h5 text-md-h4 text-center font-weight-black mb-8"
+          >
+            {{ $t('sections.mobileWellcome.title-second') }}
+          </h2> -->
+          <h2
+            class="text-uppercase text-h4 text-md-h3 text-center font-weight-black mt-16 mb-2"
           >
             {{ $t('sections.mobileWellcome.title-second') }}
           </h2>
@@ -32,7 +37,20 @@
               ></v-img>
             </div>
           </div>
-          <div class="d-flex flex-column flex-sm-row mt-8">
+          <div class="d-flex flex-column mt-8">
+            <p class="px-8 pb-4">{{ $t('sections.mobileWellcome.about') }}</p>
+            <div class="px-8 pb-4">
+              <ul>
+                <li
+                  v-for="item in $t('sections.mobileWellcome.benefits')"
+                  :key="item"
+                >
+                  {{ item }}
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- <div class="d-flex flex-column flex-sm-row mt-8">
             <p class="px-8 pb-8">{{ $t('sections.mobileWellcome.about') }}</p>
             <div
               class="image__content__wrapper flex-shrink-0 align-items-end ml-auto mt-auto"
@@ -54,7 +72,7 @@
                 alt=""
               ></v-img>
             </div>
-          </div>
+          </div> -->
         </v-container>
       </v-col>
     </v-row>

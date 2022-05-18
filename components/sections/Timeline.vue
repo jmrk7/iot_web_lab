@@ -25,10 +25,7 @@
                 {{ year.title }}
               </h2>
               <div>
-                {{
-                  year.description ||
-                  $t('sections.timeline.default-description')
-                }}
+                {{ year.decsription }}
               </div>
             </div>
           </v-timeline-item>
