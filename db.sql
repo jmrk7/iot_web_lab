@@ -397,7 +397,8 @@ CREATE TABLE public.hero_carusel_item (
     id integer NOT NULL,
     src bpchar NOT NULL,
     heading text NOT NULL,
-    "subHeading" text NOT NULL
+    "subHeading" text NOT NULL,
+    priority integer DEFAULT 1 NOT NULL
 );
 
 
@@ -931,7 +932,7 @@ COPY hdb_catalog.hdb_cron_events (id, trigger_name, scheduled_time, status, trie
 --
 
 COPY hdb_catalog.hdb_metadata (id, metadata, resource_version) FROM stdin;
-1	{"sources":[{"kind":"postgres","name":"iotweblab","tables":[{"table":{"schema":"public","name":"blockchain_clouds"}},{"table":{"schema":"public","name":"blockchain_technologies"}},{"table":{"schema":"public","name":"customer_requests"}},{"table":{"schema":"public","name":"ecommerce_scope"}},{"table":{"schema":"public","name":"features"}},{"table":{"schema":"public","name":"hero_carusel_item"}},{"table":{"schema":"public","name":"meta_tags"}},{"table":{"schema":"public","name":"partners"}},{"table":{"schema":"public","name":"projects"}},{"table":{"schema":"public","name":"reviews"}},{"table":{"schema":"public","name":"scope_area"}},{"table":{"schema":"public","name":"team"}},{"table":{"schema":"public","name":"technologies"}},{"table":{"schema":"public","name":"timeline"}},{"table":{"schema":"public","name":"websites_types"}}],"configuration":{"connection_info":{"use_prepared_statements":false,"database_url":{"from_env":"PG_DATABASE_URL"},"isolation_level":"read-committed"}}}],"version":3}	46
+1	{"sources":[{"kind":"postgres","name":"iotweblab","tables":[{"table":{"schema":"public","name":"blockchain_clouds"}},{"table":{"schema":"public","name":"blockchain_technologies"}},{"table":{"schema":"public","name":"customer_requests"}},{"table":{"schema":"public","name":"ecommerce_scope"}},{"table":{"schema":"public","name":"features"}},{"table":{"schema":"public","name":"hero_carusel_item"}},{"table":{"schema":"public","name":"meta_tags"}},{"table":{"schema":"public","name":"partners"}},{"table":{"schema":"public","name":"projects"}},{"table":{"schema":"public","name":"reviews"}},{"table":{"schema":"public","name":"scope_area"}},{"table":{"schema":"public","name":"team"}},{"table":{"schema":"public","name":"technologies"}},{"table":{"schema":"public","name":"timeline"}},{"table":{"schema":"public","name":"websites_types"}}],"configuration":{"connection_info":{"use_prepared_statements":false,"database_url":{"from_env":"PG_DATABASE_URL"},"isolation_level":"read-committed"}}}],"version":3}	47
 \.
 
 
@@ -956,7 +957,7 @@ COPY hdb_catalog.hdb_scheduled_events (id, webhook_conf, scheduled_time, retry_c
 --
 
 COPY hdb_catalog.hdb_schema_notifications (id, notification, resource_version, instance_id, updated_at) FROM stdin;
-1	{"metadata":false,"remote_schemas":[],"sources":["iotweblab"]}	46	5074e9ed-c2e2-46ef-9155-4560837067b6	2022-03-01 13:56:20.993921+00
+1	{"metadata":false,"remote_schemas":[],"sources":["iotweblab"]}	47	b84564ef-70c8-4982-8f16-fb6a5a058f0d	2022-03-01 13:56:20.993921+00
 \.
 
 
@@ -965,7 +966,7 @@ COPY hdb_catalog.hdb_schema_notifications (id, notification, resource_version, i
 --
 
 COPY hdb_catalog.hdb_version (hasura_uuid, version, upgraded_on, cli_state, console_state) FROM stdin;
-9e753273-de81-4cb3-90ce-ef767064dcfb	47	2022-03-01 13:55:35.3171+00	{}	{"onboardingShown": true, "console_notifications": {"admin": {"date": "2022-05-18T14:02:40.406Z", "read": "default", "showBadge": false}}, "telemetryNotificationShown": true}
+9e753273-de81-4cb3-90ce-ef767064dcfb	47	2022-03-01 13:55:35.3171+00	{}	{"onboardingShown": true, "console_notifications": {"admin": {"date": "2022-05-20T16:33:40.922Z", "read": "default", "showBadge": false}}, "telemetryNotificationShown": true}
 \.
 
 
@@ -1060,11 +1061,11 @@ COPY public.features (id, title, text, callout, subtitle) FROM stdin;
 -- Data for Name: hero_carusel_item; Type: TABLE DATA; Schema: public; Owner: postgres
 --
 
-COPY public.hero_carusel_item (id, src, heading, "subHeading") FROM stdin;
-4	pexels-andrea-piacquadio-3830745.jpg	OUTSOURCE & OUTSTAFF	Outsourcing and outstaffing – Helping to find the best project managers, designers, developers, QA specialists as well as marketers, and advertisers so that you never have a lack of professional resources.
-2	pexels-peter-olexa-4012966.jpg	UI/UX DESIGN	User interface and user experience design – From ideation to prototyping to designing we are here to help you throughout all of these steps. IoTWebLab will help you come up with a design that will solve complex user problems yet be easy to use.
-3	pexels-thirdman-5961072.jpg	DIGITAL MARKETING	Effective digital marketing solutions to help your business increase visibility, convert leads, and boost profitability. From SEO optimization to advertising, everything you may need to succeed
-1	pexels-andrea-piacquadio-3884440.jpg	SOFTWARE DEVELOPMENT	IoTWebLab offers high-quality software development to businesses with an idea of great software but do not have the means to create it. We are here to help with the newest technology and best solutions to implement your vision.
+COPY public.hero_carusel_item (id, src, heading, "subHeading", priority) FROM stdin;
+1	pexels-andrea-piacquadio-3884440.jpg	SOFTWARE DEVELOPMENT	IoTWebLab offers high-quality software development to businesses with an idea of great software but do not have the means to create it. We are here to help with the newest technology and best solutions to implement your vision.	1
+3	pexels-thirdman-5961072.jpg	DIGITAL MARKETING	Effective digital marketing solutions to help your business increase visibility, convert leads, and boost profitability. From SEO optimization to advertising, everything you may need to succeed	4
+2	pexels-peter-olexa-4012966.jpg	UI/UX DESIGN	From ideation to prototyping to designing we are here to help you throughout all of these steps. IoTWebLab will help you come up with a design that will solve complex user problems yet be easy to use.	2
+4	pexels-andrea-piacquadio-3830745.jpg	OUTSOURCE & OUTSTAFF	Helping to find the best project managers, designers, developers, QA specialists as well as marketers, and advertisers so that you never have a lack of professional resources.	3
 \.
 
 
