@@ -95,18 +95,18 @@ export default {
       ],
     }
   },
-  head() {
-    return {
-      title: 'Services',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Infographic hypotheses influencer user experience Long madel ture gen-z paradigm shift client partner network product seilans solve management influencer analytics leverage virality. incubator seed round massmarket. buyer agile development growth hacking business-to-consumer ecosystem',
-        },
-      ],
-    }
-  },
+  // head() {
+  //   return {
+  //     title: 'Services',
+  //     meta: [
+  //       {
+  //         hid: 'description',
+  //         name: 'description',
+  //         content:
+  //           'Infographic hypotheses influencer user experience Long madel ture gen-z paradigm shift client partner network product seilans solve management influencer analytics leverage virality. incubator seed round massmarket. buyer agile development growth hacking business-to-consumer ecosystem',
+  //       },
+  //     ],
+  //   }
+  // },
 }
 </script>

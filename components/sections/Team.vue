@@ -7,12 +7,10 @@
       <v-row>
         <v-col>
           <h2 class="text-h4 text-sm-h3 text-capitalize font-weight-black mb-4">
-            Our Core Team
+            {{ $t('sections.team.title') }}
           </h2>
           <p>
-            Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat.
+            {{ $t('sections.team.description') }}
           </p>
         </v-col>
       </v-row>
@@ -41,12 +39,12 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
 export default {
-  props: {
-    ourTeam: {
-      type: Array,
-      default: () => [],
-    },
+  computed: {
+    ...mapGetters({
+      ourTeam: 'team/team',
+    }),
   },
 }
 </script>

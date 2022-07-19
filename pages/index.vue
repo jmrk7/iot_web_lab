@@ -4,11 +4,19 @@
       <v-col cols="12">
         <SectionsHero />
         <SectionsIntro />
-        <SectionsCalloutBlock />
-        <SectionsFeatures />
         <SectionsBrands />
+        <SectionsFeatures />
+        <SectionsTechnologies />
         <SectionsTestimonials />
+        <SectionsProjects />
       </v-col>
     </v-row>
   </section>
 </template>
+<script>
+export default {
+  head() {
+    return this.makeCurrentMeta(this.$t('index.meta_tags'))
+  },
+}
+</script>

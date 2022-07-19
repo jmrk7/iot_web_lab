@@ -28,10 +28,12 @@ export default {
   },
 
   // Global CSS (https://go.nuxtjs.dev/config-css)
-  css: [],
+  css: [
+    '~/assets/style/app.scss',
+  ],
 
   // Plugins to run before rendering page (https://go.nuxtjs.dev/config-plugins)
-  plugins: [],
+  plugins: ['~/plugins/mixin'],
 
   // Auto import components (https://go.nuxtjs.dev/config-components)
   // components: true,
@@ -46,11 +48,34 @@ export default {
     '@nuxtjs/eslint-module',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
+    '@nuxtjs/moment',
   ],
 
   // Modules (https://go.nuxtjs.dev/config-modules)
-  modules: [],
+  modules: [
+    '@nuxtjs/axios',
+    '@nuxtjs/i18n', 
+    'cookie-universal-nuxt',
+  ],
+  i18n: {
+    locales: ['en'],
+    defaultLocale: 'en',
+    vueI18n:{
 
+      fallbackLocale: 'en',
+      messages: {
+         en: require('./locales/en.json'),
+      }}
+    
+  },
+
+  axios: {
+    
+  },
+  env: {
+    HASURA_SERVER_HOST: process.env.HASURA_SERVER_HOST,
+    EMAIL_SERVER_HOST: process.env.EMAIL_SERVER_HOST
+  },
   // Vuetify module configuration (https://go.nuxtjs.dev/config-vuetify)
   vuetify: {
     customVariables: ['~/assets/variables.scss'],

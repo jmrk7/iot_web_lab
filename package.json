@@ -1,6 +1,6 @@
 {
   "name": "modevue",
-  "version": "1.0.0",
+  "version": "1.0.12",
   "private": true,
   "scripts": {
     "dev": "nuxt --open",
@@ -11,12 +11,19 @@
     "lint": "npm run lint:js"
   },
   "dependencies": {
+    "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/i18n": "^7.2.0",
+    "axios": "^0.26.0",
+    "cookie-universal-nuxt": "^2.1.5",
     "core-js": "^3.8.1",
-    "nuxt": "^2.14.12"
+    "moment": "^2.29.3",
+    "nuxt": "^2.14.12",
+    "vue-simple-svg": "^2.0.2"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^3.1.0",
     "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/moment": "^1.6.1",
     "@nuxtjs/vuetify": "^1.11.2",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.16.0",

@@ -2,11 +2,13 @@
   <section>
     <v-row no-gutters>
       <v-col cols="12">
-        <SectionsHeroAlt :hero-alt="heroAlt" />
+        <SectionsHeroAlt :hero-alt="$t('contact.heroAlt')" />
         <v-container>
           <v-row class="py-16">
             <v-col md="5" cols="12">
-              <div class="text-h6 font-weight-bold mb-5">Our Office</div>
+              <div class="text-h4 font-weight-black mb-8">
+                {{ $t('contact.title') }}
+              </div>
               <v-list two-line class="transparent">
                 <v-list-item>
                   <v-list-item-icon>
@@ -14,12 +16,18 @@
                   </v-list-item-icon>
 
                   <v-list-item-content>
-                    <v-list-item-title>ADDRESS</v-list-item-title>
-                    <v-list-item-subtitle>01032</v-list-item-subtitle>
+                    <v-list-item-title>{{
+                      $t('contact.address')
+                    }}</v-list-item-title>
+                    <v-list-item-subtitle>{{
+                      $t('contact.index')
+                    }}</v-list-item-subtitle>
                     <v-list-item-subtitle>
-                      Klovski Descent 7A
+                      {{ $t('contact.street') }}
                     </v-list-item-subtitle>
-                    <v-list-item-subtitle>Kyiv, Ukraine</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{
+                      $t('contact.city')
+                    }}</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
 
@@ -29,13 +37,15 @@
                   </v-list-item-icon>
 
                   <v-list-item-content>
-                    <v-list-item-title>EMAIL</v-list-item-title>
-                    <v-list-item-subtitle
-                      >info@iotwlab.com</v-list-item-subtitle
-                    >
-                    <v-list-item-subtitle
-                      >support@iotwlab.com</v-list-item-subtitle
-                    >
+                    <v-list-item-title>{{
+                      $t('contact.email.title')
+                    }}</v-list-item-title>
+                    <v-list-item-subtitle>{{
+                      $t('contact.email.first')
+                    }}</v-list-item-subtitle>
+                    <v-list-item-subtitle>{{
+                      $t('contact.email.second')
+                    }}</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
 
@@ -51,8 +61,8 @@
                   </v-list-item-content>
                 </v-list-item> -->
               </v-list>
-              <div class="text-h6 font-weight-bold mt-12 mb-5">
-                Business Hours
+              <!-- <div class="text-h6 font-weight-bold mt-12 mb-5">
+                {{ $t('contact.business-time.title') }}
               </div>
               <v-list two-line class="transparent">
                 <v-list-item>
@@ -60,8 +70,12 @@
                     <v-icon color="primary"> mdi-clock </v-icon>
                   </v-list-item-icon>
                   <v-list-item-content>
-                    <v-list-item-title>MONDAY to FRIDAY </v-list-item-title>
-                    <v-list-item-subtitle>9am to 5pm</v-list-item-subtitle>
+                    <v-list-item-title
+                      >{{ $t('contact.business-time.week-main') }}
+                    </v-list-item-title>
+                    <v-list-item-subtitle>{{
+                      $t('contact.business-time.time-main')
+                    }}</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
 
@@ -70,8 +84,12 @@
                     <v-icon color="primary"> mdi-clock </v-icon>
                   </v-list-item-icon>
                   <v-list-item-content>
-                    <v-list-item-title>SATURDAY</v-list-item-title>
-                    <v-list-item-subtitle>9am to 2pm</v-list-item-subtitle>
+                    <v-list-item-title>{{
+                      $t('contact.business-time.week-additional')
+                    }}</v-list-item-title>
+                    <v-list-item-subtitle>{{
+                      $t('contact.business-time.time-additional')
+                    }}</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
 
@@ -80,19 +98,21 @@
                     <v-icon color="primary"> mdi-clock </v-icon>
                   </v-list-item-icon>
                   <v-list-item-content>
-                    <v-list-item-title>SUNDAY</v-list-item-title>
-                    <v-list-item-subtitle>Closed</v-list-item-subtitle>
+                    <v-list-item-title>{{
+                      $t('contact.business-time.holidays')
+                    }}</v-list-item-title>
+                    <v-list-item-subtitle>{{
+                      $t('contact.business-time.status-closed')
+                    }}</v-list-item-subtitle>
                   </v-list-item-content>
                 </v-list-item>
-              </v-list>
+              </v-list> -->
             </v-col>
             <v-col md="7" cols="12">
-              <div class="text-h4 font-weight-black mb-8">Contact Us</div>
               <p class="mb-10">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                {{ $t('contact.descripotion') }}
               </p>
-              <contactForm />
+              <footerContactForm />
             </v-col>
           </v-row>
         </v-container>
@@ -113,33 +133,15 @@
 </template>
 
 <script>
-import contactForm from '~/components/sections/contactForm.vue'
+import footerContactForm from '~/components/sections/footerContactForm.vue'
+
 export default {
   components: {
-    contactForm,
+    footerContactForm,
   },
-  data() {
-    return {
-      heroAlt: [
-        {
-          src: 'pexels-andrea-piacquadio-3830745.jpg',
-          heading: ' Contact Us ',
-        },
-      ],
-    }
-  },
+
   head() {
-    return {
-      title: 'Contact Us',
-      meta: [
-        {
-          hid: 'description',
-          name: 'description',
-          content:
-            'Infographic hypotheses influencer user experience Long madel ture gen-z paradigm shift client partner network product seilans solve management influencer analytics leverage virality. incubator seed round massmarket. buyer agile development growth hacking business-to-consumer ecosystem',
-        },
-      ],
-    }
+    return this.makeCurrentMeta(this.$t('contact.meta_tags'))
   },
 }
 </script>

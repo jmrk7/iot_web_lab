@@ -8,28 +8,59 @@
     {{ text }}
 
     <template v-slot:action="{ attrs }">
-      <v-btn color="info" small v-bind="attrs" @click="snackbar = false">
-        More info
-      </v-btn>
       <v-btn
-        color="primary ml-3"
+        v-if="dialog"
+        color="info"
         small
         v-bind="attrs"
-        @click="snackbar = false"
+        @click="showPolicy"
       >
-        Accept
+        {{ $t('components.notification.more') }}
+      </v-btn>
+      <v-btn color="primary ml-3" small v-bind="attrs" @click="acceptPolicy">
+        {{ $t('components.notification.accert') }}
       </v-btn>
     </template>
   </v-snackbar>
 </template>
 
 <script>
+import { mapActions } from 'vuex'
+
 export default {
   data() {
     return {
-      snackbar: true,
+      snackbar: false,
       text: `We use cookies to give you the best user experience.`,
     }
+  },
+  computed: {
+    dialog() {
+      return !this.$store.getters['cookies/isShow']
+    },
+  },
+  mounted() {
+    if (!this.$cookies.get('accepted')) {
+      this.snackbar = true
+    } else {
+      this.snackbar = false
+    }
+  },
+  methods: {
+    ...mapActions({
+      sendStatus: 'cookies/sendStatus',
+    }),
+
+    showPolicy() {
+      this.sendStatus(true)
+    },
+    acceptPolicy() {
+      this.snackbar = false
+      this.$cookies.set('accepted', true, {
+        path: '/',
+        maxAge: 60 * 60 * 24 * 7,
+      })
+    },
   },
 }
 </script>

@@ -9,56 +9,48 @@
   >
     <v-container>
       <v-divider class="mb-5"></v-divider>
-      <v-row>
-        <v-col cols="12" md="7"
-          ><div
-            class="d-flex flex-wrap justify-md-start justify-center justify-md-none"
-          >
-            <template v-for="(s, i) in menu">
-              <a
-                :key="i"
-                class="text--secondary pa-1 pa-md-0"
-                :href="s.link"
-                v-text="s.text"
-              />
-
-              <v-responsive
-                v-if="i < menu.length - 1"
-                :key="`divider-${i}`"
-                class="mx-4 shrink hidden-sm-and-down"
-                max-height="18"
-              >
-                <v-divider vertical />
-              </v-responsive>
-            </template></div
-        ></v-col>
-        <v-col class="text--secondary text-center text-md-right">
-          {{ new Date().getFullYear() }} ©
-          <nuxt-link class="primary--text" to="/">
+      <div class="d-flex flex-column flex-sm-row">
+        <div
+          class="d-flex flex-wrap justify-md-start justify-center justify-md-none pa-3"
+        >
+          <template v-for="(site, index) in $t('components.siteFooter.menu')">
+            <nuxt-link
+              :key="site.text + index"
+              :to="site.link"
+              class="text--secondary pa-1 pa-md-0 list_item mr-2"
+              >{{ site.text }}</nuxt-link
+            >
+          </template>
+        </div>
+        <div
+          class="text--secondary text-center text-md-right ml-sm-auto pa-3 align-self-center logo_wrapper"
+        >
+          <div class="fit-content">{{ new Date().getFullYear() }} ©</div>
+          <nuxt-link class="primary--text fit-content" to="/">
             <Logo :width="170" :height="15" class="bottom-logo-footer" />
           </nuxt-link>
-        </v-col>
-      </v-row>
+        </div>
+      </div>
     </v-container>
   </v-footer>
 </template>
-
-<script>
-export default {
-  data() {
-    return {
-      menu: [
-        { text: 'Support', link: '#' },
-        { text: 'Contact Us', link: '#' },
-        { text: 'Disclaimer', link: '#' },
-        { text: 'Covid-19 Operation', link: '#' },
-      ],
-    }
-  },
+<style scoped>
+.list_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-</script>
-
-<style>
+.list_item {
+  width: fit-content;
+}
+.logo_wrapper {
+  display: flex;
+  align-items: center;
+}
+.fit-content {
+  width: fit-content;
+  height: fit-content;
+}
 .site-footer a {
   text-decoration: none;
 }
