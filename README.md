@@ -30,3 +30,7 @@ if you have already started development, you do not need to do steps 1 and 2.
 ### for Linux 
 
 If you do not have permissions configured in the operating system, an error may occur when executing the `npm run generate` command. Set full permissions for the directory `dist`: `sudo chmod 777 dist`
+
+
+## Commemts
+Please note that the project has a container with a script (php) for sending messages. But due to the policy change google the script will not work.
