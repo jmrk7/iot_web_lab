@@ -2,6 +2,10 @@
   "name": "modevue",
   "version": "1.0.12",
   "private": true,
+  "engines": {
+    "npm": ">=8.1.2",
+    "node": ">=16.13.2"
+  },
   "scripts": {
     "dev": "nuxt --open",
     "build": "nuxt build",

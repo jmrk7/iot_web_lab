@@ -7,7 +7,6 @@
         :rules="fieldRules"
         dense
         outlined
-        @input="setRulesField"
       >
       </v-text-field>
       <v-text-field
@@ -16,7 +15,6 @@
         :label="$t('sections.footerContactForm.labels.email')"
         dense
         outlined
-        @input="setRulesEmail"
       ></v-text-field>
       <v-text-field
         v-model="subject"
@@ -24,7 +22,6 @@
         dense
         outlined
         :rules="subjectRules"
-        @input="setRulesSubject"
       ></v-text-field>
       <v-text-field
         v-model="link"
@@ -43,7 +40,6 @@
         rows="5"
         row-height="21"
         :rules="messageRules"
-        @input="setRulesMessage"
       ></v-textarea>
       <v-file-input
         v-model="onloadedFile"
@@ -74,10 +70,25 @@ export default {
       subject: null,
       message: null,
       isRuled: true,
-      emailRules: [(v) => true],
-      fieldRules: [(v) => true],
-      messageRules: [(v) => true],
-      subjectRules: [(v) => true],
+      emailRules: [
+        (v) => v?.length > 0 || 'Field is required',
+        (v) =>
+          !v ||
+          /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
+          'E-mail must be valid',
+      ],
+      fieldRules: [
+        (v) => v?.length > 0 || 'Field is required',
+        (v) => v?.length >= 3 || 'Name must be less than 10 characters',
+      ],
+      messageRules: [
+        (v) => v?.length > 0 || 'Field is required',
+        (v) => v?.length >= 10 || 'Name must be less than 10 characters',
+      ],
+      subjectRules: [
+        (v) => v?.length > 0 || 'Field is required',
+        (v) => v?.length >= 3 || 'Name must be less than 10 characters',
+      ],
       isResetStyle: true,
     }
   },
@@ -89,54 +100,15 @@ export default {
       sendAlert: 'alert/sendAlert',
       setStatus: 'loader/setStatus',
     }),
-    setRules() {
-      this.setRulesField()
-      this.setRulesEmail()
-      this.setRulesMessage()
-      this.setRulesSubject()
-    },
-    setRulesField() {
-      this.fieldRules = [
-        (v) => v?.length > 0 || 'Field is required',
-        (v) => v?.length >= 3 || 'Name must be less than 10 characters',
-      ]
-    },
-    setRulesEmail() {
-      this.emailRules = [
-        (v) => v?.length > 0 || 'Field is required',
-        (v) =>
-          !v ||
-          /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/.test(v) ||
-          'E-mail must be valid',
-      ]
-    },
-    setRulesMessage() {
-      this.messageRules = [
-        (v) => v?.length > 0 || 'Field is required',
-        (v) => v?.length >= 10 || 'Name must be less than 10 characters',
-      ]
-    },
-    setRulesSubject() {
-      this.subjectRules = [
-        (v) => v?.length > 0 || 'Field is required',
-        (v) => v?.length >= 3 || 'Name must be less than 10 characters',
-      ]
-    },
-
     sentForm(event) {
       event.preventDefault()
       event.stopPropagation()
-
-      this.setRules()
 
       this.setStatus(true)
       this.$refs.contactFrom.validate()
       // if (await this.fetchCustomerRequestByEamil(this.email)) {
       //   this.sendAlert({
-      //     type: 'warning',
-      //     message:
-      //       'You have one not ansvered message. Please, wait for ansver and check you email',
-      //   })
+      //     typeresetRules
 
       //   return
       // }
@@ -213,25 +185,15 @@ export default {
           message: "Cann't send message. Please, check fields and try again",
         })
       }
-      setTimeout(() => {
-        this.emailRules = [(v) => true]
-        this.fieldRules = [(v) => true]
-        this.messageRules = [(v) => true]
-        this.subjectRules = [(v) => true]
-      }, 5000)
     },
     clearReference() {
-      this.name = null
-      this.email = null
-      this.subject = null
-      this.message = null
-      this.link = null
-      this.file = null
+      this.$refs.contactFrom.reset()
       this.isValid = false
-      this.emailRules = [(v) => true]
-      this.fieldRules = [(v) => true]
-      this.messageRules = [(v) => true]
-      this.subjectRules = [(v) => true]
+    },
+  },
+  watch: {
+    '$route.query'(value) {
+      this.$refs.contactFrom.reset()
     },
   },
 }
